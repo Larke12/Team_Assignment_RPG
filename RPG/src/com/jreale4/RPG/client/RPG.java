@@ -40,8 +40,9 @@ public class RPG implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 		final Button sendButton = new Button("Send");
+		final Button startButton = new Button("Start!");
 		final TextBox nameField = new TextBox();
-		nameField.setText("GWT User");
+		nameField.setText("User414");
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
@@ -52,7 +53,8 @@ public class RPG implements EntryPoint {
 		RootPanel.get("nameFieldContainer").add(nameField);
 		RootPanel.get("sendButtonContainer").add(sendButton);
 		RootPanel.get("errorLabelContainer").add(errorLabel);
-
+		RootPanel.get("startButtonContainer").add(startButton);
+		
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
 		nameField.selectAll();
@@ -143,10 +145,64 @@ public class RPG implements EntryPoint {
 						});
 			}
 		}
-
+		
 		// Add a handler to send the name to the server
 		MyHandler handler = new MyHandler();
 		sendButton.addClickHandler(handler);
 		nameField.addKeyUpHandler(handler);
+		
+		class StartPageHandler implements ClickHandler, KeyUpHandler {
+
+			@Override
+			public void onKeyUp(KeyUpEvent event) {
+				// TODO Auto-generated method stub
+				if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+					sendToNewPage();
+				}
+			}
+
+			@Override
+			public void onClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				sendToNewPage();
+			}
+			
+			private void sendToNewPage() {
+				// First, we validate the input.
+				errorLabel.setText("");
+				String textToServer = nameField.getText();
+				if (!FieldVerifier.isValidName(textToServer)) {
+					errorLabel.setText("Please enter at least four characters");
+					return;
+				}
+
+				// Then, we send the input to the server.
+				sendButton.setEnabled(false);
+				textToServerLabel.setText(textToServer);
+				serverResponseLabel.setText("");
+				greetingService.greetServer(textToServer,
+						new AsyncCallback<String>() {
+							public void onFailure(Throwable caught) {
+								// Show the RPC error message to the user
+								dialogBox
+										.setText("Remote Procedure Call - Failure");
+								serverResponseLabel
+										.addStyleName("serverResponseLabelError");
+								serverResponseLabel.setHTML(SERVER_ERROR);
+								dialogBox.center();
+								closeButton.setFocus(true);
+							}
+
+							public void onSuccess(String result) {
+								//TODO: Send to new page
+							}
+						});
+			}
+		}
+		
+		
+		StartPageHandler handler1 = new StartPageHandler();
+		startButton.addClickHandler(handler1);
+		nameField.addKeyUpHandler(handler1);
 	}
 }

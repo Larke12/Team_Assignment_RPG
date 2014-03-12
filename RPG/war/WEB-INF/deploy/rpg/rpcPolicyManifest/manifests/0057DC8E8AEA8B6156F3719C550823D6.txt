@@ -1,0 +1,2 @@
+serviceClass: com.jreale4.RPG.client.GreetingService
+path: 1A8216057FA7E6A9C46DD4D14F2EDC30.gwt.rpc
