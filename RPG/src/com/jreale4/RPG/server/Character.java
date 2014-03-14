@@ -1,9 +1,9 @@
 package com.jreale4.RPG.server;
 	//Character has level, experience, list of attacks, items, picture
 public class Character {
-	int Level;
-	int experience;
-	//something for attacks
+	int Level=0;
+	int experience=0;
+	Attack strike = new Attack(MoveType.physical, Move.slash);
 	//something for items
 	//something for picture
 	
