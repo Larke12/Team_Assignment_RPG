@@ -47,25 +47,25 @@ public class AttackTest{
 	
 	private void assertEqualsMT(MoveType one, MoveType two) {
 		if(one.compareTo(two)==0){
-			
+			System.out.printf("MoveType passes!");
 		} else{
-			
+			System.out.printf("MoveType failed!");
 		}
 	}
 	
 	private void assertEqualsM(Move one, Move two) {
 		if(one.compareTo(two)==0){
-			
+			System.out.printf("Move passes!");
 		} else{
-			
+			System.out.printf("Move failed!");
 		}
 	}
 	
 	private void assertEqualsP(float one, float two) {
 		if(one==two){
-			
+			System.out.printf("Power passes!");
 		} else{
-			
+			System.out.printf("Power failed!");
 		}
 	}
 }
