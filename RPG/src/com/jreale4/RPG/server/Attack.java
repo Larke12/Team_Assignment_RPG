@@ -16,10 +16,10 @@ public class Attack {
 		return move;
 	}
 	
-	public int getAttackPower(MoveType movetype, Move move, int Level){
-		int Power=getMoveTypePower(movetype);
+	public float getAttackPower(MoveType movetype, Move move, int Level){
+		float Power=getMoveTypePower(movetype);
 		Power+=getMovePower(move);
-		Power= Power*Level/4;
+		Power= Power*Level/2;
 		return Power;
 	}
 	private int getMoveTypePower(MoveType movetype){

@@ -39,7 +39,10 @@ public class AttackTest{
 	}
 	
 	public void testGetPower(){
-		
+		assertEqualsP( (3/2), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
+		assertEqualsP( (6/2), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
+		assertEqualsP( (2/2), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
+		assertEqualsP( (7/2), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
 	}
 	
 	private void assertEqualsMT(MoveType one, MoveType two) {
@@ -57,5 +60,12 @@ public class AttackTest{
 			
 		}
 	}
-
+	
+	private void assertEqualsP(float one, float two) {
+		if(one==two){
+			
+		} else{
+			
+		}
+	}
 }
