@@ -1,4 +1,4 @@
-package com.jreale4.RPG.server;
+package com.jreale4.RPG.shared;
 
 public class Attack {
 	private MoveType movetype;
