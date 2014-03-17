@@ -1,12 +1,11 @@
 package com.jreale4.RPG.shared;
 
 import java.util.ArrayList;
-	//Character has level, experience, list of attacks, items, picture
+	//Character has level, list of attacks, items, picture
 public class Character {
 	int Level=0;
-	int experience=0;
-	Attack strike = new Attack(MoveType.physical, Move.slash);
 	ArrayList<Attack> AttackList = new ArrayList<Attack>();
+	ArrayList<Item> ItemList = new ArrayList<Item>();
 	//something for items
 	//something for picture
 	
@@ -14,18 +13,14 @@ public class Character {
 		return this.Level;
 	}
 	
-	public int getExp(){
-		return this.experience;
-	}
-	
 	public int getNumAttacks(){
 		// return the length of the attacks variable
-		return -1;
+		return AttackList.size();
 	}
 	
 	public int getNumItems(){
 		// return the length of the items variable
-		return -1;
+		return ItemList.size();
 	}
 	
 	public void addAttackToList(Attack attack){

@@ -2,3 +2,7 @@ Team_Assignment-RPG
 ===================
 
 browser RPG for CS320
+
+This will be a turn-based role playing game.
+There will be Flamenco everywhere!
+THe main character will be Dan Hazama- Dan H.

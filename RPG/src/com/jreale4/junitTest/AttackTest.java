@@ -1,10 +1,7 @@
-import static org.junit.Assert.*;
+package com.jreale4.junitTest;
 
 import java.util.ArrayList;
-
 import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.Move;
