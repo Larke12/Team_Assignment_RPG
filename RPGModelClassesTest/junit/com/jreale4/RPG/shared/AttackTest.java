@@ -1,4 +1,4 @@
-package com.jreale4.junitTest;
+package com.jreale4.RPG.shared;
 
 import java.util.ArrayList;
 import junit.framework.TestCase;
