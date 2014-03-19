@@ -6,7 +6,6 @@ public class Character {
 	int Level=0;
 	ArrayList<Attack> AttackList = new ArrayList<Attack>();
 	ArrayList<Item> ItemList = new ArrayList<Item>();
-	//something for items
 	//something for picture
 	
 	public int getLevel(){
