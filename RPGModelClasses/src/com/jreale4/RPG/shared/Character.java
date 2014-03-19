@@ -3,7 +3,7 @@ package com.jreale4.RPG.shared;
 import java.util.ArrayList;
 	//Character has level, attacks, items, equipment, picture
 public class Character {
-	int Level=0;
+	int Level;
 	ArrayList<Attack> AttackList = new ArrayList<Attack>();
 	ArrayList<Item> ItemList = new ArrayList<Item>();
 	ArrayList<Equipment> EquipList = new ArrayList<Equipment>();
