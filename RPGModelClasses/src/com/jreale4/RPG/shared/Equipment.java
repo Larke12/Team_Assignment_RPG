@@ -16,5 +16,10 @@ public class Equipment {
 		return this.eqtype;
 	}
 	
+	public int getEquipBonus(){
+		int temp=this.eqlvl;
+		temp= temp*(5/3);
+		return temp;
+	}
 	
 }
