@@ -11,4 +11,17 @@ public class Item {
 		return this.itemtype;
 	}
 	
+	public int getItemEffect(ItemType itemtype, int level){
+		if(itemtype==ItemType.health){
+			return 5*(level);
+		}
+		if(itemtype==ItemType.boost){
+			return 3*(level);
+		}
+		if(itemtype==ItemType.poison){
+			return (-1)*5*(level);
+		}
+		return 0;
+	}
+	
 }
