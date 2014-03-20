@@ -18,12 +18,16 @@ public class Hero extends Character{
 		return this.experience;
 	}
 	
+	public void addExp(int expToAdd){
+		experience+=expToAdd;
+	}
+	
 	public void LevelUp(int exp){
 		int req= (super.Level)*(4000/3);
 		if((super.Level)==1){
 			req=1000;
 		}
-		if(exp==req){
+		if(exp>=req){
 			super.Level++;
 		}
 	}

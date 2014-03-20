@@ -17,9 +17,9 @@ public class Equipment {
 	}
 	
 	public int getEquipBonus(){
-		int temp=this.eqlvl;
-		temp= temp*(5/3);
-		return temp;
+		double temp=this.eqlvl;
+		temp= temp*(5.0/3.0);
+		return (int)temp;
 	}
 	
 }

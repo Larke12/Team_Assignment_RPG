@@ -1,5 +1,5 @@
 package com.jreale4.RPG.shared;
 
 public enum EquipmentType {
-	chest, arms, legs, head, feet, hands, back;
+	head, chest, arms, legs, feet, hands, back;
 }

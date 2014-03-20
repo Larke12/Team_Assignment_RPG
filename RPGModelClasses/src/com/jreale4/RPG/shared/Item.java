@@ -11,7 +11,7 @@ public class Item {
 		return this.itemtype;
 	}
 	
-	public int getItemEffect(ItemType itemtype, int level){
+	public int getItemEffect(int level){
 		if(itemtype==ItemType.health){
 			return 5*(level);
 		}
