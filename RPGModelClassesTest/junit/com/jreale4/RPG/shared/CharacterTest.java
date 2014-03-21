@@ -37,10 +37,10 @@ public class CharacterTest extends TestCase{
 		
 		exp=900;
 		
-		attack1= new Attack(MoveType.physical, Move.slash);
-		attack2= new Attack(MoveType.water, Move.magic);
-		attack3= new Attack(MoveType.physical, Move.stab);
-		attack4= new Attack(MoveType.earth, Move.magic);
+		attack1= new Attack(MoveType.physical, MoveStyle.slash);
+		attack2= new Attack(MoveType.water, MoveStyle.magic);
+		attack3= new Attack(MoveType.physical, MoveStyle.stab);
+		attack4= new Attack(MoveType.earth, MoveStyle.magic);
 		a.add(attack1);
 		a.add(attack2);
 		a.add(attack3);
@@ -88,10 +88,10 @@ public class CharacterTest extends TestCase{
 	}
 
 	public void testGetMove(){
-		assertEquals(Move.slash,attack1.getMove());
-		assertEquals(Move.magic,attack2.getMove());
-		assertEquals(Move.stab,attack3.getMove());
-		assertEquals(Move.magic,attack4.getMove());
+		assertEquals(MoveStyle.slash,attack1.getMove());
+		assertEquals(MoveStyle.magic,attack2.getMove());
+		assertEquals(MoveStyle.stab,attack3.getMove());
+		assertEquals(MoveStyle.magic,attack4.getMove());
 	}
 	
 	public void testGetPower(){

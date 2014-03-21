@@ -1,5 +1,5 @@
 package com.jreale4.RPG.shared;
 
-public enum Move {
+public enum MoveStyle {
 	stab, slash, magic;
 }

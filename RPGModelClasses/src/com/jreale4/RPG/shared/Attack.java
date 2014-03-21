@@ -2,9 +2,9 @@ package com.jreale4.RPG.shared;
 
 public class Attack {
 	private MoveType movetype;
-	private Move move;
+	private MoveStyle move;
 	
-	public Attack(MoveType movetype, Move move){
+	public Attack(MoveType movetype, MoveStyle move){
 		this.movetype=movetype;
 		this.move=move;
 	}
@@ -12,11 +12,11 @@ public class Attack {
 	public MoveType getMoveType(){
 		return movetype;
 	}
-	public Move getMove(){
+	public MoveStyle getMove(){
 		return move;
 	}
 	
-	public float getAttackPower(MoveType movetype, Move move, int Level){
+	public float getAttackPower(MoveType movetype, MoveStyle move, int Level){
 		float Power=getMoveTypePower(movetype);
 		Power+=getMovePower(move);
 		Power= Power*Level/2;
@@ -41,15 +41,15 @@ public class Attack {
 		}
 		return Power;
 	}
-	private int getMovePower(Move move){
+	private int getMovePower(MoveStyle move){
 		int Power=0;
-		if(getMove()==Move.stab){
+		if(getMove()==MoveStyle.stab){
 			Power=1;
 		}
-		if(getMove()==Move.slash){
+		if(getMove()==MoveStyle.slash){
 			Power=2;
 		}
-		if(getMove()==Move.magic){
+		if(getMove()==MoveStyle.magic){
 			Power=3;
 		}
 		return Power;
