@@ -24,7 +24,7 @@ public class Attack {
 	}
 	private int getMoveTypePower(MoveType movetype){
 		int Power=0;
-		if(getMoveType()==MoveType.physical){
+		if(getMoveType()==MoveType.stab || getMoveType()==MoveType.slash){
 			Power=1;
 		}
 		if(getMoveType()==MoveType.fire){
@@ -43,10 +43,7 @@ public class Attack {
 	}
 	private int getMovePower(MoveStyle move){
 		int Power=0;
-		if(getMove()==MoveStyle.stab){
-			Power=1;
-		}
-		if(getMove()==MoveStyle.slash){
+		if(getMove()==MoveStyle.physical){
 			Power=2;
 		}
 		if(getMove()==MoveStyle.magic){
