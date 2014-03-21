@@ -80,6 +80,27 @@ public class CharacterTest extends TestCase{
 		assertEquals(2, hero1.getLevel());
 	}
 	
+	public void testGetMoveType(){
+		assertEquals(MoveType.physical,attack1.getMoveType());
+		assertEquals(MoveType.water,attack2.getMoveType());
+		assertEquals(MoveType.physical,attack3.getMoveType());
+		assertEquals(MoveType.earth,attack4.getMoveType());
+	}
+
+	public void testGetMove(){
+		assertEquals(Move.slash,attack1.getMove());
+		assertEquals(Move.magic,attack2.getMove());
+		assertEquals(Move.stab,attack3.getMove());
+		assertEquals(Move.magic,attack4.getMove());
+	}
+	
+	public void testGetPower(){
+		assertEquals( (float)(1.5), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
+		assertEquals( (float)(3), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
+		assertEquals( (float)(1), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
+		assertEquals( (float)(3.5), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
+	}
+	
 	public void testItem(){
 		assertEquals(5, hero1.ItemList.get(hero1.ItemList.indexOf(potion)).getItemEffect(hero1.Level));
 		assertEquals(3, hero1.ItemList.get(hero1.ItemList.indexOf(attUp)).getItemEffect(hero1.Level));

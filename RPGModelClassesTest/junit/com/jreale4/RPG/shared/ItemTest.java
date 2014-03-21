@@ -5,13 +5,22 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 public class ItemTest extends TestCase{
-	private Item item1;
-	private Item item2;
-	private Item item3;
-	private Item item4;
-	private Item item5;
+	private Item potion;
+	private Item attUp;
+	private Item acid;
 	ArrayList<Item> i = new ArrayList<Item>();
-	
-	
+	protected void setUp(){	
+		potion= new Item(ItemType.health);
+		attUp= new Item(ItemType.boost);
+		acid= new Item(ItemType.poison);
+		i.add(potion);
+		i.add(attUp);
+		i.add(acid);
+	}
+	public void testItem(){
+		assertEquals(5, potion.getItemEffect(1));
+		assertEquals(3, attUp.getItemEffect(1));
+		assertEquals(-5, acid.getItemEffect(1));	
+	}
 	
 }
