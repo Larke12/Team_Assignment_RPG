@@ -17,9 +17,9 @@ public class AttackTest extends TestCase {
 	ArrayList<Attack> a = new ArrayList<Attack>();
 	
 	protected void setUp(){
-		attack1= new Attack(MoveType.physical, MoveStyle.slash);
+		attack1= new Attack(MoveType.slash, MoveStyle.physical);
 		attack2= new Attack(MoveType.water, MoveStyle.magic);
-		attack3= new Attack(MoveType.physical, MoveStyle.stab);
+		attack3= new Attack(MoveType.stab, MoveStyle.physical);
 		attack4= new Attack(MoveType.earth, MoveStyle.magic);
 		a.add(attack1);
 		a.add(attack2);
@@ -28,16 +28,16 @@ public class AttackTest extends TestCase {
 	}
 	
 	public void testGetMoveType(){
-		assertEquals(MoveType.physical,attack1.getMoveType());
+		assertEquals(MoveType.slash,attack1.getMoveType());
 		assertEquals(MoveType.water,attack2.getMoveType());
-		assertEquals(MoveType.physical,attack3.getMoveType());
+		assertEquals(MoveType.stab,attack3.getMoveType());
 		assertEquals(MoveType.earth,attack4.getMoveType());
 	}
 
 	public void testGetMove(){
-		assertEquals(MoveStyle.slash,attack1.getMove());
+		assertEquals(MoveStyle.physical,attack1.getMove());
 		assertEquals(MoveStyle.magic,attack2.getMove());
-		assertEquals(MoveStyle.stab,attack3.getMove());
+		assertEquals(MoveStyle.physical,attack3.getMove());
 		assertEquals(MoveStyle.magic,attack4.getMove());
 	}
 	
