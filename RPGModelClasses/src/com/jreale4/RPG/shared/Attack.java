@@ -39,6 +39,9 @@ public class Attack {
 		if(getMoveType()==MoveType.air){
 			Power=5;
 		}
+		if(getMoveType()==MoveType.lightning){
+			Power=6;
+		}
 		return Power;
 	}
 	private int getMovePower(Move move){
