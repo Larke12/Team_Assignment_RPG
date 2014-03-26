@@ -37,10 +37,10 @@ public class CharacterTest extends TestCase{
 		
 		exp=900;
 		
-		attack1= new Attack(MoveType.physical, Move.slash);
-		attack2= new Attack(MoveType.water, Move.magic);
-		attack3= new Attack(MoveType.physical, Move.stab);
-		attack4= new Attack(MoveType.earth, Move.magic);
+		attack1= new Attack(MoveType.slash, Move.physical);
+		attack2= new Attack(MoveType.aqua, Move.magic);
+		attack3= new Attack(MoveType.venta, Move.magic);
+		attack4= new Attack(MoveType.flamenKick, Move.physical);
 		a.add(attack1);
 		a.add(attack2);
 		a.add(attack3);
@@ -81,17 +81,15 @@ public class CharacterTest extends TestCase{
 	}
 	
 	public void testGetMoveType(){
-		assertEquals(MoveType.physical,attack1.getMoveType());
-		assertEquals(MoveType.water,attack2.getMoveType());
-		assertEquals(MoveType.physical,attack3.getMoveType());
-		assertEquals(MoveType.earth,attack4.getMoveType());
+		assertEquals(MoveType.slash,attack1.getMoveType());
+		assertEquals(MoveType.aqua,attack2.getMoveType());
+		assertEquals(MoveType.venta,attack3.getMoveType());
+		assertEquals(MoveType.flamenKick,attack4.getMoveType());
 	}
 
 	public void testGetMove(){
-		assertEquals(Move.slash,attack1.getMove());
-		assertEquals(Move.magic,attack2.getMove());
-		assertEquals(Move.stab,attack3.getMove());
-		assertEquals(Move.magic,attack4.getMove());
+		assertEquals(Move.physical,attack1.getMove());
+		assertEquals(Move.magic,attack3.getMove());
 	}
 	
 	public void testGetPower(){
