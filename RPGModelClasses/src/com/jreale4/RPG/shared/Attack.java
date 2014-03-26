@@ -24,36 +24,33 @@ public class Attack {
 	}
 	private int getMoveTypePower(MoveType movetype){
 		int Power=0;
-		if(getMoveType()==MoveType.physical){
+		if(getMoveType()==MoveType.slash || getMoveType()==MoveType.stab || getMoveType()==MoveType.flamenPunch || getMoveType()==MoveType.flamenKick || getMoveType()==MoveType.gigaFlamenBreak){
 			Power=1;
 		}
-		if(getMoveType()==MoveType.fire){
+		if(getMoveType()==MoveType.fira){
 			Power=2;
 		}
-		if(getMoveType()==MoveType.water){
+		if(getMoveType()==MoveType.aqua){
 			Power=3;
 		}
-		if(getMoveType()==MoveType.earth){
+		if(getMoveType()==MoveType.terra){
 			Power=4;
 		}
-		if(getMoveType()==MoveType.air){
+		if(getMoveType()==MoveType.venta){
 			Power=5;
 		}
-		if(getMoveType()==MoveType.lightning){
+		if(getMoveType()==MoveType.thundara){
 			Power=6;
 		}
 		return Power;
 	}
 	private int getMovePower(Move move){
 		int Power=0;
-		if(getMove()==Move.stab){
+		if(getMove()==Move.physical){
 			Power=1;
 		}
-		if(getMove()==Move.slash){
-			Power=2;
-		}
 		if(getMove()==Move.magic){
-			Power=3;
+			Power=2;
 		}
 		return Power;
 	}

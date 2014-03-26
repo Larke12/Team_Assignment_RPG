@@ -1,5 +1,5 @@
 package com.jreale4.RPG.shared;
 
 public enum MoveType {
-	physical, fire, water, air, earth, lightning;
+	stab, slash, flamenPunch, flamenKick, gigaFlamenBreak, fira, aqua, venta, terra, thundara;
 }
