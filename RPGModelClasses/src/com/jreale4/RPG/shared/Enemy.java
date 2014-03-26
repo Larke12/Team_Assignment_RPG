@@ -10,4 +10,8 @@ public class Enemy extends Character {
 		this.ItemList=itemlist;
 		this.EquipList=equiplist;
 	}
+	
+	// Randomize monster, selected monster uses a random moveset focused
+	// around that type of move set (physical, all normal attacks. magic, 
+	// magical moves based on their attribute
 }
