@@ -17,6 +17,8 @@ public class Equipment {
 	}
 	
 	public int getEquipBonus(){
+		//returns bonus given by equipment by equation
+		// Bonus = Elvl x (5/3)
 		double temp=this.eqlvl;
 		temp= temp*(5.0/3.0);
 		return (int)temp;

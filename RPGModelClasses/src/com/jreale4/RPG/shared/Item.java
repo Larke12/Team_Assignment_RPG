@@ -8,10 +8,12 @@ public class Item {
 	}
 	
 	public ItemType getItemType(){
+		//returns what type of item it is
 		return this.itemtype;
 	}
 	
 	public int getItemEffect(int level){
+		//gets the item's effect by the type of item and the Character's level
 		if(itemtype==ItemType.health){
 			return 5*(level);
 		}
