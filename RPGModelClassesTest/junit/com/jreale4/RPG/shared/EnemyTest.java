@@ -26,10 +26,7 @@ public class EnemyTest extends TestCase{
 	private Equipment helmet;
 	private Equipment torso;
 	private Equipment bracers;
-	private Equipment pants;
 	private Equipment boots;
-	private Equipment gloves;
-	private Equipment pack;
 	ArrayList<Equipment> e = new ArrayList<Equipment>();
 
 	protected void setUp(){
@@ -55,21 +52,15 @@ public class EnemyTest extends TestCase{
 		i.add(acid);
 
 		helmet= new Equipment(EquipmentType.head, 1);
-		torso= new Equipment(EquipmentType.chest, 2);
+		torso= new Equipment(EquipmentType.torso, 2);
 		bracers= new Equipment(EquipmentType.arms, 1);
-		pants= new Equipment(EquipmentType.legs, 2);
 		boots= new Equipment(EquipmentType.feet, 3);
-		gloves= new Equipment(EquipmentType.hands, 2);
-		pack= new Equipment(EquipmentType.back, 3);
 		e.add(helmet);
 		e.add(torso);
 		e.add(bracers);
-		e.add(pants);
 		e.add(boots);
-		e.add(gloves);
-		e.add(pack);
 
-		enemy1= new Enemy(lvl, a, i, e);
+		enemy1= new Enemy(lvl);
 	}
 
 	public void testGetMoveType(){
@@ -101,30 +92,20 @@ public class EnemyTest extends TestCase{
 		assertEquals(1, enemy1.EquipList.get(enemy1.EquipList.indexOf(helmet)).getEquipLvl());
 		assertEquals(2, enemy1.EquipList.get(enemy1.EquipList.indexOf(torso)).getEquipLvl());
 		assertEquals(1, enemy1.EquipList.get(enemy1.EquipList.indexOf(bracers)).getEquipLvl());
-		assertEquals(2, enemy1.EquipList.get(enemy1.EquipList.indexOf(pants)).getEquipLvl());
 		assertEquals(3, enemy1.EquipList.get(enemy1.EquipList.indexOf(boots)).getEquipLvl());
-		assertEquals(2, enemy1.EquipList.get(enemy1.EquipList.indexOf(gloves)).getEquipLvl());
-		assertEquals(3, enemy1.EquipList.get(enemy1.EquipList.indexOf(pack)).getEquipLvl());
 	}
 
 	public void testEquipType(){
 		assertEquals(EquipmentType.head, enemy1.EquipList.get(enemy1.EquipList.indexOf(helmet)).getEquipmentType());
-		assertEquals(EquipmentType.chest, enemy1.EquipList.get(enemy1.EquipList.indexOf(torso)).getEquipmentType());
+		assertEquals(EquipmentType.torso, enemy1.EquipList.get(enemy1.EquipList.indexOf(torso)).getEquipmentType());
 		assertEquals(EquipmentType.arms, enemy1.EquipList.get(enemy1.EquipList.indexOf(bracers)).getEquipmentType());
-		assertEquals(EquipmentType.legs, enemy1.EquipList.get(enemy1.EquipList.indexOf(pants)).getEquipmentType());
 		assertEquals(EquipmentType.feet, enemy1.EquipList.get(enemy1.EquipList.indexOf(boots)).getEquipmentType());
-		assertEquals(EquipmentType.hands, enemy1.EquipList.get(enemy1.EquipList.indexOf(gloves)).getEquipmentType());
-		assertEquals(EquipmentType.back, enemy1.EquipList.get(enemy1.EquipList.indexOf(pack)).getEquipmentType());
 	}
 
 	public void testEquipBonus(){
 		assertEquals(1, enemy1.EquipList.get(enemy1.EquipList.indexOf(helmet)).getEquipBonus());
 		assertEquals(3, enemy1.EquipList.get(enemy1.EquipList.indexOf(torso)).getEquipBonus());
 		assertEquals(1, enemy1.EquipList.get(enemy1.EquipList.indexOf(bracers)).getEquipBonus());
-		assertEquals(3, enemy1.EquipList.get(enemy1.EquipList.indexOf(pants)).getEquipBonus());
 		assertEquals(5, enemy1.EquipList.get(enemy1.EquipList.indexOf(boots)).getEquipBonus());
-		assertEquals(3, enemy1.EquipList.get(enemy1.EquipList.indexOf(gloves)).getEquipBonus());
-		assertEquals(5, enemy1.EquipList.get(enemy1.EquipList.indexOf(pack)).getEquipBonus());
-
 	}
 }
