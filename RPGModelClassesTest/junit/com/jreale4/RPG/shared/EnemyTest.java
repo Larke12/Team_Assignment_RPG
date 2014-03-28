@@ -10,8 +10,6 @@ public class EnemyTest extends TestCase{
 
 	private int lvl;
 
-	private int exp;
-
 	private Attack attack1;
 	private Attack attack2;
 	private Attack attack3;
@@ -32,8 +30,6 @@ public class EnemyTest extends TestCase{
 	protected void setUp(){
 
 		lvl=1;
-
-		exp=900;
 
 		attack1= new Attack(MoveType.slash, Move.physical);
 		attack2= new Attack(MoveType.aqua, Move.magic);

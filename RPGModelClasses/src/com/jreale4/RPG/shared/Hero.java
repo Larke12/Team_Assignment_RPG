@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Hero extends Character{
 	int experience;
-	
+
 	public Hero(int Level, int exp, ArrayList<Attack> attacklist, ArrayList<Item> itemlist, ArrayList<Equipment> equiplist){
 		this.Level=Level;
 		this.experience=exp;
@@ -12,18 +12,18 @@ public class Hero extends Character{
 		this.ItemList=itemlist;
 		this.EquipList=equiplist;
 	}
-	
-	
+
+
 	public int getExperience(){
 		//returns Hero's exp
 		return this.experience;
 	}
-	
+
 	public void addExp(int expToAdd){
 		//adds to Hero's exp
 		experience+=expToAdd;
 	}
-	
+
 	public void LevelUp(int exp){
 		//if Hero has enough exp, level up
 		// reqExpTolvlUp = Level x (4000/3)
@@ -35,5 +35,5 @@ public class Hero extends Character{
 			super.Level++;
 		}
 	}
-	
+
 }

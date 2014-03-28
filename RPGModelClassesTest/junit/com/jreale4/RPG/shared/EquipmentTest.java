@@ -10,8 +10,8 @@ public class EquipmentTest extends TestCase{
 	private Equipment bracers;
 	private Equipment boots;
 	ArrayList<Equipment> e = new ArrayList<Equipment>();
-	
-	
+
+
 	protected void setUp(){	
 		helmet= new Equipment(EquipmentType.head, 1);
 		torso= new Equipment(EquipmentType.torso, 2);
@@ -28,14 +28,14 @@ public class EquipmentTest extends TestCase{
 		assertEquals(1, bracers.getEquipLvl());
 		assertEquals(3, boots.getEquipLvl());
 	}
-	
+
 	public void testEquipType(){
 		assertEquals(EquipmentType.head, helmet.getEquipmentType());
 		assertEquals(EquipmentType.torso, torso.getEquipmentType());
 		assertEquals(EquipmentType.arms, bracers.getEquipmentType());
 		assertEquals(EquipmentType.feet, boots.getEquipmentType());
 	}
-	
+
 	public void testEquipBonus(){
 		assertEquals(1, helmet.getEquipBonus());
 		assertEquals(3, torso.getEquipBonus());

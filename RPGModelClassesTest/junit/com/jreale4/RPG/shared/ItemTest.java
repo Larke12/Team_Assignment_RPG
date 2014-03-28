@@ -22,5 +22,5 @@ public class ItemTest extends TestCase{
 		assertEquals(3, attUp.getItemEffect(1));
 		assertEquals(-5, acid.getItemEffect(1));	
 	}
-	
+
 }

@@ -2,16 +2,16 @@ package com.jreale4.RPG.shared;
 
 public class Item {
 	private ItemType itemtype;
-	
+
 	public Item(ItemType itemtype){
 		this.itemtype=itemtype;
 	}
-	
+
 	public ItemType getItemType(){
 		//returns what type of item it is
 		return this.itemtype;
 	}
-	
+
 	public int getItemEffect(int level){
 		//gets the item's effect by the type of item and the Character's level
 		if(itemtype==ItemType.health){
@@ -25,5 +25,5 @@ public class Item {
 		}
 		return 0;
 	}
-	
+
 }
