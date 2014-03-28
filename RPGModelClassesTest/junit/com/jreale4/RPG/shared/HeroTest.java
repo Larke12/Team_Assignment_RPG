@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 
-public class CharacterTest extends TestCase{
+public class HeroTest extends TestCase{
 	private Hero hero1;
 
 	private int lvl;
