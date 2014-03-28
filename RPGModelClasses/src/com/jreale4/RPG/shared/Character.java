@@ -3,27 +3,29 @@ package com.jreale4.RPG.shared;
 import java.util.ArrayList;
 	//Character has level, attacks, items, equipment, picture
 public class Character {
-	int Level;
-	ArrayList<Attack> AttackList = new ArrayList<Attack>();
-	ArrayList<Item> ItemList = new ArrayList<Item>();
-	ArrayList<Equipment> EquipList = new ArrayList<Equipment>();
+	int Level; //Character's level.....duh
+	ArrayList<Attack> AttackList = new ArrayList<Attack>(); //List of attacks a character has
+	ArrayList<Item> ItemList = new ArrayList<Item>(); //List of Items a character has
+	ArrayList<Equipment> EquipList = new ArrayList<Equipment>(); //List of equipment a character has
 	//something for picture
 	
 	public int getLevel(){
+		//returns the level of the character
 		return this.Level;
 	}
 	
 	public int getNumAttacks(){
-		// return the length of the attacks variable
+		// return how many attacks the character has
 		return AttackList.size();
 	}
 	
 	public int getNumItems(){
-		// return the length of the items variable
+		// return how many items a character has
 		return ItemList.size();
 	}
 	
 	public void addAttackToList(Attack attack){
+		//adds an attack to character's list
 		AttackList.add(attack);
 	}
 }

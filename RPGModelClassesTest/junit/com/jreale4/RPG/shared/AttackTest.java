@@ -15,7 +15,7 @@ public class AttackTest extends TestCase {
 	private Attack attack3;
 	private Attack attack4;
 	ArrayList<Attack> a = new ArrayList<Attack>();
-	
+
 	protected void setUp(){
 		attack1= new Attack(MoveType.flamenPunch, Move.physical);
 		attack2= new Attack(MoveType.aqua, Move.magic);
@@ -26,7 +26,7 @@ public class AttackTest extends TestCase {
 		a.add(attack3);
 		a.add(attack4);
 	}
-	
+
 	public void testGetMoveType(){
 		assertEquals(MoveType.flamenPunch,attack1.getMoveType());
 		assertEquals(MoveType.aqua,attack2.getMoveType());
@@ -40,7 +40,7 @@ public class AttackTest extends TestCase {
 		assertEquals(Move.physical,attack3.getMove());
 		assertEquals(Move.magic,attack4.getMove());
 	}
-	
+
 	public void testGetPower(){
 		assertEquals( (float)(1.5), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
 		assertEquals( (float)(3), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
