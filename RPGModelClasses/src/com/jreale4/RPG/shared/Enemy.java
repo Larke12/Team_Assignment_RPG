@@ -37,14 +37,26 @@ public class Enemy extends Character {
 		return atk;
 	}
 	private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
-		
-		
+		//TODO: implement
 		return atklst;
 	}
 	private ArrayList<Item> CreateItems(){
+		Random rand= new Random();
+		int listsize= rand.nextInt(10)+1;
 		ArrayList<Item> itemlst= new ArrayList<Item>();
+		for(int i=0;i<listsize;i++){
+			Item e= CreateRandItem();
+			itemlst.add(e);
+		}
 		
 		return itemlst;
+	}
+	private Item CreateRandItem(){
+		Item item;
+		Random rand= new Random();
+		int randItem= rand.nextInt(3)+1;
+		item= new Item(ItemType.locationOf(randItem));
+		return item;
 	}
 		//private ArrayList<Equipment> CreateEquip(){
 		//	ArrayList<Equipment> equiplst= new ArrayList<Equipment>();
