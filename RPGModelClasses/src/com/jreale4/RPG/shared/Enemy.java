@@ -24,6 +24,7 @@ public class Enemy extends Character {
 			Attack e= CreateRandAtk();
 			atklst.add(e);
 		}
+		atklst=DuplicateRemover(atklst);
 		return atklst;
 	}
 	private Attack CreateRandAtk(){
@@ -32,10 +33,14 @@ public class Enemy extends Character {
 		int randtype= rand.nextInt(10);
 		int randmove= rand.nextInt(2);
 		
-		atk= new Attack();
+		atk= new Attack(MoveType.locationOf(randtype), Move.locationOf(randmove));
 		return atk;
 	}
-	
+	private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
+		
+		
+		return atklst;
+	}
 	private ArrayList<Item> CreateItems(){
 		ArrayList<Item> itemlst= new ArrayList<Item>();
 		
