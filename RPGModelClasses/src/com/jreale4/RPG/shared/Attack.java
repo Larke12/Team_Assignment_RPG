@@ -29,23 +29,23 @@ public class Attack {
 	private int getMoveTypePower(MoveType movetype){
 		//returns the power variable for each MoveType
 		int Power=0;
-		if(getMoveType()==MoveType.slash || getMoveType()==MoveType.stab || getMoveType()==MoveType.flamenPunch || getMoveType()==MoveType.flamenKick || getMoveType()==MoveType.gigaFlamenBreak){
+		if(getMoveType()==MoveType.slash || getMoveType()==MoveType.stab){
 			Power=1;
 		}
-		if(getMoveType()==MoveType.fira){
-			Power=2;
-		}
-		if(getMoveType()==MoveType.aqua){
+		if(getMoveType()==MoveType.fira || getMoveType()==MoveType.aqua || getMoveType()==MoveType.terra || getMoveType()==MoveType.venta || getMoveType()==MoveType.thundara){
 			Power=3;
 		}
-		if(getMoveType()==MoveType.terra){
-			Power=4;
-		}
-		if(getMoveType()==MoveType.venta){
+		if(getMoveType()==MoveType.flamenPunch || getMoveType()==MoveType.flamenKick){
 			Power=5;
 		}
-		if(getMoveType()==MoveType.thundara){
+		if(getMoveType()==MoveType.firus || getMoveType()==MoveType.aquas || getMoveType()==MoveType.terras || getMoveType()==MoveType.ventus || getMoveType()==MoveType.thundaras){
 			Power=6;
+		}
+		if(getMoveType()==MoveType.flamma || getMoveType()==MoveType.mare || getMoveType()==MoveType.saxum || getMoveType()==MoveType.caelum || getMoveType()==MoveType.lucem){
+			Power=9;
+		}
+		if(getMoveType()==MoveType.gigaFlamenBreak) {
+			Power=10;
 		}
 		return Power;
 	}
