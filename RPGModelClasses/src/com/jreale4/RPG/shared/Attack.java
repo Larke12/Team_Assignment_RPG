@@ -27,7 +27,7 @@ public class Attack {
 		return Power;
 	}
 	private int getMoveTypePower(MoveType movetype){
-		//returns the power variable for each MoveType
+		//returns the power variable for each MoveType, varies on magic type or overwhelming power of the move
 		int Power=0;
 		if(getMoveType()==MoveType.slash || getMoveType()==MoveType.stab){
 			Power=1;
