@@ -93,10 +93,10 @@ public class HeroTest extends TestCase{
 	}
 
 	public void testGetPower(){
-		assertEquals( (float)(1.5), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
-		assertEquals( (float)(3), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
-		assertEquals( (float)(1), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
-		assertEquals( (float)(3.5), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
+		assertEquals( (float)(1.0), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
+		assertEquals( (float)(2.5), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
+		assertEquals( (float)(3.5), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
+		assertEquals( (float)(1.0), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
 	}
 
 	public void testItemEffect(){
