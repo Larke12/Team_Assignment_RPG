@@ -116,5 +116,4 @@ public class HeroTest extends TestCase{
 		assertEquals(1, hero1.EquipList.get(hero1.EquipList.indexOf(bracers)).getEquipBonus());
 		assertEquals(5, hero1.EquipList.get(hero1.EquipList.indexOf(boots)).getEquipBonus());
 	}
-
 }

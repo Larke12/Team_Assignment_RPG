@@ -1,12 +1,8 @@
 package com.jreale4.RPG.shared;
 
 import java.util.ArrayList;
+
 import junit.framework.TestCase;
-
-import com.jreale4.RPG.shared.Attack;
-import com.jreale4.RPG.shared.Move;
-import com.jreale4.RPG.shared.MoveType;
-
 
 public class AttackTest extends TestCase {
 
@@ -42,9 +38,9 @@ public class AttackTest extends TestCase {
 	}
 
 	public void testGetPower(){
-		assertEquals( (float)(0.5), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
-		assertEquals( (float)(3), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
+		assertEquals( (float)(1.0), attack1.getAttackPower(attack1.getMoveType(), attack1.getMove(), 1));
+		assertEquals( (float)(2.5), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
 		assertEquals( (float)(1), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
-		assertEquals( (float)(3.5), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
+		assertEquals( (float)(4.0), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
 	}
 }
