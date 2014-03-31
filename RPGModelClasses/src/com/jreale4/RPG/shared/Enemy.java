@@ -18,7 +18,7 @@ public class Enemy extends Character {
 	}
 	private ArrayList<Attack> CreateAttacks(){
 		Random rand= new Random();
-		int listsize= rand.nextInt(50)+1;
+		int listsize= rand.nextInt(10)+1;
 		ArrayList<Attack> atklst= new ArrayList<Attack>();
 		for(int i=0;i<listsize;i++){
 			Attack e= CreateRandAtk();
