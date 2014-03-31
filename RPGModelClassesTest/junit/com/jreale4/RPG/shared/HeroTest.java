@@ -63,10 +63,12 @@ public class HeroTest extends TestCase{
 	}
 
 	public void testLvlUp(){
+		assertEquals(910, hero1.getExperience());
 		hero1.LevelUp(hero1.experience);
 		assertEquals(1, hero1.getLevel());
 
 		hero1.addExp(100);
+		assertEquals(1010, hero1.getExperience());
 		hero1.LevelUp(hero1.experience);
 		assertEquals(2, hero1.getLevel());
 	}

@@ -18,9 +18,12 @@ public class ItemTest extends TestCase{
 		i.add(acid);
 	}
 	public void testItemEffect(){
+		assertEquals(ItemType.health, potion.getItemType());
 		assertEquals(5, potion.getItemEffect(1));
+		assertEquals(ItemType.boost, attUp.getItemType());
 		assertEquals(3, attUp.getItemEffect(1));
-		assertEquals(-5, acid.getItemEffect(1));	
+		assertEquals(ItemType.poison, acid.getItemType());
+		assertEquals(-5, acid.getItemEffect(1));
 	}
 
 }
