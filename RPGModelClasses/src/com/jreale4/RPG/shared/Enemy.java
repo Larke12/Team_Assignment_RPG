@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Enemy extends Character {
-	
+
 	public Enemy(int HeroLvl){
 		this.AttackList=  CreateAttacks();
 			//this.EquipList= CreateEquip();
 		this.ItemList= CreateItems();
 		this.Level= CreateLevel(HeroLvl);
 	}
-	
+
 	private int CreateLevel(int level){
 		float Lvl=level*(450/350);
 		return (int)Lvl;
@@ -32,7 +32,7 @@ public class Enemy extends Character {
 		Random rand= new Random();
 		int randtype= rand.nextInt(10);
 		int randmove= rand.nextInt(2);
-		
+
 		atk= new Attack(MoveType.locationOf(randtype), Move.locationOf(randmove));
 		return atk;
 	}
@@ -48,7 +48,7 @@ public class Enemy extends Character {
 			Item e= CreateRandItem();
 			itemlst.add(e);
 		}
-		
+
 		return itemlst;
 	}
 	private Item CreateRandItem(){
@@ -60,13 +60,13 @@ public class Enemy extends Character {
 	}
 		//private ArrayList<Equipment> CreateEquip(){
 		//	ArrayList<Equipment> equiplst= new ArrayList<Equipment>();
-			
+	
 		//	return equiplst;
 		//}
-		
+
 	// Randomize monster, selected monster uses a random moveset focused
 	// around that type of move set (physical, all normal attacks. magic, 
 	// magical moves based on their attribute
-	
-	
+
+
 }
