@@ -7,15 +7,15 @@ public class Equipment {
 		this.eqtype=eqtp;
 		this.eqlvl=eqlvl;
 	}
-	
+
 	public int getEquipLvl(){
 		return this.eqlvl;
 	}
-	
+
 	public EquipmentType getEquipmentType(){
 		return this.eqtype;
 	}
-	
+
 	public int getEquipBonus(){
 		//returns bonus given by equipment by equation
 		// Bonus = Elvl x (5/3)
@@ -23,5 +23,5 @@ public class Equipment {
 		temp= temp*(5.0/3.0);
 		return (int)temp;
 	}
-	
+
 }

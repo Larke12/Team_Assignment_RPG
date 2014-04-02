@@ -1,7 +1,7 @@
 package com.jreale4.RPG.shared;
 
 public enum MoveType {
-	stab, slash, flamenPunch, flamenKick, gigaFlamenBreak, fira, aqua, venta, terra, thundara;
+	stab, slash, fira, firus, flamma, aqua, aquas, mare, venta, ventus, caelum, terra, terras, saxum, thundara, thundaras, lucem, flamenPunch, flamenKick, gigaFlamenBreak;
 
 	public static MoveType locationOf(int i) {
 		if(i==1){
