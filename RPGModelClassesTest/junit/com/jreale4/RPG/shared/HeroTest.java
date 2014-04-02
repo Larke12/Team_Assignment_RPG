@@ -15,6 +15,7 @@ public class HeroTest extends TestCase{
 	private Attack attack2;
 	private Attack attack3;
 	private Attack attack4;
+	private Attack attack5;
 	ArrayList<Attack> a = new ArrayList<Attack>();
 
 	private Item potion;
@@ -34,14 +35,16 @@ public class HeroTest extends TestCase{
 
 		exp=900;
 
-		attack1= new Attack(MoveType.slash, Move.physical);
-		attack2= new Attack(MoveType.aqua, Move.magic);
-		attack3= new Attack(MoveType.venta, Move.magic);
-		attack4= new Attack(MoveType.flamenKick, Move.physical);
+		attack1 = new Attack(MoveType.slash, Move.physical);
+		attack2 = new Attack(MoveType.aqua, Move.magic);
+		attack3 = new Attack(MoveType.venta, Move.magic);
+		attack4 = new Attack(MoveType.flamenKick, Move.physical);
+		attack5 = new Attack(MoveType.mare, Move.magic);
 		a.add(attack1);
 		a.add(attack2);
 		a.add(attack3);
 		a.add(attack4);
+		a.add(attack5);
 
 		potion= new Item(ItemType.health);
 		attUp= new Item(ItemType.boost);
@@ -78,11 +81,16 @@ public class HeroTest extends TestCase{
 		assertEquals(MoveType.aqua,attack2.getMoveType());
 		assertEquals(MoveType.venta,attack3.getMoveType());
 		assertEquals(MoveType.flamenKick,attack4.getMoveType());
+		assertEquals(MoveType.mare,attack5.getMoveType());
 	}
 
 	public void testGetMove(){
 		assertEquals(Move.physical,attack1.getMove());
 		assertEquals(Move.magic,attack3.getMove());
+		// Test amount of attacks
+		assertEquals(5, hero1.getNumAttacks());
+		// Test adding an attack
+		hero1.addAttackToList(attack5);
 	}
 
 	public void testGetPower(){
@@ -90,12 +98,15 @@ public class HeroTest extends TestCase{
 		assertEquals( (float)(2.5), attack2.getAttackPower(attack2.getMoveType(), attack2.getMove(), 1));
 		assertEquals( (float)(2.5), attack3.getAttackPower(attack3.getMoveType(), attack3.getMove(), 1));
 		assertEquals( (float)(3), attack4.getAttackPower(attack4.getMoveType(), attack4.getMove(), 1));
+		assertEquals( (float)(5.5), attack5.getAttackPower(attack5.getMoveType(), attack5.getMove(), 1));
 	}
 
 	public void testItemEffect(){
 		assertEquals(5, hero1.ItemList.get(hero1.ItemList.indexOf(potion)).getItemEffect(hero1.Level));
 		assertEquals(3, hero1.ItemList.get(hero1.ItemList.indexOf(attUp)).getItemEffect(hero1.Level));
-		assertEquals(-5, hero1.ItemList.get(hero1.ItemList.indexOf(acid)).getItemEffect(hero1.Level));	
+		assertEquals(-5, hero1.ItemList.get(hero1.ItemList.indexOf(acid)).getItemEffect(hero1.Level));
+		// Test to get amount of items
+		assertEquals(3, hero1.getNumItems());
 	}
 
 	public void testEquipLvl(){
