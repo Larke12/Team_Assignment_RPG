@@ -13,6 +13,6 @@ public enum ItemType {
 		if(i==3){
 			return poison;
 		}
-		return null;
+		return poison;
 	}
 }
