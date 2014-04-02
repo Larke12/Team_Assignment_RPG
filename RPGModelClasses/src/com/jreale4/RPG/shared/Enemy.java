@@ -30,8 +30,8 @@ public class Enemy extends Character {
 	private Attack CreateRandAtk(){
 		Attack atk;
 		Random rand= new Random();
-		int randtype= rand.nextInt(10);
-		int randmove= rand.nextInt(2);
+		int randtype= rand.nextInt(10)+1;
+		int randmove= rand.nextInt(2)+1;
 
 		atk= new Attack(MoveType.locationOf(randtype), Move.locationOf(randmove));
 		return atk;
