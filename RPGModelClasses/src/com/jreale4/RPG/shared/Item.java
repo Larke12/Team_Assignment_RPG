@@ -20,10 +20,12 @@ public class Item {
 		if(itemtype==ItemType.boost){
 			return 3*(level);
 		}
-		if(itemtype==ItemType.poison){
-			return (-1)*5*(level);
-		}
-		return 0;
+		// Else, it's a potion
+		return(-1)*5*(level);
+		
+		//		if(itemtype==ItemType.poison){
+		//			return (-1)*5*(level);
+		//		}
 	}
 
 }
