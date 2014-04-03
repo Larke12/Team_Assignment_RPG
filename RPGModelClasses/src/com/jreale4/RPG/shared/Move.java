@@ -4,10 +4,10 @@ public enum Move {
 	physical, magic;
 
 	public static Move locationOf(int i){
-		if(i==1){
+		if(i == 1){
 			return physical;
+		} else {
+			return magic;
 		}
-		// Else it is magic.
-		return magic;
 	}
 }
