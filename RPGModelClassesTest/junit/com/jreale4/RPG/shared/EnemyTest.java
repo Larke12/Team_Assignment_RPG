@@ -2,7 +2,6 @@
 package com.jreale4.RPG.shared;
 
 import junit.framework.TestCase;
-import java.util.ArrayList;
 
 public class EnemyTest extends TestCase{
 
