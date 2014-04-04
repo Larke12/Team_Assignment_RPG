@@ -17,8 +17,7 @@ public class Enemy extends Character {
 		return (int)Lvl;
 	}
 	private ArrayList<Attack> CreateAttacks(){
-		//	Random rand= new Random();
-		int listsize= RandomProvider.getInstance().nextInt(10)+1;	//	rand.nextInt(10)+1;
+		int listsize= RandomProvider.getInstance().nextInt(10);
 		ArrayList<Attack> atklst= new ArrayList<Attack>();
 		for(int i=0;i<listsize;i++){
 			Attack e= CreateRandAtk();
@@ -29,9 +28,8 @@ public class Enemy extends Character {
 	}
 	private Attack CreateRandAtk(){
 		Attack atk;
-		//	Random rand= new Random();
-		int randtype= RandomProvider.getInstance().nextInt(10)+1;	//	rand.nextInt(10)+1;
-		int randmove= RandomProvider.getInstance().nextInt(2)+1;	//	rand.nextInt(2)+1;
+		int randtype= RandomProvider.getInstance().nextInt(10);
+		int randmove= RandomProvider.getInstance().nextInt(2);
 
 		atk= new Attack(MoveType.locationOf(randtype), Move.locationOf(randmove));
 		return atk;
@@ -41,8 +39,7 @@ public class Enemy extends Character {
 		return atklst;
 	}
 	private ArrayList<Item> CreateItems(){
-		Random rand= new Random();
-		int listsize= rand.nextInt(10)+1;
+		int listsize=RandomProvider.getInstance().nextInt(10);
 		ArrayList<Item> itemlst= new ArrayList<Item>();
 		for(int i=0;i<listsize;i++){
 			Item e= CreateRandItem();
@@ -53,8 +50,7 @@ public class Enemy extends Character {
 	}
 	private Item CreateRandItem(){
 		Item item;
-		Random rand= new Random();
-		int randItem= rand.nextInt(3)+1;
+		int randItem=RandomProvider.getInstance().nextInt(3);
 		item= new Item(ItemType.locationOf(randItem));
 		return item;
 	}
