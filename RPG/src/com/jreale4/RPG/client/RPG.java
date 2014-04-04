@@ -42,7 +42,7 @@ public class RPG implements EntryPoint {
 		final Button sendButton = new Button("Send");
 		final Button startButton = new Button("Start!");
 		final TextBox nameField = new TextBox();
-		nameField.setText("User414");
+		nameField.setText("FlamencoDia");
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
@@ -195,6 +195,7 @@ public class RPG implements EntryPoint {
 
 							public void onSuccess(String result) {
 								//TODO: Send to new page
+								
 							}
 						});
 			}
