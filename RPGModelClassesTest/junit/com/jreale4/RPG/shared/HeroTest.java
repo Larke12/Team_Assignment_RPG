@@ -16,6 +16,7 @@ public class HeroTest extends TestCase{
 	private Attack attack3;
 	private Attack attack4;
 	private Attack attack5;
+	private Attack attack10;
 	ArrayList<Attack> a = new ArrayList<Attack>();
 
 	private Item potion;
@@ -34,7 +35,6 @@ public class HeroTest extends TestCase{
 		lvl=1;
 
 		exp=900;
-
 		attack1 = new Attack(MoveType.slash, Move.physical);
 		attack2 = new Attack(MoveType.aqua, Move.magic);
 		attack3 = new Attack(MoveType.venta, Move.magic);
