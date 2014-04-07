@@ -14,16 +14,16 @@ public class EnemyTest extends TestCase{
 		
 		assertEquals(4, enemy1.getNumAttacks());
 		
-		assertEquals(MoveType.flamenPunch, enemy1.AttackList.get(0).getMoveType());
+		assertEquals(MoveType.fira, enemy1.AttackList.get(0).getMoveType());
 		assertEquals(Move.physical, enemy1.AttackList.get(0).getMove());
 		
-		assertEquals(MoveType.gigaFlamenBreak, enemy1.AttackList.get(1).getMoveType());
+		assertEquals(MoveType.flamma, enemy1.AttackList.get(1).getMoveType());
 		assertEquals(Move.physical, enemy1.AttackList.get(1).getMove());
 		
-		assertEquals(MoveType.fira, enemy1.AttackList.get(2).getMoveType());
+		assertEquals(MoveType.aqua, enemy1.AttackList.get(2).getMoveType());
 		assertEquals(Move.magic, enemy1.AttackList.get(2).getMove());
 		
-		assertEquals(MoveType.venta, enemy1.AttackList.get(3).getMoveType());
+		assertEquals(MoveType.mare, enemy1.AttackList.get(3).getMoveType());
 		assertEquals(Move.magic, enemy1.AttackList.get(3).getMove());
 	}
 

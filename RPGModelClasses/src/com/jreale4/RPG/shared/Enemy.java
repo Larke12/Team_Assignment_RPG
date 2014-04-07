@@ -23,6 +23,7 @@ public class Enemy extends Character {
 			Attack e= CreateRandAtk();
 			atklst.add(e);
 		}
+		atklst=FlamencoRemover(atklst);
 		atklst=DuplicateRemover(atklst);
 		return atklst;
 	}
@@ -34,8 +35,22 @@ public class Enemy extends Character {
 		atk= new Attack(MoveType.locationOf(randtype), Move.locationOf(randmove));
 		return atk;
 	}
+	private ArrayList<Attack> FlamencoRemover(ArrayList<Attack> atklst) {
+		for(Attack a: atklst){
+			if(a.getMoveType()==MoveType.flamenKick || a.getMoveType()==MoveType.flamenPunch || a.getMoveType()==MoveType.gigaFlamenBreak){
+				atklst.remove(a);
+			}
+		}
+		return atklst;
+	}
 	private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
-		//TODO: implement
+		for(Attack a: atklst){
+			for(Attack b: atklst){
+				if(a==b){
+					atklst.remove(a);
+				}
+			}
+		}
 		return atklst;
 	}
 	private ArrayList<Item> CreateItems(){
