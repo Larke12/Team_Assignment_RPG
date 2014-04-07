@@ -54,7 +54,7 @@ public class RPG implements EntryPoint {
 		RootPanel.get("sendButtonContainer").add(sendButton);
 		RootPanel.get("errorLabelContainer").add(errorLabel);
 		RootPanel.get("startButtonContainer").add(startButton);
-		
+
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
 		nameField.selectAll();
@@ -123,34 +123,34 @@ public class RPG implements EntryPoint {
 				serverResponseLabel.setText("");
 				greetingService.greetServer(textToServer,
 						new AsyncCallback<String>() {
-							public void onFailure(Throwable caught) {
-								// Show the RPC error message to the user
-								dialogBox
-										.setText("Remote Procedure Call - Failure");
-								serverResponseLabel
-										.addStyleName("serverResponseLabelError");
-								serverResponseLabel.setHTML(SERVER_ERROR);
-								dialogBox.center();
-								closeButton.setFocus(true);
-							}
+					public void onFailure(Throwable caught) {
+						// Show the RPC error message to the user
+						dialogBox
+						.setText("Remote Procedure Call - Failure");
+						serverResponseLabel
+						.addStyleName("serverResponseLabelError");
+						serverResponseLabel.setHTML(SERVER_ERROR);
+						dialogBox.center();
+						closeButton.setFocus(true);
+					}
 
-							public void onSuccess(String result) {
-								dialogBox.setText("Remote Procedure Call");
-								serverResponseLabel
-										.removeStyleName("serverResponseLabelError");
-								serverResponseLabel.setHTML(result);
-								dialogBox.center();
-								closeButton.setFocus(true);
-							}
-						});
+					public void onSuccess(String result) {
+						dialogBox.setText("Remote Procedure Call");
+						serverResponseLabel
+						.removeStyleName("serverResponseLabelError");
+						serverResponseLabel.setHTML(result);
+						dialogBox.center();
+						closeButton.setFocus(true);
+					}
+				});
 			}
 		}
-		
+
 		// Add a handler to send the name to the server
 		MyHandler handler = new MyHandler();
 		sendButton.addClickHandler(handler);
 		nameField.addKeyUpHandler(handler);
-		
+
 		class StartPageHandler implements ClickHandler, KeyUpHandler {
 
 			@Override
@@ -166,7 +166,7 @@ public class RPG implements EntryPoint {
 				// TODO Auto-generated method stub
 				sendToNewPage();
 			}
-			
+
 			private void sendToNewPage() {
 				// First, we validate the input.
 				errorLabel.setText("");
@@ -182,26 +182,26 @@ public class RPG implements EntryPoint {
 				serverResponseLabel.setText("");
 				greetingService.greetServer(textToServer,
 						new AsyncCallback<String>() {
-							public void onFailure(Throwable caught) {
-								// Show the RPC error message to the user
-								dialogBox
-										.setText("Remote Procedure Call - Failure");
-								serverResponseLabel
-										.addStyleName("serverResponseLabelError");
-								serverResponseLabel.setHTML(SERVER_ERROR);
-								dialogBox.center();
-								closeButton.setFocus(true);
-							}
+					public void onFailure(Throwable caught) {
+						// Show the RPC error message to the user
+						dialogBox
+						.setText("Remote Procedure Call - Failure");
+						serverResponseLabel
+						.addStyleName("serverResponseLabelError");
+						serverResponseLabel.setHTML(SERVER_ERROR);
+						dialogBox.center();
+						closeButton.setFocus(true);
+					}
 
-							public void onSuccess(String result) {
-								//TODO: Send to new page
-								
-							}
-						});
+					public void onSuccess(String result) {
+						//TODO: Send to new page
+						
+					}
+				});
 			}
 		}
-		
-		
+
+
 		StartPageHandler handler1 = new StartPageHandler();
 		startButton.addClickHandler(handler1);
 		nameField.addKeyUpHandler(handler1);
