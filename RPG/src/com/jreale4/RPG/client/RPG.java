@@ -42,7 +42,7 @@ public class RPG implements EntryPoint {
 		final Button sendButton = new Button("Send");
 		final Button startButton = new Button("Start!");
 		final TextBox nameField = new TextBox();
-		nameField.setText("FlamencoDia");
+		nameField.setText("FlamencoDia"); // Default test name
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
