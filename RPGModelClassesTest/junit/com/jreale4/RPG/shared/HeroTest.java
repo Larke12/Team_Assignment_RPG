@@ -16,7 +16,6 @@ public class HeroTest extends TestCase{
 	private Attack attack3;
 	private Attack attack4;
 	private Attack attack5;
-	private Attack attack10;
 	ArrayList<Attack> a = new ArrayList<Attack>();
 
 	private Item potion;
