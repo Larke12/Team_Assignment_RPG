@@ -1,7 +1,6 @@
 package com.jreale4.RPG.shared;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Enemy extends Character {
 
