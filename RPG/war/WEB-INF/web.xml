@@ -11,6 +11,16 @@
     <url-pattern>/rpg/greet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+      <servlet-name>LoginServiceImpl</servlet-name>
+      <servlet-class>com.jreale4.RPG.server.LoginServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>LoginServiceImpl</servlet-name>
+      <url-pattern>/rpg/login</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>RPG.html</welcome-file>
@@ -29,5 +39,11 @@
     <servlet-name>SystemServiceServlet</servlet-name>
     <url-pattern>/_ah/spi/*</url-pattern>
   </servlet-mapping>
+  
+  <!-- Servlet context listeners -->
+  
+  <listener>
+      <listener-class>com.jreale4.RPG.server.DatabaseInitListener</listener-class>
+  </listener>
 
 </web-app>

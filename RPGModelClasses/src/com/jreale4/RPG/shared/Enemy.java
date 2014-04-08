@@ -24,7 +24,7 @@ public class Enemy extends Character {
 			atklst.add(e);
 		}
 		atklst=FlamencoRemover(atklst);
-		atklst=DuplicateRemover(atklst);
+		//atklst=DuplicateRemover(atklst);
 		return atklst;
 	}
 	private Attack CreateRandAtk(){
@@ -36,23 +36,32 @@ public class Enemy extends Character {
 		return atk;
 	}
 	private ArrayList<Attack> FlamencoRemover(ArrayList<Attack> atklst) {
+		ArrayList<Attack> temp= new ArrayList<Attack>();
 		for(Attack a: atklst){
+			temp.add(a);
+		}
+		for(Attack a: temp){
 			if(a.getMoveType()==MoveType.flamenKick || a.getMoveType()==MoveType.flamenPunch || a.getMoveType()==MoveType.gigaFlamenBreak){
 				atklst.remove(a);
 			}
 		}
 		return atklst;
 	}
-	private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
-		for(Attack a: atklst){
-			for(Attack b: atklst){
-				if(a==b){
-					atklst.remove(a);
+		/*private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
+			//TODO: FIX-UP
+			ArrayList<Attack> temp= new ArrayList<Attack>();
+			for(Attack a: atklst){
+				temp.add(a);
+			}
+			for(Attack a: temp){
+				for(int i=0;i<temp.size();i++){
+					if(a.equals(atklst.get(i))){
+						boolean didRemove=atklst.remove(a);
+					}
 				}
 			}
-		}
-		return atklst;
-	}
+			return atklst;
+		}*/
 	private ArrayList<Item> CreateItems(){
 		int listsize=RandomProvider.getInstance().nextInt(10);
 		ArrayList<Item> itemlst= new ArrayList<Item>();
@@ -60,7 +69,6 @@ public class Enemy extends Character {
 			Item e= CreateRandItem();
 			itemlst.add(e);
 		}
-
 		return itemlst;
 	}
 	private Item CreateRandItem(){
@@ -78,6 +86,5 @@ public class Enemy extends Character {
 	// Randomize monster, selected monster uses a random moveset focused
 	// around that type of move set (physical, all normal attacks. magic, 
 	// magical moves based on their attribute
-
 
 }
