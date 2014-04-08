@@ -9,22 +9,17 @@ public class EnemyTest extends TestCase{
 	private int lvl=1;
 	
 	public void testGetAttack(){
-		FakeRandom.init(4, 3, 1, 5, 1, 6, 2, 8, 2, 0, 0);
+		FakeRandom.init(20, 1, 1, 2, 1, 3, 2, 4, 2, 5, 1, 6, 1, 7, 2, 8, 2, 9, 1, 10, 2, 11, 1, 12, 1, 13, 2, 14, 2, 15, 1, 16, 1, 17, 2, 18, 2, 19, 1, 20, 2, 0, 0);
 		enemy1= new Enemy(lvl);
 		
-		assertEquals(4, enemy1.getNumAttacks());
+		assertEquals(17, enemy1.getNumAttacks());
 		
-		assertEquals(MoveType.fira, enemy1.AttackList.get(0).getMoveType());
 		assertEquals(Move.physical, enemy1.AttackList.get(0).getMove());
-		
-		assertEquals(MoveType.flamma, enemy1.AttackList.get(1).getMoveType());
-		assertEquals(Move.physical, enemy1.AttackList.get(1).getMove());
-		
-		assertEquals(MoveType.aqua, enemy1.AttackList.get(2).getMoveType());
 		assertEquals(Move.magic, enemy1.AttackList.get(2).getMove());
 		
-		assertEquals(MoveType.mare, enemy1.AttackList.get(3).getMoveType());
-		assertEquals(Move.magic, enemy1.AttackList.get(3).getMove());
+		for(int i=0; i<enemy1.getNumAttacks();i++){
+			assertEquals(MoveType.locationOf(i+1),enemy1.AttackList.get(i).getMoveType());
+		}
 	}
 
 	public void testGetItem(){
