@@ -40,7 +40,7 @@ public class RPG implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 		final Button sendButton = new Button("Send");
-		final Button startButton = new Button("Start!");
+		Button startButton = new Button("Start!");
 		final TextBox nameField = new TextBox();
 		nameField.setText("FlamencoDia"); // Default test name
 		final Label errorLabel = new Label();
