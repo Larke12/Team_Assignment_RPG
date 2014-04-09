@@ -10,10 +10,13 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.Hidden;
 
 public class LoginView extends Composite {
 	private TextBox txtbxUsername;
 	private TextBox txtbxPassword;
+	private TextBox response;
 	//private LoginController controller;
 	
 	public LoginView() {
@@ -28,6 +31,7 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
 		
 		TextBox txtbxPassword = new TextBox();
+		txtbxPassword.setStyleName("gwt-PasswordBox");
 		txtbxPassword.setText("Password");
 		layoutPanel.add(txtbxPassword);
 		layoutPanel.setWidgetLeftWidth(txtbxPassword, 116.0, Unit.PX, 184.0, Unit.PX);
@@ -53,11 +57,13 @@ public class LoginView extends Composite {
 		layoutPanel.add(btnNewAccount);
 		layoutPanel.setWidgetLeftWidth(btnNewAccount, 203.0, Unit.PX, 97.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnNewAccount, 198.0, Unit.PX, 30.0, Unit.PX);
+		
+		TextBox response = new TextBox();
+		response.setVisible(false);
+		layoutPanel.add(response);
+		layoutPanel.setWidgetLeftWidth(response, 140.0, Unit.PX, 151.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(response, 234.0, Unit.PX, 50.0, Unit.PX);
 	}
-	
-//	public void setConroller(LoginController controller){
-//		this.controller= controller;
-//	}
 	
 	//HANDLERS
 	protected void handleLogin(){
@@ -71,14 +77,21 @@ public class LoginView extends Composite {
 			public void onSuccess(User result) {
 				if (result == null) {
 					// no such user
+					response.setVisible(true);
+					response.setText("No Such User exists.");
+					
 				} else {
 					// login successful
+					response.setVisible(true);
+					response.setText("Login Successful!");
 				}
 			}
 			
 			@Override
 			public void onFailure(Throwable caught) {
 				// Display an error message
+				response.setVisible(true);
+				response.setText("The system has encountered an error. If it continues please contact Help");
 			}
 		});
 	}

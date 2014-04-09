@@ -1,9 +1,11 @@
 package com.jreale4.RPG.shared;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+	//private int userId;
 	private String userName;
 	private String password;
-	private Hero Player= new Hero(0, 0, null, null, null);
 	
 	public User() {
 		
@@ -25,7 +27,7 @@ public class User {
 		return password;
 	}
 	
-	public void storeHero(Hero hero){
-		this.Player= hero;
-	}
+//	public void storeHero(Hero hero){
+//		this.Player= hero;
+//	}
 }
