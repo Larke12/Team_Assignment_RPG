@@ -5,6 +5,7 @@ import com.jreale4.RPG.client.LoginService;
 import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
 
+@SuppressWarnings("serial")
 public class LoginServiceImpl extends RemoteServiceServlet implements LoginService {
 
 	@Override
