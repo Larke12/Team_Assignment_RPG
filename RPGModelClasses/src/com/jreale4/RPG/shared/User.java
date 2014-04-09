@@ -3,6 +3,7 @@ package com.jreale4.RPG.shared;
 public class User {
 	private String userName;
 	private String password;
+	private Hero Player= new Hero(0, 0, null, null, null);
 	
 	public User() {
 		
@@ -22,5 +23,9 @@ public class User {
 	
 	public String getPassword() {
 		return password;
+	}
+	
+	public void storeHero(Hero hero){
+		this.Player= hero;
 	}
 }
