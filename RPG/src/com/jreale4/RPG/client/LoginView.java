@@ -10,10 +10,13 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.Hidden;
 
 public class LoginView extends Composite {
 	private TextBox txtbxUsername;
 	private TextBox txtbxPassword;
+	private TextBox response;
 	//private LoginController controller;
 
 	public LoginView() {
@@ -21,13 +24,14 @@ public class LoginView extends Composite {
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 
-		TextBox txtbxUsername = new TextBox();
+		txtbxUsername = new TextBox();
 		txtbxUsername.setText("Username");
 		layoutPanel.add(txtbxUsername);
 		layoutPanel.setWidgetLeftWidth(txtbxUsername, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
 
-		TextBox txtbxPassword = new TextBox();
+		txtbxPassword = new TextBox();
+		txtbxPassword.setStyleName("gwt-PasswordBox");
 		txtbxPassword.setText("Password");
 		layoutPanel.add(txtbxPassword);
 		layoutPanel.setWidgetLeftWidth(txtbxPassword, 116.0, Unit.PX, 184.0, Unit.PX);
@@ -53,17 +57,19 @@ public class LoginView extends Composite {
 		layoutPanel.add(btnNewAccount);
 		layoutPanel.setWidgetLeftWidth(btnNewAccount, 203.0, Unit.PX, 97.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnNewAccount, 198.0, Unit.PX, 30.0, Unit.PX);
-	}
 
-	//	public void setConroller(LoginController controller){
-	//		this.controller= controller;
-	//	}
+		TextBox response = new TextBox();
+		response.setReadOnly(true);
+		layoutPanel.add(response);
+		layoutPanel.setWidgetLeftWidth(response, 116.0, Unit.PX, 184.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(response, 234.0, Unit.PX, 50.0, Unit.PX);
+	}
 
 	//HANDLERS
 	protected void handleLogin(){
-		String username= String.valueOf(txtbxUsername);
-		String password= String.valueOf(txtbxPassword);
-
+		String username= txtbxUsername.getText();
+		String password= txtbxPassword.getText();
+		System.out.println(username+" "+password);
 		//controller.logIn(username, password);
 		RPC.loginService.login(username, password, new AsyncCallback<User>() {
 
@@ -71,14 +77,19 @@ public class LoginView extends Composite {
 			public void onSuccess(User result) {
 				if (result == null) {
 					// no such user
+					String text = "No Such User Exists";
+					response.setText(text); // error
+
 				} else {
 					// login successful
+					response.setText("Login Successful!");
 				}
 			}
 
 			@Override
 			public void onFailure(Throwable caught) {
 				// Display an error message
+				response.setText("The system has encountered an error. If it continues please contact Help");
 			}
 		});
 	}
