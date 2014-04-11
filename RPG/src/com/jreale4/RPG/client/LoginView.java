@@ -57,12 +57,6 @@ public class LoginView extends Composite {
 		layoutPanel.add(btnNewAccount);
 		layoutPanel.setWidgetLeftWidth(btnNewAccount, 203.0, Unit.PX, 97.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnNewAccount, 198.0, Unit.PX, 30.0, Unit.PX);
-
-		TextBox response = new TextBox();
-		response.setReadOnly(true);
-		layoutPanel.add(response);
-		layoutPanel.setWidgetLeftWidth(response, 116.0, Unit.PX, 184.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(response, 234.0, Unit.PX, 50.0, Unit.PX);
 	}
 
 	//HANDLERS
