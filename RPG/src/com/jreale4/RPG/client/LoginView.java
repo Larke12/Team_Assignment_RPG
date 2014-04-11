@@ -58,7 +58,8 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetLeftWidth(btnNewAccount, 203.0, Unit.PX, 97.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnNewAccount, 198.0, Unit.PX, 30.0, Unit.PX);
 		
-		TextBox response = new TextBox();
+		response = new TextBox();
+		response.setVisible(false);
 		response.setReadOnly(true);
 		layoutPanel.add(response);
 		layoutPanel.setWidgetLeftWidth(response, 116.0, Unit.PX, 184.0, Unit.PX);
@@ -78,6 +79,7 @@ public class LoginView extends Composite {
 				if (result == null) {
 					// no such user
 					String text = "No Such User Exists";
+					response.setVisible(true);
 					response.setText(text);
 					
 				} else {
