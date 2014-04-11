@@ -24,13 +24,13 @@ public class LoginView extends Composite {
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		
-		TextBox txtbxUsername = new TextBox();
+		txtbxUsername = new TextBox();
 		txtbxUsername.setText("Username");
 		layoutPanel.add(txtbxUsername);
 		layoutPanel.setWidgetLeftWidth(txtbxUsername, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
 		
-		TextBox txtbxPassword = new TextBox();
+		txtbxPassword = new TextBox();
 		txtbxPassword.setStyleName("gwt-PasswordBox");
 		txtbxPassword.setText("Password");
 		layoutPanel.add(txtbxPassword);
@@ -59,17 +59,17 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetTopHeight(btnNewAccount, 198.0, Unit.PX, 30.0, Unit.PX);
 		
 		TextBox response = new TextBox();
-		response.setVisible(false);
+		response.setReadOnly(true);
 		layoutPanel.add(response);
-		layoutPanel.setWidgetLeftWidth(response, 140.0, Unit.PX, 151.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(response, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(response, 234.0, Unit.PX, 50.0, Unit.PX);
 	}
 	
 	//HANDLERS
 	protected void handleLogin(){
-		String username= String.valueOf(txtbxUsername);
-		String password= String.valueOf(txtbxPassword);
-		
+		String username= txtbxUsername.getText();
+		String password= txtbxPassword.getText();
+		System.out.println(username+" "+password);
 		//controller.logIn(username, password);
 		RPC.loginService.login(username, password, new AsyncCallback<User>() {
 			
@@ -77,12 +77,11 @@ public class LoginView extends Composite {
 			public void onSuccess(User result) {
 				if (result == null) {
 					// no such user
-					response.setVisible(true);
-					response.setText("No Such User exists.");
+					String text = "No Such User Exists";
+					response.setText(text);
 					
 				} else {
 					// login successful
-					response.setVisible(true);
 					response.setText("Login Successful!");
 				}
 			}
@@ -90,7 +89,6 @@ public class LoginView extends Composite {
 			@Override
 			public void onFailure(Throwable caught) {
 				// Display an error message
-				response.setVisible(true);
 				response.setText("The system has encountered an error. If it continues please contact Help");
 			}
 		});
