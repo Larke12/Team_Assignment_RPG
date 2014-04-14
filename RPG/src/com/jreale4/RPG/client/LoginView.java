@@ -10,13 +10,12 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
-import com.google.gwt.user.client.ui.TextArea;
-import com.google.gwt.user.client.ui.Hidden;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 
 public class LoginView extends Composite {
 	private TextBox txtbxUsername;
-	private TextBox txtbxPassword;
 	private TextBox response;
+	private PasswordTextBox txtbxPassword;
 	//private LoginController controller;
 
 	public LoginView() {
@@ -29,13 +28,6 @@ public class LoginView extends Composite {
 		layoutPanel.add(txtbxUsername);
 		layoutPanel.setWidgetLeftWidth(txtbxUsername, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
-
-		txtbxPassword = new TextBox();
-		txtbxPassword.setStyleName("gwt-PasswordBox");
-		txtbxPassword.setText("Password");
-		layoutPanel.add(txtbxPassword);
-		layoutPanel.setWidgetLeftWidth(txtbxPassword, 116.0, Unit.PX, 184.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(txtbxPassword, 138.0, Unit.PX, 34.0, Unit.PX);
 
 		Button btnLogin = new Button("Login");
 		btnLogin.addClickHandler(new ClickHandler() {
@@ -64,6 +56,13 @@ public class LoginView extends Composite {
 		layoutPanel.add(response);
 		layoutPanel.setWidgetLeftWidth(response, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(response, 234.0, Unit.PX, 50.0, Unit.PX);
+		
+		txtbxPassword = new PasswordTextBox();
+		txtbxPassword.setStyleName("gwt-PasswordBox");
+		txtbxPassword.setName("txtbxPassword");
+		layoutPanel.add(txtbxPassword);
+		layoutPanel.setWidgetLeftWidth(txtbxPassword, 116.0, Unit.PX, 183.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(txtbxPassword, 130.0, Unit.PX, 32.0, Unit.PX);
 	}
 
 	//HANDLERS
@@ -85,6 +84,9 @@ public class LoginView extends Composite {
 				} else {
 					// login successful
 					response.setText("Login Successful!");
+					
+					// switch to next view
+					RPG.setView(new MapView());
 				}
 			}
 
