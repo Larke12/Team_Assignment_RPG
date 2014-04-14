@@ -2,7 +2,7 @@ package com.jreale4.RPG.shared;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable {	
 	//private int userId;
 	private String userName;
 	private String password;
