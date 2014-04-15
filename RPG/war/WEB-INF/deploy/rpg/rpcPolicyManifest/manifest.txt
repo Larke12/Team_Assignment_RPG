@@ -1,3 +1,2 @@
 # Module rpg
 # RPC service class, partial path of RPC policy file
-com.jreale4.RPG.client.LoginService, A9D9CE880C0970913739CE1408FE2C74.gwt.rpc
