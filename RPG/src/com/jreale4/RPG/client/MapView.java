@@ -1,6 +1,7 @@
 package com.jreale4.RPG.client;
 
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.dom.client.Style.Unit;
@@ -9,6 +10,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 public class MapView extends Composite {
+	
+	IsWidget view = new BattleView();
 
 	public MapView() {
 
@@ -46,6 +49,7 @@ public class MapView extends Composite {
 		btnYorkWoods.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				// Go to BattleView
+				RPG.setView(view);
 			}
 		});
 		btnYorkWoods.setStyleName("mapButton");
