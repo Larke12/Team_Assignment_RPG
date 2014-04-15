@@ -37,3 +37,8 @@ body {
 }
 .gwt-PasswordBox {
 }
+.mapButton {
+	background: transparent;
+    border: none;
+	font-weight: bold;
+}

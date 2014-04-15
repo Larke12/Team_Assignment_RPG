@@ -11,8 +11,8 @@ public class FakeDatabase implements IDatabase {
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		User testUser = new User();
-		testUser.setUserName("user");
-		testUser.setPassword("abc123");
+		testUser.setUserName("admin");
+		testUser.setPassword("flamwenco");
 		userList.add(testUser);
 	}
 
