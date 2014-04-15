@@ -12,10 +12,11 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.jreale4.RPG.shared.User;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.Hidden;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 
 public class LoginView extends Composite {
 	private TextBox txtbxUsername;
-	private TextBox txtbxPassword;
+	private PasswordTextBox txtbxPassword;
 	private TextBox response;
 	//private LoginController controller;
 
@@ -30,7 +31,7 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetLeftWidth(txtbxUsername, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
 
-		txtbxPassword = new TextBox();
+		txtbxPassword = new PasswordTextBox();
 		txtbxPassword.setStyleName("gwt-PasswordBox");
 		txtbxPassword.setText("Password");
 		layoutPanel.add(txtbxPassword);
@@ -85,6 +86,7 @@ public class LoginView extends Composite {
 				} else {
 					// login successful
 					response.setText("Login Successful!");
+					response.setVisible(true);
 				}
 			}
 
@@ -92,6 +94,7 @@ public class LoginView extends Composite {
 			public void onFailure(Throwable caught) {
 				// Display an error message
 				response.setText("The system has encountered an error. If it continues please contact Help");
+				response.setVisible(true);
 			}
 		});
 	}
