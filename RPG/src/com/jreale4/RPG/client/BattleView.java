@@ -37,7 +37,7 @@ public class BattleView extends Composite {
 		Image image = new Image("rpg/gwt/clean/images/character_skew.png");
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftWidth(image, 0.0, Unit.PX, 100.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 76.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 100.0, Unit.PX);
 		
 	}
 }
