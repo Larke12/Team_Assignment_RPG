@@ -5,6 +5,8 @@ import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
 
 public class BattleView extends Composite {
 
@@ -15,6 +17,11 @@ public class BattleView extends Composite {
 		layoutPanel.setSize("800px", "800px");
 		
 		Button btnAttack = new Button("Attack!");
+		btnAttack.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				// Slash! Physical attck only.
+			}
+		});
 		layoutPanel.add(btnAttack);
 		layoutPanel.setWidgetLeftWidth(btnAttack, 490.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnAttack, 365.0, Unit.PX, 28.0, Unit.PX);
