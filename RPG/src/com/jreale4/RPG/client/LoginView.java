@@ -83,6 +83,10 @@ public class LoginView extends Composite {
 				} else {
 					// login successful
 					response.setText("Login Successful!");
+					response.setVisible(true);
+					
+					// switch to next view
+					RPG.setView(new MapView());
 				}
 			}
 
