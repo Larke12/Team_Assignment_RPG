@@ -19,7 +19,7 @@ public class BattleView extends Composite {
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				// Slash! Physical attck only.
+				// Slash! Physical attack only.
 			}
 		});
 		layoutPanel.add(btnAttack);
