@@ -28,7 +28,6 @@ public class LoginView extends Composite {
 		layoutPanel.add(txtbxUsername);
 		layoutPanel.setWidgetLeftWidth(txtbxUsername, 116.0, Unit.PX, 184.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(txtbxUsername, 75.0, Unit.PX, 34.0, Unit.PX);
-
 		Button btnLogin = new Button("Login");
 		btnLogin.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -84,6 +83,7 @@ public class LoginView extends Composite {
 				} else {
 					// login successful
 					response.setText("Login Successful!");
+					response.setVisible(true);
 					
 					// switch to next view
 					RPG.setView(new MapView());
@@ -94,6 +94,7 @@ public class LoginView extends Composite {
 			public void onFailure(Throwable caught) {
 				// Display an error message
 				response.setText("The system has encountered an error. If it continues please contact Help");
+				response.setVisible(true);
 			}
 		});
 	}
