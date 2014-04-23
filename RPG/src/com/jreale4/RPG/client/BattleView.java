@@ -82,10 +82,10 @@ public class BattleView extends Composite {
 		layoutPanel.add(btnMagica);
 		layoutPanel.setWidgetLeftWidth(btnMagica, 299.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnMagica, 473.0, Unit.PX, 28.0, Unit.PX);
-
-		Image image = new Image("rpg/gwt/clean/images/enemy_xx.png");
+		
+		Image image = new Image("assets/enemy_x.png");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 207.0, Unit.PX, 430.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 230.0, Unit.PX, 121.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 155.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 160.0, Unit.PX, 100.0, Unit.PX);
 	}
 }
