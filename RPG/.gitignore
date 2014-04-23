@@ -1,6 +1,7 @@
 /test-classes
 /war/WEB-INF/classes
 /.gwt
+/.gwt/.get-log
 /gwt-unitCache
 /war/WEB-INF/classes
 /war/WEB-INF/lib
