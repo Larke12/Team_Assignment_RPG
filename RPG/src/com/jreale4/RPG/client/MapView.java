@@ -19,7 +19,7 @@ public class MapView extends Composite {
 		initWidget(layoutPanel);
 		layoutPanel.setSize("1080px", "1080px");
 
-		Image image = new Image("rpg/gwt/clean/images/rpg_mapped.png");
+		Image image = new Image("assets/rpg_mapped.png");
 		layoutPanel.add(image);
 		image.setSize("1920px", "1080px");
 

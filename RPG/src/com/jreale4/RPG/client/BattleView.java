@@ -56,7 +56,7 @@ public class BattleView extends Composite {
 		btnEscape.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				Random rand = new Random();
-				int cnt = rand.nextInt(6)-2;
+				int cnt = rand.nextInt(10)-8;
 				if(cnt > 0){
 				RPG.setView(new MapView());
 				}
@@ -82,5 +82,13 @@ public class BattleView extends Composite {
 			}
 		});
 		layoutPanel.add(btnMagica);
+		layoutPanel.setWidgetLeftWidth(btnMagica, 299.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnMagica, 473.0, Unit.PX, 28.0, Unit.PX);
+		
+		Image image = new Image("assets/enemy_x.png");
+		layoutPanel.add(image);
+		layoutPanel.setWidgetLeftWidth(image, 155.0, Unit.PX, 100.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 160.0, Unit.PX, 100.0, Unit.PX);
+
 	}
 }
