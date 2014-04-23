@@ -29,8 +29,8 @@ public class BattleView extends Composite {
 			}
 		});
 		layoutPanel.add(btnAttack);
-		layoutPanel.setWidgetLeftWidth(btnAttack, 490.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnAttack, 365.0, Unit.PX, 28.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnAttack, 299.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnAttack, 423.0, Unit.PX, 28.0, Unit.PX);
 		
 		Button btnInventory = new Button("Inventory");
 		btnInventory.addClickHandler(new ClickHandler() {
@@ -40,8 +40,8 @@ public class BattleView extends Composite {
 			}
 		});
 		layoutPanel.add(btnInventory);
-		layoutPanel.setWidgetLeftWidth(btnInventory, 600.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnInventory, 365.0, Unit.PX, 28.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnInventory, 409.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnInventory, 423.0, Unit.PX, 28.0, Unit.PX);
 		
 		Button btnEscape = new Button("Escape!");
 		btnEscape.addClickHandler(new ClickHandler() {
@@ -51,8 +51,8 @@ public class BattleView extends Composite {
 			}
 		});
 		layoutPanel.add(btnEscape);
-		layoutPanel.setWidgetLeftWidth(btnEscape, 600.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnEscape, 415.0, Unit.PX, 28.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnEscape, 409.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnEscape, 473.0, Unit.PX, 28.0, Unit.PX);
 		
 		Button btnMagica = new Button("Magica");
 		btnMagica.addDoubleClickHandler(new DoubleClickHandler() {
@@ -66,20 +66,13 @@ public class BattleView extends Composite {
 			}
 		});
 		layoutPanel.add(btnMagica);
-		layoutPanel.setWidgetLeftWidth(btnMagica, 490.0, Unit.PX, 81.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(btnMagica, 415.0, Unit.PX, 28.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(btnMagica, 299.0, Unit.PX, 81.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(btnMagica, 473.0, Unit.PX, 28.0, Unit.PX);
 		
-		Image image = new Image("rpg/gwt/clean/images/character_skew.png");
+		Image image = new Image("rpg/gwt/clean/images/enemy_x.png");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 0.0, Unit.PX, 317.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 519.0, Unit.PX);
-		
-		Image image_1 = new Image("rpg/gwt/clean/images/enemy_xx.png");
-		image_1.setAltText("Random Enemy Image!");
-		layoutPanel.add(image_1);
-		image_1.setSize("1111px", "335px");
-		layoutPanel.setWidgetLeftWidth(image_1, 318.0, Unit.PX, 742.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image_1, 47.0, Unit.PX, 281.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 187.0, Unit.PX, 340.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 141.0, Unit.PX, 156.0, Unit.PX);
 		
 	}
 }
