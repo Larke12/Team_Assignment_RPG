@@ -71,8 +71,8 @@ public class BattleView extends Composite {
 		
 		Image image = new Image("rpg/gwt/clean/images/enemy_x.png");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 187.0, Unit.PX, 340.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 141.0, Unit.PX, 156.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 187.0, Unit.PX, 447.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 141.0, Unit.PX, 121.0, Unit.PX);
 		
 	}
 }
