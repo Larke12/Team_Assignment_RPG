@@ -14,7 +14,6 @@ import com.google.gwt.event.dom.client.DoubleClickEvent;
 public class BattleView extends Composite {
 	
 	//IsWidget iView = new InView();
-	IsWidget mView = new MapView();
 
 	public BattleView() {
 		
@@ -47,7 +46,7 @@ public class BattleView extends Composite {
 		btnEscape.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				// Random counter, if < 1 does nothing; if > 1 goes back to map
-				RPG.setView(mView);
+				RPG.setView(new MapView());
 			}
 		});
 		layoutPanel.add(btnEscape);
@@ -78,8 +77,8 @@ public class BattleView extends Composite {
 		image_1.setAltText("Random Enemy Image!");
 		layoutPanel.add(image_1);
 		image_1.setSize("1111px", "335px");
-		layoutPanel.setWidgetLeftWidth(image_1, 318.0, Unit.PX, 742.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image_1, 47.0, Unit.PX, 281.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image_1, 318.0, Unit.PX, 761.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image_1, 47.0, Unit.PX, 320.0, Unit.PX);
 		
 	}
 }
