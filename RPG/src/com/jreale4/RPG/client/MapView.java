@@ -8,13 +8,16 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.jreale4.RPG.shared.User;
 
-public class MapView extends Composite {
+public class MapView extends Composite{
 	
 	IsWidget view = new BattleView();
-
-	public MapView() {
-
+	
+	public MapView(User hero) {
+		
+		hero.storeHero(hero.getHero());
+		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		layoutPanel.setSize("1080px", "1080px");
