@@ -12,9 +12,7 @@ import com.jreale4.RPG.shared.User;
 
 public class MapView extends Composite{
 	
-	IsWidget view = new BattleView();
-	
-	public MapView(User hero) {
+	public MapView(final User hero) {
 		
 		hero.storeHero(hero.getHero());
 		
@@ -32,7 +30,7 @@ public class MapView extends Composite{
 		Button btnOcean = new Button("Ocean");
 		btnOcean.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				RPG.setView(view);
+				RPG.setView(new BattleView(hero));
 			}
 		});
 		btnOcean.setStyleName("mapButton");
@@ -43,7 +41,7 @@ public class MapView extends Composite{
 		Button btnMtVilla = new Button("Mt. Villa");
 		btnMtVilla.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				RPG.setView(view);
+				RPG.setView(new BattleView(hero));
 			}
 		});
 		btnMtVilla.setStyleName("mapButton");
@@ -54,7 +52,7 @@ public class MapView extends Composite{
 		Button btnYorkWoods = new Button("York Woods");
 		btnYorkWoods.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				RPG.setView(view);
+				RPG.setView(new BattleView(hero));
 			}
 		});
 		btnYorkWoods.setStyleName("mapButton");
@@ -65,7 +63,7 @@ public class MapView extends Composite{
 		Button btnYorkShrine = new Button("York Shrine");
 		btnYorkShrine.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				RPG.setView(view);
+				RPG.setView(new BattleView(hero));
 			}
 		});
 		btnYorkShrine.setStyleName("mapButton");

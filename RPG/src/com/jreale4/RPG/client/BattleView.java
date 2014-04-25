@@ -1,6 +1,7 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -13,13 +14,14 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextBoxBase;
+import com.jreale4.RPG.shared.User;
 
 public class BattleView extends Composite {
 	//IsWidget iView = new InView();
 	TextBox textBox;
 	//private BattleController controller;
 
-	public BattleView() {
+	public BattleView(final User hero) {
 
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
@@ -74,7 +76,7 @@ public class BattleView extends Composite {
 				Random rand = new Random();
 				int cnt = rand.nextInt(10)-2;
 				if(cnt > 0){
-					RPG.setView(new MapView());
+					RPG.setView(new MapView(hero));
 				}
 				else{
 					textBox.setText("Can't Escape!");
