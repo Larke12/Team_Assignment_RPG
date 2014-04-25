@@ -18,7 +18,11 @@ public class Character {
 		// return how many attacks the character has
 		return AttackList.size();
 	}
-
+	
+	public int getNumEquip(){
+		return EquipList.size();
+	}
+	
 	public int getNumItems(){
 		// return how many items a character has
 		return ItemList.size();
@@ -32,5 +36,13 @@ public class Character {
 	public void addAttackToList(Attack attack){
 		//adds an attack to character's list
 		AttackList.add(attack);
+	}
+	
+	public Equipment getEquip(int spot){
+		return EquipList.get(spot);
+	}
+	
+	public Item getItem(int spot){
+		return ItemList.get(spot);
 	}
 }

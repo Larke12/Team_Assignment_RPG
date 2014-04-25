@@ -8,9 +8,7 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.jreale4.RPG.shared.Attack;
-import com.jreale4.RPG.shared.Move;
-import com.jreale4.RPG.shared.MoveType;
+import com.jreale4.RPG.shared.Hero;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -91,7 +89,9 @@ public class LoginView extends Composite {
 					response.setVisible(true);
 					
 					// switch to next view
-					RPG.setView(new MapView(result));
+					Hero hero= new Hero();
+					hero.generateHero(result.getAttackArray(), result.getEquipArray(), result.getItemArray());
+					RPG.setView(new MapView(hero));
 				}
 			}
 
@@ -119,8 +119,13 @@ public class LoginView extends Composite {
 
 			@Override
 			public void onSuccess(User result) {
-				// TODO Auto-generated method stub
-				handleLogin();
+				// New User made
+				response.setText("Creation Successful!");
+				response.setVisible(true);
+				
+				// switch to next view
+				Hero hero= new Hero();
+				RPG.setView(new MapView(hero));
 			}
 			
 		});

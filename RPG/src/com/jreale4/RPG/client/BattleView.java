@@ -7,21 +7,20 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextBoxBase;
-import com.jreale4.RPG.shared.User;
+import com.jreale4.RPG.shared.Hero;
 
 public class BattleView extends Composite {
 	//IsWidget iView = new InView();
 	TextBox textBox;
 	//private BattleController controller;
 
-	public BattleView(final User hero) {
+	public BattleView(final Hero hero) {
 
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
@@ -40,7 +39,7 @@ public class BattleView extends Composite {
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				
-				hero.getHero().getAttack(1);
+				//hero.getHero().getAttack(1);
 				
 				/*
 				*	AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){

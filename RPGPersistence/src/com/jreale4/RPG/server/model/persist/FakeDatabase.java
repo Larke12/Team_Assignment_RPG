@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jreale4.RPG.shared.Attack;
+import com.jreale4.RPG.shared.Equipment;
+import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.Item;
 import com.jreale4.RPG.shared.Move;
 import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
@@ -35,7 +38,6 @@ public class FakeDatabase implements IDatabase {
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassword(password);
-		user.getHero().addAttackToList(new Attack(MoveType.slash, Move.physical));
 		userList.add(user);
 		return user;
 	}
