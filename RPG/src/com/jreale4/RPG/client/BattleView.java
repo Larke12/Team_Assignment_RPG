@@ -2,7 +2,7 @@ package com.jreale4.RPG.client;
 
 import java.util.Random;
 
-import com.jreale4.RPG.client.controllers.BattleController;
+import com.jreale4.RPG.server.controllers.BattleController;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

@@ -1,4 +1,4 @@
-package com.jreale4.RPG.client.controllers;
+package com.jreale4.RPG.server.controllers;
 
 import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.MoveType; // Listed attacks
