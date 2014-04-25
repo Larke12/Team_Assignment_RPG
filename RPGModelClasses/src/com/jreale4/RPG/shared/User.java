@@ -10,6 +10,7 @@ public class User implements Serializable {
 	//private int userId;
 	private String userName;
 	private String password;
+	private Hero Player;
 
 	public User() {
 
@@ -31,7 +32,10 @@ public class User implements Serializable {
 		return password;
 	}
 
-	//	public void storeHero(Hero hero){
-	//		this.Player= hero;
-	//	}
+	public Hero getHero(){
+		return Player;
+	}
+	public void storeHero(Hero hero){
+		this.Player= hero;
+	}
 }
