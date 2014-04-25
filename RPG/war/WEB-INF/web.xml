@@ -20,6 +20,15 @@
       <servlet-name>LoginServiceImpl</servlet-name>
       <url-pattern>/rpg/login</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+      <servlet-name>AttackServiceImpl</servlet-name>
+      <servlet-class>com.jreale4.RPG.server.AttackServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>AttackServiceImpl</servlet-name>
+      <url-pattern>/rpg/attack</url-pattern>
+  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
