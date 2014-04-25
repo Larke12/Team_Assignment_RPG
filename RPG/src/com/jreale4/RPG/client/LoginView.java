@@ -88,7 +88,7 @@ public class LoginView extends Composite {
 					response.setVisible(true);
 					
 					// switch to next view
-					RPG.setView(new MapView());
+					RPG.setView(new MapView(result));
 				}
 			}
 
