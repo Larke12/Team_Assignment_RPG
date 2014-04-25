@@ -23,6 +23,11 @@ public class Character {
 		// return how many items a character has
 		return ItemList.size();
 	}
+	
+	public Attack getAttack(int spot){
+		
+		return AttackList.get(spot-1);
+	}
 
 	public void addAttackToList(Attack attack){
 		//adds an attack to character's list

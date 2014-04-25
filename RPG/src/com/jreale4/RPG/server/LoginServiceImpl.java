@@ -15,4 +15,11 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 		return controller.logIn(userName, password);
 	}
 
+	@Override
+	public User newUser(String userName, String password) {
+		// TODO Auto-generated method stub
+		LoginController controller = new LoginController();
+		return controller.newUser(userName, password);
+	}
+
 }

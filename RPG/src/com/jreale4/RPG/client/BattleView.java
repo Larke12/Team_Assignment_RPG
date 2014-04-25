@@ -39,20 +39,25 @@ public class BattleView extends Composite {
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
-					@Override
-					public void onFailure(Throwable caught) {
-						// TODO Auto-generated method stub
-
-					}
-					//String attack = controller.Attack(); // Never misses, for now...
-					@Override
-					public void onSuccess(Integer result) {
-						// TODO Auto-generated method stub
-						textBox.setText("Dan used Slash! It did " + result + " damage.");
-						textBox.setVisible(true);
-					}
-				});
+				
+				hero.getHero().getAttack(1);
+				
+				/*
+				*	AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
+				*		@Override
+				*		public void onFailure(Throwable caught) {
+				*			// TODO Auto-generated method stub
+				*
+				*		}
+				*		//String attack = controller.Attack(); // Never misses, for now...
+				*		@Override
+				*		public void onSuccess(Integer result) {
+				*			// TODO Auto-generated method stub
+				*			textBox.setText("Dan used Slash! It did " + result + " damage.");
+				*			textBox.setVisible(true);
+				*		}
+				*	});
+				*/
 			}
 		});
 		layoutPanel.add(btnAttack);
