@@ -1,10 +1,17 @@
 package com.jreale4.RPG.client.controllers;
 
 import com.jreale4.RPG.shared.Attack;
+import com.jreale4.RPG.shared.Move;
 import com.jreale4.RPG.shared.MoveType; // Listed attacks
 
 public class BattleController {
 
+	public Attack SlashAttack(){
+		return new Attack(MoveType.slash, Move.physical);
+	}
+	
+	
+	
 	private Attack attack;
 
 	// Uses main physical attack, temp: Slash
