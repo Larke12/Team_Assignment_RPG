@@ -37,21 +37,21 @@ public class BattleView extends Composite {
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				// Slash! Physical attack only.
-				AttackRPC.attackService.makeSlash(new AsyncCallback<Attack>(){
+				AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
 
 					@Override
 					public void onFailure(Throwable caught) {
 						// TODO Auto-generated method stub
 						
 					}
+					//String attack = controller.Attack(); // Never misses, for now...
 
 					@Override
-					public void onSuccess(Attack result) {
+					public void onSuccess(Integer result) {
 						// TODO Auto-generated method stub
-						textBox.setText("Dan uses " +result.getMoveType().toString());
+						textBox.setText("Dan used Slash! It did " + result + " damage.");
 						textBox.setVisible(true);
 					}
-					//String attack = controller.Attack(); // Never misses, for now...
 				});
 			}
 		});
