@@ -1,8 +1,6 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
-import com.jreale4.RPG.server.controllers.BattleController;
-import com.jreale4.RPG.shared.Attack;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -14,6 +12,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.TextBoxBase;
 
 public class BattleView extends Composite {
 	//IsWidget iView = new InView();
@@ -24,12 +23,15 @@ public class BattleView extends Composite {
 
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
-		layoutPanel.setSize("800px", "800px");
+		layoutPanel.setSize("1060px", "800px");
 
 		textBox = new TextBox();
+		textBox.setTextAlignment(TextBoxBase.ALIGN_CENTER);
+		textBox.setVisibleLength(80);
+		textBox.setReadOnly(true);
 		textBox.setVisible(false);
 		layoutPanel.add(textBox);
-		layoutPanel.setWidgetLeftWidth(textBox, 299.0, Unit.PX, 191.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(textBox, 197.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(textBox, 536.0, Unit.PX, 34.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
