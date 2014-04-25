@@ -1,7 +1,8 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
-import com.jreale4.RPG.server.controllers.BattleController;
+
+import com.jreale4.RPG.client.controllers.BattleController;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -27,8 +28,8 @@ public class BattleView extends Composite {
 		textBox = new TextBox();
 		textBox.setVisible(false);
 		layoutPanel.add(textBox);
-		layoutPanel.setWidgetLeftWidth(textBox, 496.0, Unit.PX, 173.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(textBox, 467.0, Unit.PX, 34.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(textBox, 299.0, Unit.PX, 191.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(textBox, 536.0, Unit.PX, 34.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -36,6 +37,7 @@ public class BattleView extends Composite {
 				// Slash! Physical attack only.
 				String attack = controller.Attack(); // Never misses, for now...
 				textBox.setText(attack);
+				textBox.setVisible(true);
 			}
 		});
 		layoutPanel.add(btnAttack);
@@ -45,7 +47,7 @@ public class BattleView extends Composite {
 		Button btnInventory = new Button("Inventory");
 		btnInventory.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				// Open Inventory View
+				// Open Inventory View, SAME VIEW accessed via MapView
 				//RPG.setView(InView);
 			}
 		});
@@ -90,7 +92,7 @@ public class BattleView extends Composite {
 
 		Image image = new Image("assets/enemy_x.png");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetLeftWidth(image, 211.0, Unit.PX, 428.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 242.0, Unit.PX, 121.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(image, 197.0, Unit.PX, 428.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(image, 241.0, Unit.PX, 121.0, Unit.PX);
 	}
 }
