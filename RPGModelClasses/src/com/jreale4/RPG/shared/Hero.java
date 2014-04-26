@@ -1,19 +1,15 @@
 package com.jreale4.RPG.shared;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Hero extends Character{
 	int experience=0;
 	
 	public Hero(){
 		super.Level=1;
-		super.AttackList = new ArrayList<Attack>();
-		super.addAttackToList(new Attack(MoveType.slash, Move.physical));
-		super.EquipList = new ArrayList<Equipment>();
-		super.ItemList = new ArrayList<Item>();
 	}
 	
-	public void generateHero(ArrayList<Integer> atk, ArrayList<Integer> equip, ArrayList<Integer> item){
+	public void generateHero(List<Integer> atk, List<Integer> equip, List<Integer> item){
 		for(int i=1; i<atk.get(0); i+=2){
 			super.addAttackToList(new Attack(MoveType.locationOf(atk.get(i)), Move.locationOf(atk.get(i+1))));
 		}

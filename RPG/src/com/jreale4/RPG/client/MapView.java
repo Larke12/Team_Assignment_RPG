@@ -80,6 +80,7 @@ public class MapView extends Composite{
 	private void saveHero(Hero hero) {
 		// TODO Auto-generated method stub
 		int num = hero.getNumAttacks();
+		System.out.println(num);
 		User user= new User();
 		user.addToAttackArray(num);
 		for(int i=0; i<num;i++){

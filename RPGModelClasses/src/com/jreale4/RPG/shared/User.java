@@ -2,6 +2,7 @@ package com.jreale4.RPG.shared;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class User implements Serializable {	
 	/**
@@ -11,9 +12,9 @@ public class User implements Serializable {
 	//private int userId;
 	private String userName;
 	private String password;
-	private ArrayList<Integer> atk;
-	private ArrayList<Integer> equip;
-	private ArrayList<Integer> item;
+	private List<Integer> atk = new ArrayList<Integer>();
+	private List<Integer> equip = new ArrayList<Integer>();
+	private List<Integer> item = new ArrayList<Integer>();
 	
 	public User() {
 	}
@@ -33,23 +34,24 @@ public class User implements Serializable {
 	}
 	
 	public void addToAttackArray(int i){
+		System.out.println(i);
 		atk.add(i);
 	}
-	public ArrayList<Integer> getAttackArray(){
+	public List<Integer> getAttackArray(){
 		return atk;
 	}
 	
 	public void addToEquipArray(int i){
 		equip.add(i);
 	}
-	public ArrayList<Integer> getEquipArray(){
+	public List<Integer> getEquipArray(){
 		return equip;
 	}
 	
 	public void addToItemArray(int i){
 		item.add(i);
 	}
-	public ArrayList<Integer> getItemArray(){
+	public List<Integer> getItemArray(){
 		return item;
 	}
 	/*

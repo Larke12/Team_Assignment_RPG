@@ -30,7 +30,7 @@ public class Character {
 	
 	public Attack getAttack(int spot){
 		
-		return AttackList.get(spot-1);
+		return AttackList.get(spot);
 	}
 
 	public void addAttackToList(Attack attack){
