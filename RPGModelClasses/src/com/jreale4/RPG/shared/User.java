@@ -34,7 +34,7 @@ public class User implements Serializable {
 	}
 	
 	public void addToAttackArray(int i){
-		System.out.println(i);
+		System.out.println("Attack Array: " + i);
 		atk.add(i);
 	}
 	public List<Integer> getAttackArray(){
@@ -42,6 +42,7 @@ public class User implements Serializable {
 	}
 	
 	public void addToEquipArray(int i){
+		System.out.println("Equip Array" + i);
 		equip.add(i);
 	}
 	public List<Integer> getEquipArray(){
@@ -49,6 +50,7 @@ public class User implements Serializable {
 	}
 	
 	public void addToItemArray(int i){
+		System.out.println("Item Array" + i);
 		item.add(i);
 	}
 	public List<Integer> getItemArray(){

@@ -15,7 +15,7 @@ public enum ItemType {
 	}
 	
 	public static int intOf(ItemType type){
-		for(int i=1; i<2; i++){
+		for(int i=1; i<3; i++){
 			if(type.equals(locationOf(i))==true){
 				return i;
 			}

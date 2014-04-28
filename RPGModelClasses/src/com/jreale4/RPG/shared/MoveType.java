@@ -68,7 +68,7 @@ public enum MoveType {
 	}
 	
 	public static int intOf(MoveType move){
-		for(int i=1; i<2; i++){
+		for(int i=1; i<20; i++){
 			if(move.equals(locationOf(i))==true){
 				return i;
 			}
