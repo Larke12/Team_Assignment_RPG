@@ -10,8 +10,9 @@ public class Hero extends Character{
 	}
 	
 	public void generateHero(List<Integer> atk, List<Integer> equip, List<Integer> item){
-		for(int i=1; i<atk.get(0); i+=2){
-			super.addAttackToList(new Attack(MoveType.locationOf(atk.get(i)), Move.locationOf(atk.get(i+1))));
+		for(int i=1; i<=atk.get(0); i+=2){
+			Attack attack = new Attack(MoveType.locationOf(atk.get(i)), Move.locationOf(atk.get(i+1)));
+			super.addAttackToList(attack);
 		}
 		
 		if(equip.size()>=1){
