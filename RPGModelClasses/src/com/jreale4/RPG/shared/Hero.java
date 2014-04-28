@@ -16,13 +16,13 @@ public class Hero extends Character{
 		}
 		
 		if(equip.size()>=1){
-			for(int i=1; i<equip.get(0); i+=2){
+			for(int i=1; i<=equip.get(0); i+=2){
 				super.EquipList.add(new Equipment(EquipmentType.locationOf(equip.get(i)), equip.get(i+1)));
 			}
 		}
 		
 		if(item.size()>=1){
-			for(int i=1;i<item.get(0);i++){
+			for(int i=1;i<=item.get(0);i++){
 				super.ItemList.add(new Item(ItemType.locationOf(item.get(i))));
 			}
 		}
