@@ -13,11 +13,17 @@ public class Hero extends Character{
 		for(int i=1; i<atk.get(0); i+=2){
 			super.addAttackToList(new Attack(MoveType.locationOf(atk.get(i)), Move.locationOf(atk.get(i+1))));
 		}
-		for(int i=1; i<equip.get(0); i+=2){
-			super.EquipList.add(new Equipment(EquipmentType.locationOf(equip.get(i)), equip.get(i+1)));
+		
+		if(equip.size()>=1){
+			for(int i=1; i<equip.get(0); i+=2){
+				super.EquipList.add(new Equipment(EquipmentType.locationOf(equip.get(i)), equip.get(i+1)));
+			}
 		}
-		for(int i=1;i<item.get(0);i++){
-			super.ItemList.add(new Item(ItemType.locationOf(item.get(i))));
+		
+		if(item.size()>=1){
+			for(int i=1;i<item.get(0);i++){
+				super.ItemList.add(new Item(ItemType.locationOf(item.get(i))));
+			}
 		}
 	}
 
