@@ -10,4 +10,13 @@ public enum Move {
 			return magic;
 		}
 	}
+	
+	public static int intOf(Move move){
+		for(int i=1; i<2; i++){
+			if(move.equals(locationOf(i))==true){
+				return i;
+			}
+		}
+		return 11;
+	}
 }

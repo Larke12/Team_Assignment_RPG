@@ -9,4 +9,9 @@ public class LoginController {
 		IDatabase db = DatabaseProvider.getInstance();
 		return db.logIn(userName, password);
 	}
+	
+	public User newUser(String userName, String password){
+		IDatabase db = DatabaseProvider.getInstance();
+		return db.newUser(userName, password);
+	}
 }

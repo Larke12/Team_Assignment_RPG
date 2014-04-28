@@ -3,6 +3,12 @@ package com.jreale4.RPG.server.model.persist;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jreale4.RPG.shared.Attack;
+import com.jreale4.RPG.shared.Equipment;
+import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.Item;
+import com.jreale4.RPG.shared.Move;
+import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
 
 public class FakeDatabase implements IDatabase {
@@ -24,6 +30,16 @@ public class FakeDatabase implements IDatabase {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public User newUser(String userName, String password) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setUserName(userName);
+		user.setPassword(password);
+		userList.add(user);
+		return user;
 	}
 
 }

@@ -13,4 +13,13 @@ public enum ItemType {
 		// Else return poison
 		return poison;
 	}
+	
+	public static int intOf(ItemType type){
+		for(int i=1; i<2; i++){
+			if(type.equals(locationOf(i))==true){
+				return i;
+			}
+		}
+		return 11;
+	}
 }

@@ -1,12 +1,12 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
@@ -14,13 +14,14 @@ import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextBoxBase;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
+import com.jreale4.RPG.shared.Hero;
 
 public class BattleView extends Composite {
 	//IsWidget iView = new InView();
 	TextBox textBox;
 	//private BattleController controller;
 
-	public BattleView() {
+	public BattleView(final Hero hero) {
 
 		LayoutPanel layoutPanel = new LayoutPanel();
 		layoutPanel.setStyleName("layoutP");
@@ -40,20 +41,25 @@ public class BattleView extends Composite {
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
-					@Override
-					public void onFailure(Throwable caught) {
-						// TODO Auto-generated method stub
-
-					}
-					//String attack = controller.Attack(); // Never misses, for now...
-					@Override
-					public void onSuccess(Integer result) {
-						// TODO Auto-generated method stub
-						textBox.setText("Dan used Slash! It did " + result + " damage.");
-						textBox.setVisible(true);
-					}
-				});
+				
+				//hero.getHero().getAttack(1);
+				
+				/*
+				*	AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
+				*		@Override
+				*		public void onFailure(Throwable caught) {
+				*			// TODO Auto-generated method stub
+				*
+				*		}
+				*		//String attack = controller.Attack(); // Never misses, for now...
+				*		@Override
+				*		public void onSuccess(Integer result) {
+				*			// TODO Auto-generated method stub
+				*			textBox.setText("Dan used Slash! It did " + result + " damage.");
+				*			textBox.setVisible(true);
+				*		}
+				*	});
+				*/
 			}
 		});
 		layoutPanel.add(btnAttack);

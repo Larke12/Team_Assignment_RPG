@@ -15,4 +15,5 @@ public interface LoginService extends RemoteService {
 	 *         doesn't match any existing user
 	 */
 	public User login(String userName, String password);
+	public User newUser(String userName, String password);
 }

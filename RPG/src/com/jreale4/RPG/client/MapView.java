@@ -8,15 +8,20 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.jreale4.RPG.shared.EquipmentType;
+import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.ItemType;
+import com.jreale4.RPG.shared.Move;
+import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
 
 public class MapView extends Composite{
 	
 	IsWidget view = new BattleView();
-	
-	public MapView(User hero) {
+
+	public MapView(final Hero hero) {
 		
-		hero.storeHero(hero.getHero());
+		saveHero(hero);
 		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
@@ -73,5 +78,26 @@ public class MapView extends Composite{
 		layoutPanel.setWidgetLeftWidth(btnYorkShrine, 880.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnYorkShrine, 520.0, Unit.PX, 46.0, Unit.PX);
 
+	}
+
+	private void saveHero(Hero hero) {
+		// TODO Auto-generated method stub
+		int num = hero.getNumAttacks();
+		System.out.println(num);
+		User user= new User();
+		user.addToAttackArray(num);
+		for(int i=0; i<num;i++){
+			user.addToAttackArray(MoveType.intOf(hero.getAttack(i).getMoveType()));
+			user.addToAttackArray(Move.intOf(hero.getAttack(i).getMove()));
+		}
+		num = hero.getNumEquip();
+		for(int i=0;i<num;i++){
+			user.addToEquipArray(EquipmentType.intOf(hero.getEquip(i).getEquipmentType()));
+			user.addToEquipArray(hero.getEquip(i).getEquipLvl());
+		}
+		num = hero.getNumItems();
+		for(int i=0;i<num;i++){
+			user.addToItemArray(ItemType.intOf(hero.getItem(i).getItemType()));
+		}
 	}
 }
