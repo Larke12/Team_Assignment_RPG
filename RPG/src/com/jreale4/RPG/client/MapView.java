@@ -16,13 +16,13 @@ import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
 
 public class MapView extends Composite{
-	
-	IsWidget view = new BattleView();
 
 	public MapView(final Hero hero) {
+
+		final IsWidget view = new BattleView(hero);
 		
 		saveHero(hero);
-		
+
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 		layoutPanel.setSize("1080px", "1080px");
@@ -33,7 +33,7 @@ public class MapView extends Composite{
 
 		layoutPanel.setWidgetLeftWidth(image, 0.0, Unit.PX, 1920.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(image, 0.0, Unit.PX, 1080.0, Unit.PX);
-		
+
 		Button btnOcean = new Button("Ocean");
 		btnOcean.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -44,7 +44,7 @@ public class MapView extends Composite{
 		layoutPanel.add(btnOcean);
 		layoutPanel.setWidgetLeftWidth(btnOcean, 45.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnOcean, 701.0, Unit.PX, 28.0, Unit.PX);
-		
+
 		Button btnMtVilla = new Button("Mt. Villa");
 		btnMtVilla.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -55,7 +55,7 @@ public class MapView extends Composite{
 		layoutPanel.add(btnMtVilla);
 		layoutPanel.setWidgetLeftWidth(btnMtVilla, 208.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnMtVilla, 226.0, Unit.PX, 28.0, Unit.PX);
-		
+
 		Button btnYorkWoods = new Button("York Woods");
 		btnYorkWoods.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -66,7 +66,7 @@ public class MapView extends Composite{
 		layoutPanel.add(btnYorkWoods);
 		layoutPanel.setWidgetLeftWidth(btnYorkWoods, 441.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(btnYorkWoods, 530.0, Unit.PX, 46.0, Unit.PX);
-		
+
 		Button btnYorkShrine = new Button("York Shrine");
 		btnYorkShrine.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
