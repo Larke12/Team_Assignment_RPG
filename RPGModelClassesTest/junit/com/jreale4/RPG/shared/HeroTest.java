@@ -61,7 +61,12 @@ public class HeroTest extends TestCase{
 		e.add(bracers);
 		e.add(boots);
 
-		hero1= new Hero(lvl, exp+10, a, i, e);
+		hero1= new Hero();
+		hero1.AttackList.addAll(a);
+		hero1.EquipList.addAll(e);
+		hero1.ItemList.addAll(i);
+		hero1.Level=1;
+		hero1.experience=exp+10;
 	}
 
 	public void testLvlUp(){
