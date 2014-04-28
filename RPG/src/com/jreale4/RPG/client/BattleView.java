@@ -12,7 +12,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.TextBoxBase;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
 import com.jreale4.RPG.shared.Hero;
 
@@ -83,7 +82,7 @@ public class BattleView extends Composite {
 				Random rand = new Random();
 				int cnt = rand.nextInt(10)-2;
 				if(cnt > 0){
-					RPG.setView(new MapView());
+					RPG.setView(new MapView(hero));
 				}
 				else{
 					textBox.setText("Can't Escape!");

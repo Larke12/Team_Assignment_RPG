@@ -4,6 +4,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.jreale4.RPG.client.AttackService;
 import com.jreale4.RPG.server.controllers.BattleController;
 
+@SuppressWarnings("serial")
 public class AttackServiceImpl extends RemoteServiceServlet implements
 		AttackService {
 

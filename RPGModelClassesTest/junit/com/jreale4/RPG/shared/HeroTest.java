@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 public class HeroTest extends TestCase{
 	private Hero hero1;
 
+	@SuppressWarnings("unused")
 	private int lvl;
 
 	private int exp;
