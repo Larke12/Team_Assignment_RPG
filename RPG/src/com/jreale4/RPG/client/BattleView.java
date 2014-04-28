@@ -34,8 +34,8 @@ public class BattleView extends Composite {
 		textBox.setVisible(false);
 		layoutPanel.add(textBox);
 		textBox.setSize("400px", "34px");
-		layoutPanel.setWidgetLeftWidth(textBox, 197.0, Unit.PX, 400.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(textBox, 536.0, Unit.PX, 34.0, Unit.PX);
+		layoutPanel.setWidgetRightWidth(textBox, 453.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetBottomHeight(textBox, 218.0, Unit.PX, 34.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -108,7 +108,7 @@ public class BattleView extends Composite {
 
 		Image image = new Image("assets/enemy_x.png");
 		layoutPanel.add(image);
-		layoutPanel.setWidgetRightWidth(image, 463.0, Unit.PX, 400.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(image, 241.0, Unit.PX, 121.0, Unit.PX);
+		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(image, 241.0, Unit.PX, 438.0, Unit.PX);
 	}
 }
