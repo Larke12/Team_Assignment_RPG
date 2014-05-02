@@ -65,7 +65,7 @@ public class HeroTest extends TestCase{
 		hero1.AttackList.addAll(a);
 		hero1.EquipList.addAll(e);
 		hero1.ItemList.addAll(i);
-		hero1.Level=1;
+		hero1.Level=lvl;
 		hero1.experience=exp+10;
 	}
 
