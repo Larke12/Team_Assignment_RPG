@@ -117,21 +117,21 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
 		layoutPanel.setWidgetTopBottom(image, 241.0, Unit.PX, 438.0, Unit.PX);
 
-//		public void propertyChange(PropertyChangeEvent evt) {
-//			if (!done) {
-//				int progress = task.getProgress();
-//				if (progress == 0) {
-//					progressBar.setIndeterminate(true);
-//					taskOutput.append("No progress yet\n");
-//				} else {
-//					progressBar.setIndeterminate(false); 
-//					progressBar.setString(null);
-//					progressBar.setValue(progress);
-//					taskOutput.append(String.format(
-//							"Completed %d%% of task.\n", progress));
-//				}
-//			}
-//		}
+		//		public void propertyChange(PropertyChangeEvent evt) {
+		//			if (!done) {
+		//				int progress = task.getProgress();
+		//				if (progress == 0) {
+		//					progressBar.setIndeterminate(true);
+		//					taskOutput.append("No progress yet\n");
+		//				} else {
+		//					progressBar.setIndeterminate(false); 
+		//					progressBar.setString(null);
+		//					progressBar.setValue(progress);
+		//					taskOutput.append(String.format(
+		//							"Completed %d%% of task.\n", progress));
+		//				}
+		//			}
+		//		}
 
 	}
 }
