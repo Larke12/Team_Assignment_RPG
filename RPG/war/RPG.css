@@ -35,17 +35,66 @@ body {
 #closeButton {
 	margin: 15px 6px 6px;
 }
+
 .gwt-PasswordBox {
+	
 }
+
 .mapButton {
 	background: transparent;
-    border: none;
+	border: none;
 	font-weight: bold;
 	color: white;
 }
+
 layoutP {
 	background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(25,
 		25, 25, .5) 2px, rgba(255, 255, 255, .5) 4px);
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+}
+
+/* Styles for health bar.
+ * Code and CSS provided by Dr. Hovemeyer
+ */
+.health-bar { /* .cc-testOutcomeSummary */
+	position: relative;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 160px;
+	height: 28px;
+	background-color: black;
+}
+
+.health-bar-inner { /* .cc-testOutcomeSummaryInner */
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	left: 1px;
+	right: 1px;
+}
+
+.health-bar-inner-bg { /* .cc-testOutcomeSummaryInnerBackground */
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+.health-bar-empty-bg { /* .cc-testOutcomeSummaryInnerBackgroundEmpty */
+	background-color: white;
+}
+
+.health-bar-depleted-bg { /* .cc-testOutcomeSummaryInnerBackgroundNonEmpty */
+	background-color: red;
+}
+
+.healt-bar-full-bg	{ /* .cc-testOutcomeSummaryPassedTests */
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: green;
 }

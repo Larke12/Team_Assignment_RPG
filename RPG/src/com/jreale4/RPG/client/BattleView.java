@@ -2,16 +2,18 @@ package com.jreale4.RPG.client;
 
 import java.util.Random;
 
-import javax.swing.JProgressBar;
-
+import com.google.gwt.dev.ModuleTabPanel.Session;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -21,7 +23,6 @@ import com.jreale4.RPG.shared.Hero;
 public class BattleView extends Composite {
 
 	TextBox textBox;
-	JProgressBar progressBar;
 
 	public BattleView(final Hero hero) {
 
@@ -37,8 +38,17 @@ public class BattleView extends Composite {
 		textBox.setVisible(false);
 		layoutPanel.add(textBox);
 		textBox.setSize("400px", "34px");
-		layoutPanel.setWidgetRightWidth(textBox, 453.0, Unit.PX, 400.0, Unit.PX);
-		layoutPanel.setWidgetBottomHeight(textBox, 218.0, Unit.PX, 34.0, Unit.PX);
+		layoutPanel.setWidgetRightWidth(textBox, 463.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetBottomHeight(textBox, 207.0, Unit.PX, 34.0, Unit.PX);
+
+		// Health Bar code
+		HTML healthDiv = new HTML(
+				"<div class=\"health-bar\">" +
+						"<div class=\"health-bar-inner\">" +
+						"<div id=\"" + getInnerBackgroundElementId() + "\" class=\"health-bar-inner-bg\">" +
+						"<div id=\"" + gethealthElementId() + "\" class=\"healt-bar-full-bg\"></div></div></div></div>");
+		initWidget(healthDiv);
+		healthDiv.setSize("160px", "28px");
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -116,22 +126,32 @@ public class BattleView extends Composite {
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
 		layoutPanel.setWidgetTopBottom(image, 241.0, Unit.PX, 438.0, Unit.PX);
+	}
 
-		//		public void propertyChange(PropertyChangeEvent evt) {
-		//			if (!done) {
-		//				int progress = task.getProgress();
-		//				if (progress == 0) {
-		//					progressBar.setIndeterminate(true);
-		//					taskOutput.append("No progress yet\n");
-		//				} else {
-		//					progressBar.setIndeterminate(false); 
-		//					progressBar.setString(null);
-		//					progressBar.setValue(progress);
-		//					taskOutput.append(String.format(
-		//							"Completed %d%% of task.\n", progress));
-		//				}
-		//			}
-		//		}
+	private String gethealthElementId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	private String getInnerBackgroundElementId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void enemyFullHealth() {
+		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
+		innerBackgroundElt.addClassName("healt-bar-full-bg");
+	}
+
+	private void enemyDepletedHealth(final double health_update) {
+		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
+		innerBackgroundElt.removeClassName("health-bar-empty-bg");
+		innerBackgroundElt.addClassName("health-bar-depleted-bg");
+	}
+
+	private void enemyNoHealth(final double health_update) {
+		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
+		innerBackgroundElt.removeClassName("health-bar-depleted-bg");
+		innerBackgroundElt.addClassName("health-bar-empty-bg");
 	}
 }
