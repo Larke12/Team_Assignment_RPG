@@ -2,7 +2,6 @@ package com.jreale4.RPG.server.model.persist;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.jreale4.RPG.shared.User;
 
 public class FakeDatabase implements IDatabase {
