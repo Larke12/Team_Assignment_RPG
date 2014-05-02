@@ -5,10 +5,6 @@ public class Item {
 	private int HeroId;
 	private ItemType itemtype;
 
-	public Item(ItemType itemtype){
-		this.itemtype=itemtype;
-	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -17,6 +13,18 @@ public class Item {
 		return id;
 	}
 
+	public int getHeroId() {
+		return HeroId;
+	}
+	
+	public void setHeroId(int heroId) {
+		HeroId = heroId;
+	}
+	
+	public Item(ItemType itemtype){
+		this.itemtype=itemtype;
+	}
+	
 	public ItemType getItemType(){
 		//returns what type of item it is
 		return this.itemtype;
@@ -37,13 +45,4 @@ public class Item {
 		//			return (-1)*5*(level);
 		//		}
 	}
-
-	public int getHeroId() {
-		return HeroId;
-	}
-	
-	public void setHeroId(int heroId) {
-		HeroId = heroId;
-	}
-
 }

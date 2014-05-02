@@ -1,9 +1,27 @@
 package com.jreale4.RPG.shared;
 
 public class Attack {
+	private int id;
+	private int HeroId;
 	private MoveType movetype;
 	private Move move;
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public int getHeroId() {
+		return HeroId;
+	}
+	
+	public void setHeroId(int heroId) {
+		HeroId = heroId;
+	}
+	
 	public Attack(MoveType movetype, Move move){
 		this.movetype=movetype;
 		this.move=move;

@@ -18,6 +18,14 @@ public class Hero extends Character{
 	public int getId() {
 		return id;
 	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public int getExperience(){
 		//returns Hero's exp
