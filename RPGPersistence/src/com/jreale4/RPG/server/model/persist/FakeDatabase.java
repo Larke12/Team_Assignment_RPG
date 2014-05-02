@@ -2,20 +2,34 @@ package com.jreale4.RPG.server.model.persist;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.jreale4.RPG.shared.Attack;
+import com.jreale4.RPG.shared.Equipment;
+import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.Item;
 import com.jreale4.RPG.shared.User;
 
 public class FakeDatabase implements IDatabase {
+	private int nextUserId = 1;
 	private List<User> userList;
+	
+	private int nextHeroId = 1;
+	private List<Hero> heroList;
+	
+	private int nextItemId = 1;
+	private List<Item> itemList;
 	
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		User testUser = new User();
 		testUser.setUserName("admin");
 		testUser.setPassword("flamwenco");
-		testUser.addToAttackArray(1);
-		testUser.addToAttackArray(2);
-		testUser.addToAttackArray(1);
+		testUser.setId(nextUserId++);
 		userList.add(testUser);
+		
+		heroList = new ArrayList<Hero>();
+		
+		itemList = new ArrayList<Item>();
 	}
 
 	@Override
@@ -34,8 +48,32 @@ public class FakeDatabase implements IDatabase {
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassword(password);
+		user.setId(nextUserId++);
 		userList.add(user);
 		return user;
+	}
+
+	@Override
+	public Item[] getItemsForHero(Hero h) {
+		ArrayList<Item> result = new ArrayList<Item>();
+		for (Item item : itemList) {
+			if (item.getHeroId() == h.getId()) {
+				result.add(item);
+			}
+		}
+		return result.toArray(new Item[result.size()]);
+	}
+
+	@Override
+	public Attack[] getAttacksForHero(Hero h) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Equipment[] getEquipForHero(Hero h) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

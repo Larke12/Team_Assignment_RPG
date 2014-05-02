@@ -1,10 +1,20 @@
 package com.jreale4.RPG.shared;
 
 public class Item {
+	private int id;
+	private int HeroId;
 	private ItemType itemtype;
 
 	public Item(ItemType itemtype){
 		this.itemtype=itemtype;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public ItemType getItemType(){
@@ -26,6 +36,14 @@ public class Item {
 		//		if(itemtype==ItemType.poison){
 		//			return (-1)*5*(level);
 		//		}
+	}
+
+	public int getHeroId() {
+		return HeroId;
+	}
+	
+	public void setHeroId(int heroId) {
+		HeroId = heroId;
 	}
 
 }

@@ -10,13 +10,19 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -1045119253086061997L;
 	//private int userId;
+	private int id;
 	private String userName;
 	private String password;
-	private List<Integer> atk = new ArrayList<Integer>();
-	private List<Integer> equip = new ArrayList<Integer>();
-	private List<Integer> item = new ArrayList<Integer>();
 	
 	public User() {
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public void setUserName(String userName) {
@@ -31,30 +37,6 @@ public class User implements Serializable {
 	}
 	public String getPassword() {
 		return password;
-	}
-	
-	public void addToAttackArray(int i){
-		System.out.println(i);
-		atk.add(i);
-	}
-	public List<Integer> getAttackArray(){
-		return atk;
-	}
-	
-	public void addToEquipArray(int i){
-		System.out.println(i);
-		equip.add(i);
-	}
-	public List<Integer> getEquipArray(){
-		return equip;
-	}
-	
-	public void addToItemArray(int i){
-		System.out.println(i);
-		item.add(i);
-	}
-	public List<Integer> getItemArray(){
-		return item;
 	}
 	/*
  		public Hero getHero(){

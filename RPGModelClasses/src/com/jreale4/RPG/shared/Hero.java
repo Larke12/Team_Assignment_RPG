@@ -3,29 +3,20 @@ package com.jreale4.RPG.shared;
 import java.util.List;
 
 public class Hero extends Character{
+	private int id;
+	private int userId;
 	int experience=0;
 	
 	public Hero(){
 		super.Level=1;
 	}
 	
-	public void generateHero(List<Integer> atk, List<Integer> equip, List<Integer> item){
-		for(int i=1; i<=atk.get(0); i+=2){
-			Attack attack = new Attack(MoveType.locationOf(atk.get(i)), Move.locationOf(atk.get(i+1)));
-			super.addAttackToList(attack);
-		}
-		
-		if(equip.size()>=1){
-			for(int i=1; i<=equip.get(0); i+=2){
-				super.EquipList.add(new Equipment(EquipmentType.locationOf(equip.get(i)), equip.get(i+1)));
-			}
-		}
-		
-		if(item.size()>=1){
-			for(int i=1;i<=item.get(0);i++){
-				super.ItemList.add(new Item(ItemType.locationOf(item.get(i))));
-			}
-		}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public int getExperience(){
