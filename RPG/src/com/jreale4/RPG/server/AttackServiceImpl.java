@@ -19,7 +19,8 @@ public class AttackServiceImpl extends RemoteServiceServlet implements
 	@Override
 	public int EnemyAttack() {
 		// TODO Auto-generated method stub
-		return 0;
+		BattleController controller = new BattleController();
+		return controller.EnemySlash();
 	}
 
 }

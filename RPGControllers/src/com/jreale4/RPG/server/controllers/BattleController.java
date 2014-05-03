@@ -11,4 +11,8 @@ public class BattleController {
 		return (int)attack.getAttackPower(attack.getMoveType(), attack.getMove(), 1);
 	}
 
+	public int EnemySlash() {
+		
+	}
+
 }
