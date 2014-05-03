@@ -12,5 +12,4 @@ public interface AttackServiceAsync {
 
 	void EnemyAttack(Enemy m, AsyncCallback<Integer> asyncCallback);
 
-
 }

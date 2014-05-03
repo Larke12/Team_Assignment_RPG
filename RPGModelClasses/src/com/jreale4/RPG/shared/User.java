@@ -1,8 +1,6 @@
 package com.jreale4.RPG.shared;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class User implements Serializable {	
 	/**
@@ -13,14 +11,14 @@ public class User implements Serializable {
 	private int id;
 	private String userName;
 	private String password;
-	
+
 	public User() {
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -45,5 +43,5 @@ public class User implements Serializable {
 		public void storeHero(Hero hero){
 			this.Player= hero;
 		}
-	*/
+	 */
 }

@@ -4,12 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.Equipment;
 import com.jreale4.RPG.shared.Hero;
 import com.jreale4.RPG.shared.Item;
-import com.jreale4.RPG.shared.Move;
 import com.jreale4.RPG.shared.User;
 
 public class InitialData {
@@ -34,7 +32,7 @@ public class InitialData {
 			readUsers.close();
 		}
 	}
-	
+
 	public static List<Hero> getHero() throws IOException {
 		List<Hero> heroList = new ArrayList<Hero>();
 		ReadCSV readHero = new ReadCSV("heros.csv");
@@ -55,7 +53,7 @@ public class InitialData {
 			readHero.close();
 		}
 	}
-	
+
 	public static List<Attack> getAttacks() throws IOException {
 		List<Attack> attackList = new ArrayList<Attack>();
 		ReadCSV readAttack = new ReadCSV("attacks.csv");
@@ -78,7 +76,7 @@ public class InitialData {
 			readAttack.close();
 		}
 	}
-	
+
 	public static List<Item> getItem() throws IOException {
 		List<Item> itemList = new ArrayList<Item>();
 		ReadCSV readItem = new ReadCSV("items.csv");
@@ -90,11 +88,11 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				if(i!=null){
-				Item item = new Item(null);
-				item.setId(Integer.parseInt(i.next()));
-				item.setHeroId(Integer.parseInt(i.next()));
-				item.setItemType(Integer.parseInt(i.next()));
-				itemList.add(item);
+					Item item = new Item(null);
+					item.setId(Integer.parseInt(i.next()));
+					item.setHeroId(Integer.parseInt(i.next()));
+					item.setItemType(Integer.parseInt(i.next()));
+					itemList.add(item);
 				}
 			}
 			return itemList;
@@ -102,7 +100,7 @@ public class InitialData {
 			readItem.close();
 		}
 	}
-	
+
 	public static List<Equipment> getEquip() throws IOException {
 		List<Equipment> equipList = new ArrayList<Equipment>();
 		ReadCSV readEquip = new ReadCSV("equips.csv");
@@ -114,12 +112,12 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				if(i!=null){
-				Equipment equip = new Equipment(null, 0);
-				equip.setId(Integer.parseInt(i.next()));
-				equip.setHeroId(Integer.parseInt(i.next()));
-				equip.setEquipLvl(Integer.parseInt(i.next()));
-				equip.setEquipType(Integer.parseInt(i.next()));
-				equipList.add(equip);
+					Equipment equip = new Equipment(null, 0);
+					equip.setId(Integer.parseInt(i.next()));
+					equip.setHeroId(Integer.parseInt(i.next()));
+					equip.setEquipLvl(Integer.parseInt(i.next()));
+					equip.setEquipType(Integer.parseInt(i.next()));
+					equipList.add(equip);
 				}
 			}
 			return equipList;
