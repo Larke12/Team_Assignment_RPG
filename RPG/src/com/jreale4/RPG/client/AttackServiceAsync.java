@@ -8,4 +8,6 @@ public interface AttackServiceAsync {
 
 	void makeFire(AsyncCallback<Integer> callback);
 
+	void EnemyAttack(AsyncCallback<Integer> asyncCallback);
+
 }

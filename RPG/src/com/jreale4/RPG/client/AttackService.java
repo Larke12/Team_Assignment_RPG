@@ -8,4 +8,5 @@ public interface AttackService extends RemoteService {
 	
 	public int makeSlash();
 	public int makeFire();
+	public int EnemyAttack();
 }

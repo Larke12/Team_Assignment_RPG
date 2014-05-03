@@ -21,5 +21,9 @@ AttackService {
 
 		return controller.makeFire();
 	}
+	public int EnemyAttack() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
