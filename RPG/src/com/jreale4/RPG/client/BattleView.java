@@ -83,7 +83,7 @@ public class BattleView extends Composite {
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-
+				
 				AttackRPC.attackService.makeSlash(hero, new AsyncCallback<Integer>(){
 					public void onFailure(Throwable caught) {
 						// TODO Auto-generated method stub

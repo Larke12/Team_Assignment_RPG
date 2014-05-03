@@ -9,17 +9,22 @@ import com.jreale4.RPG.shared.MoveType; // Listed attacks
 public class BattleController {
 
 	public int makeSlash(Hero h){
-		Attack a = h.getAttack(0);
+		Attack a = new Attack( MoveType.slash, Move.physical);
+		
+//		Attack a = h.getAttack(0);
 		return (int)a.getAttackPower(1);
 	}
 	
 	public int makeFire(Hero h) {
-		Attack a = h.getAttack(1);
+		Attack a = new Attack(MoveType.fira, Move.magic);
+		
+//		Attack a = h.getAttack(1);
 		return (int)a.getAttackPower(1);
 	}
 
 	public int EnemySlash(Enemy m) {
-		Attack e = m.getAttack(0);
+		Attack e = new Attack( MoveType.slash, Move.physical);
+//		Attack e = m.getAttack(0);
 		return (int)e.getAttackPower(1);
 	}
 
