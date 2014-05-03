@@ -8,19 +8,14 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.jreale4.RPG.shared.EquipmentType;
 import com.jreale4.RPG.shared.Hero;
-import com.jreale4.RPG.shared.ItemType;
-import com.jreale4.RPG.shared.Move;
-import com.jreale4.RPG.shared.MoveType;
-import com.jreale4.RPG.shared.User;
 
 public class MapView extends Composite{
 
 	public MapView(final Hero hero) {
 
 		final IsWidget view = new BattleView(hero);
-		
+
 		saveHero(hero);
 
 		LayoutPanel layoutPanel = new LayoutPanel();
@@ -81,6 +76,6 @@ public class MapView extends Composite{
 	}
 
 	private void saveHero(Hero hero) {
-		
+
 	}
 }

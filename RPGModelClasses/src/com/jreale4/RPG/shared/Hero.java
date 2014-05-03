@@ -1,28 +1,26 @@
 package com.jreale4.RPG.shared;
 
-import java.util.List;
-
 public class Hero extends Character{
 	private int id;
 	private int userId;
 	int experience=0;
-	
+
 	public Hero(){
 		super.Level=1;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public int getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
