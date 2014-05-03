@@ -1,10 +1,6 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -24,10 +20,11 @@ import com.google.gwt.user.client.ui.Label;
 public class BattleView extends Composite {
 
 	TextBox textBox;
+	Integer totalHealth = 400;
 
 	public BattleView(final Hero hero) {
 
-		LayoutPanel layoutPanel = new LayoutPanel();
+		final LayoutPanel layoutPanel = new LayoutPanel();
 		layoutPanel.setStyleName("layoutP");
 		initWidget(layoutPanel);
 		layoutPanel.setSize("1060px", "800px");
@@ -38,19 +35,48 @@ public class BattleView extends Composite {
 		textBox.setReadOnly(true);
 		textBox.setVisible(false);
 
-		// Health Bar code
-		HTML healthDiv = new HTML(
+		// Health Bar code, BG is static background
+		HTML healthDivBG = new HTML(
 				"<div class=\"health-bar\">" +
-				"<div class=\"health-bar-normal\"></div></div>");
+				"<div class=\"health-bar-solid\"></div></div>");
+		layoutPanel.add(healthDivBG);
+		layoutPanel.setWidgetLeftWidth(healthDivBG, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivBG, 78.0, Unit.PX, 34.0, Unit.PX);
+		healthDivBG.setSize("400px", "34px");
+
+		// Health is red, under 50% total health
+		final HTML healthDivLow = new HTML(
+				"<div class=\"health-bar\">" +
+				"<div class=\"health-bar-half-enemy\"></div></div>");
+		layoutPanel.add(healthDivLow);
+		layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
+		healthDivLow.setSize("400px", "34px");
+		healthDivLow.setVisible(false);
+
+		// Health is green, over 50% total health
+		final HTML healthDiv = new HTML(
+				"<div class=\"health-bar\">" +
+				"<div class=\"health-bar-normal-enemy\"></div></div>");
 		layoutPanel.add(healthDiv);
 		layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDiv.setSize("400px", "34px");
 
+		// Special text box for battle announcements
 		layoutPanel.add(textBox);
 		textBox.setSize("400px", "34px");
 		layoutPanel.setWidgetRightWidth(textBox, 463.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetBottomHeight(textBox, 207.0, Unit.PX, 34.0, Unit.PX);
+
+		// Label above enemy health bar
+		final Label lblEnemyHealth = new Label("Enemy Health");
+		lblEnemyHealth.setStyleName("high-health");
+		layoutPanel.add(lblEnemyHealth);
+		layoutPanel.setWidgetLeftWidth(lblEnemyHealth, 351.0, Unit.PX, 101.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblEnemyHealth, 56.0, Unit.PX, 16.0, Unit.PX);
+
+		// Add player label
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -64,7 +90,22 @@ public class BattleView extends Composite {
 					public void onSuccess(Integer result) {
 						textBox.setText("Dan used Slash! It did " + result + " damage.");
 						textBox.setVisible(true);
-						enemyHealthUpdate(result);
+
+						// Update Enemy health
+						totalHealth -= (result * 10);
+						if (totalHealth > 200) {
+							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);							
+						} else {
+							lblEnemyHealth.setStyleName("half-health");
+							healthDiv.setVisible(false);
+							healthDivLow.setVisible(true);
+							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
+						}
+						if (totalHealth <= 0) {
+							RPG.setView(new MapView(hero));
+						}
 					}
 				});
 			}
@@ -91,7 +132,7 @@ public class BattleView extends Composite {
 			public void onClick(ClickEvent event) {
 				Random rand = new Random();
 				int cnt = rand.nextInt(10)-2;
-				if(cnt > 0){
+				if(cnt > 5){
 					RPG.setView(new MapView(hero));
 				}
 				else{
@@ -128,21 +169,5 @@ public class BattleView extends Composite {
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
 		layoutPanel.setWidgetTopBottom(image, 175.0, Unit.PX, 504.0, Unit.PX);
-
-		Label lblEnemyHealth = new Label("Enemy Health");
-		lblEnemyHealth.setStyleName("high-health");
-		layoutPanel.add(lblEnemyHealth);
-		layoutPanel.setWidgetLeftWidth(lblEnemyHealth, 351.0, Unit.PX, 101.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblEnemyHealth, 56.0, Unit.PX, 16.0, Unit.PX);
-	}
-
-	private void enemyHealthUpdate(Integer result) {
-		StringBuffer javascript = null;
-		ScriptEngine engine = null;
-//		try {
-//			engine = new ScriptEngineManager().getEngineByName("javascript");
-//			javascript = new StringBuffer();
-//			
-//		}
 	}
 }

@@ -122,19 +122,37 @@ layoutP {
 	padding: 3px;
 }
 
+.health-bar-solid {
+	height: 20px;
+	background-color: white;
+	width: 100%;
+}
+
 .label { /** Unused for now **/
 	position: absolute;
 	left: 50%;
 }
 
-.health-bar-normal {
+.health-bar-normal-enemy {
 	height: 20px;
 	background-color: green;
 	width: 100%;
 }
 
-.health-bar-half {
+.health-bar-half-enemy {
 	height: 20px;
 	background-color: red;
-	width: 50%;
+	width: 100%;
+}
+
+.health-bar-normal-hero {
+	height: 20px;
+	background-color: green;
+	width: 100%;
+}
+
+.health-bar-half-hero {
+	height: 20px;
+	background-color: red;
+	width: 100%;
 }
