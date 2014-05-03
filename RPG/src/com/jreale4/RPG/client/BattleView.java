@@ -1,6 +1,7 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -103,6 +104,9 @@ public class BattleView extends Composite {
 							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
+						
+						EnemyTurn();
+						
 						if (totalHealth <= 0) {
 							RPG.setView(new MapView(hero));
 						}
@@ -138,6 +142,8 @@ public class BattleView extends Composite {
 				else{
 					textBox.setText("Can't Escape!");
 					textBox.setVisible(true);
+					
+					EnemyTurn();
 				}
 			}
 		});
@@ -169,5 +175,21 @@ public class BattleView extends Composite {
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
 		layoutPanel.setWidgetTopBottom(image, 175.0, Unit.PX, 504.0, Unit.PX);
+	}
+	
+	public void EnemyTurn(){
+		AttackRPC.attackService.EnemyAttack(new AsyncCallback<Integer>(){
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onSuccess(Integer result) {
+				
+			}
+		});
 	}
 }

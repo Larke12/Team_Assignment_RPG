@@ -16,4 +16,10 @@ public class AttackServiceImpl extends RemoteServiceServlet implements
 		return controller.makeSlash();
 	}
 
+	@Override
+	public int EnemyAttack() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
