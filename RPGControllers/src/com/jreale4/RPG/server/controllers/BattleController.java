@@ -10,6 +10,10 @@ public class BattleController {
 		Attack attack =new Attack(MoveType.slash, Move.physical);
 		return (int)attack.getAttackPower(attack.getMoveType(), attack.getMove(), 1);
 	}
+	
+	public int makeFire() {
+		
+	}
 
 	public int EnemySlash() {
 		

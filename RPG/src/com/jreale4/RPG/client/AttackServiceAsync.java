@@ -6,6 +6,9 @@ public interface AttackServiceAsync {
 
 	void makeSlash(AsyncCallback<Integer> callback);
 
+	void makeFire(AsyncCallback<Integer> callback);
+
 	void EnemyAttack(AsyncCallback<Integer> asyncCallback);
+
 
 }

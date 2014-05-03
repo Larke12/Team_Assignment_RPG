@@ -157,6 +157,7 @@ public class BattleView extends Composite {
 			public void onDoubleClick(DoubleClickEvent event) {
 				// Use last used magic attack, no windows/views
 				// Use controller to retrieve and use last used magic
+				
 			}
 		});
 
