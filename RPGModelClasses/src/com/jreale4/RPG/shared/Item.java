@@ -25,6 +25,10 @@ public class Item {
 		this.itemtype=itemtype;
 	}
 	
+	public void setItemType(int i){
+		itemtype=ItemType.locationOf(i);
+	}
+	
 	public ItemType getItemType(){
 		//returns what type of item it is
 		return this.itemtype;

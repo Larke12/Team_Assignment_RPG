@@ -105,30 +105,33 @@ public class LoginView extends Composite {
 	}
 
 	protected void handleNewUser(){
-		String username= txtbxUsername.getText();
-		String password= txtbxPassword.getText();
-		System.out.println(username+" "+password);
-		RPC.loginService.newUser(username, password, new AsyncCallback<User>(){
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				response.setText("The system has encountered an error. If it continues please contact Help");
-				response.setVisible(true);
-			}
-
-			@Override
-			public void onSuccess(User result) {
-				// New User made
-				response.setText("Creation Successful!");
-				response.setVisible(true);
-				
-				// switch to next view
-				Hero hero= new Hero();
-				hero.addAttackToList(new Attack(MoveType.slash, Move.physical));
-				RPG.setView(new MapView(hero));
-			}
-			
-		});
+		response.setText("Cannot create New User at this time");
+		response.setVisible(true);
+		
+//		String username= txtbxUsername.getText();
+//		String password= txtbxPassword.getText();
+//		System.out.println(username+" "+password);
+//		RPC.loginService.newUser(username, password, new AsyncCallback<User>(){
+//
+//			@Override
+//			public void onFailure(Throwable caught) {
+//				// TODO Auto-generated method stub
+//				response.setText("The system has encountered an error. If it continues please contact Help");
+//				response.setVisible(true);
+//			}
+//
+//			@Override
+//			public void onSuccess(User result) {
+//				// New User made
+//				response.setText("Creation Successful!");
+//				response.setVisible(true);
+//				
+//				// switch to next view
+//				Hero hero= new Hero();
+//				hero.addAttackToList(new Attack(MoveType.slash, Move.physical));
+//				RPG.setView(new MapView(hero));
+//			}
+//			
+//		});
 	}
 }

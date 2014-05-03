@@ -27,10 +27,18 @@ public class Equipment {
 		this.eqlvl=eqlvl;
 	}
 
+	public void setEquipLvl(int i){
+		eqlvl=i;
+	}
+	
 	public int getEquipLvl(){
 		return this.eqlvl;
 	}
-
+	
+	public void setEquipType(int i){
+		eqtype= EquipmentType.locationOf(i);
+	}
+	
 	public EquipmentType getEquipmentType(){
 		return this.eqtype;
 	}

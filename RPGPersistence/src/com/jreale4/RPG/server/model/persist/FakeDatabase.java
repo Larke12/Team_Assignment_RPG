@@ -1,5 +1,6 @@
 package com.jreale4.RPG.server.model.persist;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import com.jreale4.RPG.shared.Item;
 import com.jreale4.RPG.shared.Move;
 import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
+
 
 public class FakeDatabase implements IDatabase {
 	private int nextUserId = 1;
@@ -29,27 +31,26 @@ public class FakeDatabase implements IDatabase {
 	
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
-		User testUser = new User();
-		testUser.setUserName("admin");
-		testUser.setPassword("flamwenco");
-		testUser.setId(nextUserId++);
-		userList.add(testUser);
-		
 		heroList = new ArrayList<Hero>();
-		Hero testHero = new Hero();
-		testHero.setId(nextHeroId++);
-		testHero.setUserId(testUser.getId());
 		itemList = new ArrayList<Item>();
-		
 		atkList = new ArrayList<Attack>();
-		Attack atk = new Attack(MoveType.slash, Move.physical);
-		atk.setId(nextAttackId++);
-		atk.setHeroId(testHero.getId());
-		atkList.add(atk);
-		
 		equipList = new ArrayList<Equipment>();
+		
+		readInitialData();
 	}
 
+	public void readInitialData(){
+		try{
+			userList.addAll(InitialData.getUsers());
+			heroList.addAll(InitialData.getHero());
+//			itemList.addAll(InitialData.getItem());
+			atkList.addAll(InitialData.getAttacks());
+//			equipList.addAll(InitialData.getEquip());
+		}catch (IOException e) {
+			throw new IllegalStateException("Couldn't read initial data", e);
+		}
+	}
+	
 	@Override
 	public User logIn(String userName, String password) {
 		for (User user : userList) {
@@ -60,16 +61,16 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 
-	@Override
-	public User newUser(String userName, String password) {
-		// TODO Auto-generated method stub
-		User user = new User();
-		user.setUserName(userName);
-		user.setPassword(password);
-		user.setId(nextUserId++);
-		userList.add(user);
-		return user;
-	}
+//	@Override
+//	public User newUser(String userName, String password) {
+//		// TODO Auto-generated method stub
+//		User user = new User();
+//		user.setUserName(userName);
+//		user.setPassword(password);
+//		user.setId(nextUserId++);
+//		userList.add(user);
+//		return user;
+//	}
 
 	@Override
 	public Item[] getItemsForHero(Hero h) {
@@ -95,8 +96,13 @@ public class FakeDatabase implements IDatabase {
 
 	@Override
 	public Equipment[] getEquipForHero(Hero h) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Equipment> result = new ArrayList<Equipment>();
+		for(Equipment equip : equipList){
+			if(equip.getHeroId() == h.getId()){
+				result.add(equip);
+			}
+		}
+		return result.toArray(new Equipment[result.size()]);
 	}
 
 }
