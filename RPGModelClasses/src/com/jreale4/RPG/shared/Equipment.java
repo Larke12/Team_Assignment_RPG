@@ -1,8 +1,27 @@
 package com.jreale4.RPG.shared;
 
 public class Equipment {
+	private int id;
+	private int HeroId;
 	EquipmentType eqtype;
 	int eqlvl;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public int getHeroId() {
+		return HeroId;
+	}
+	
+	public void setHeroId(int heroId) {
+		HeroId = heroId;
+	}
+	
 	public Equipment(EquipmentType eqtp, int eqlvl){
 		this.eqtype=eqtp;
 		this.eqlvl=eqlvl;

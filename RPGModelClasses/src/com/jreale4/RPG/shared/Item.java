@@ -1,12 +1,30 @@
 package com.jreale4.RPG.shared;
 
 public class Item {
+	private int id;
+	private int HeroId;
 	private ItemType itemtype;
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public int getHeroId() {
+		return HeroId;
+	}
+	
+	public void setHeroId(int heroId) {
+		HeroId = heroId;
+	}
+	
 	public Item(ItemType itemtype){
 		this.itemtype=itemtype;
 	}
-
+	
 	public ItemType getItemType(){
 		//returns what type of item it is
 		return this.itemtype;
@@ -27,5 +45,4 @@ public class Item {
 		//			return (-1)*5*(level);
 		//		}
 	}
-
 }

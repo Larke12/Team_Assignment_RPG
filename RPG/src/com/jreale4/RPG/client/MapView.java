@@ -81,25 +81,6 @@ public class MapView extends Composite{
 	}
 
 	private void saveHero(Hero hero) {
-		// TODO Auto-generated method stub
-		int num = hero.getNumAttacks();
-		System.out.println("Number of attacks: " + num);
-		User user= new User();
-		user.addToAttackArray(num);
-		for(int i=0; i<num;i++){
-			user.addToAttackArray(MoveType.intOf(hero.getAttack(i).getMoveType()));
-			user.addToAttackArray(Move.intOf(hero.getAttack(i).getMove()));
-		}
-		num = hero.getNumEquip();
-		System.out.println("Number of equip: " + num);
-		for(int i=0;i<num;i++){
-			user.addToEquipArray(EquipmentType.intOf(hero.getEquip(i).getEquipmentType()));
-			user.addToEquipArray(hero.getEquip(i).getEquipLvl());
-		}
-		num = hero.getNumItems();
-		System.out.println("Number of items: " + num);
-		for(int i=0;i<num;i++){
-			user.addToItemArray(ItemType.intOf(hero.getItem(i).getItemType()));
-		}
+		
 	}
 }

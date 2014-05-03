@@ -90,12 +90,7 @@ public class LoginView extends Composite {
 					// login successful
 					response.setText("Login Successful!");
 					response.setVisible(true);
-					for(int i=0; i<result.getAttackArray().size();i++){
-						System.out.println("Attack array: " + result.getAttackArray().get(i));
-					}
-					// switch to next view
-					Hero hero= new Hero();
-					hero.generateHero(result.getAttackArray(), result.getEquipArray(), result.getItemArray());
+					Hero hero= new Hero(); //TEMP
 					RPG.setView(new MapView(hero));
 				}
 			}
