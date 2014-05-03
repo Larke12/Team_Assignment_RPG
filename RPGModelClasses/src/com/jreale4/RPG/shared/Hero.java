@@ -1,11 +1,10 @@
 package com.jreale4.RPG.shared;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Hero extends Character implements Serializable{
 	/**
-	 * 
+	 * Is this correct? ~ Ryan
 	 */
 	private static final long serialVersionUID = 6327698898812484232L;
 	private int id;

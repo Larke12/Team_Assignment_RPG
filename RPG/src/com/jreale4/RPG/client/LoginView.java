@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.RealRandom;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -18,9 +19,10 @@ public class LoginView extends Composite {
 	private TextBox response;
 	private PasswordTextBox txtbxPassword;
 	//private LoginController controller;
-
+	
 	public LoginView() {
-
+		RealRandom.init();
+		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 
@@ -87,8 +89,23 @@ public class LoginView extends Composite {
 					// login successful
 					response.setText("Login Successful!");
 					response.setVisible(true);
-					Hero hero= new Hero(); //TEMP
-					RPG.setView(new MapView(hero));
+					
+					RPC.loginService.getHero(result, new AsyncCallback<Hero>(){
+
+						@Override
+						public void onFailure(Throwable caught) {
+							// TODO Auto-generated method stub
+							
+						}
+
+						@Override
+						public void onSuccess(Hero result) {
+							// TODO Auto-generated method stub
+
+							RPG.setView(new MapView(result));
+						}
+						
+					});
 				}
 			}
 

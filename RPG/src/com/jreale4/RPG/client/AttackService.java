@@ -7,11 +7,10 @@ import com.jreale4.RPG.shared.Hero;
 
 @RemoteServiceRelativePath("attack")
 public interface AttackService extends RemoteService {
-
+	
 	public int makeSlash(Hero h);
-
+	
 	public int makeFire(Hero h);
 
 	public int EnemyAttack(Enemy m);
-
 }

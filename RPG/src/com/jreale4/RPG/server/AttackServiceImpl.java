@@ -20,14 +20,14 @@ AttackService {
 	@Override
 	public int makeFire(Hero h) {
 		BattleController controller = new BattleController();
-
 		return controller.makeFire(h);
 	}
 
+
 	@Override
 	public int EnemyAttack(Enemy m) {
-		// TODO Auto-generated method stub
-
-		return 0;
+		BattleController controller = new BattleController();
+		return controller.EnemySlash(m);
 	}
+
 }
