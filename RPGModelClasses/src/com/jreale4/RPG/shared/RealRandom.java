@@ -10,8 +10,4 @@ public class RealRandom implements IRandom {
 	public int nextInt(int n) {
 		return rng.nextInt(n);
 	}
-	
-	public static void init(){
-		RandomProvider.setInstance(new RealRandom());
-	}
 }

@@ -12,5 +12,4 @@ public interface IDatabase {
 	public Item[] getItemsForHero(Hero h);
 	public Attack[] getAttacksForHero(Hero h);
 	public Equipment[] getEquipForHero(Hero h);
-	public Hero getHero(User u);
 }

@@ -1,25 +1,14 @@
 package com.jreale4.RPG.shared;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Enemy extends Character implements Serializable{
+public class Enemy extends Character {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2774600366646304395L;
-	
 	public Enemy(int HeroLvl){
 		this.AttackList=  CreateAttacks();
+			//this.EquipList= CreateEquip();
 		this.ItemList= CreateItems();
 		this.Level= CreateLevel(HeroLvl);
-	}
-	
-	public Enemy(){
-		this.AttackList=  CreateAttacks();
-		this.ItemList= CreateItems();
-		this.Level= CreateLevel(0);
 	}
 
 	private int CreateLevel(int level){
@@ -57,21 +46,21 @@ public class Enemy extends Character implements Serializable{
 		}
 		return atklst;
 	}
-//		private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
-//			//TODO: FIX-UP
-//			ArrayList<Attack> temp= new ArrayList<Attack>();
-//			for(Attack a: atklst){
-//				temp.add(a);
-//			}
-//			for(Attack a: temp){
-//				for(int i=0;i<temp.size();i++){
-//					if(a.equals(atklst.get(i))){
-//						boolean didRemove=atklst.remove(a);
-//					}
-//				}
-//			}
-//			return atklst;
-//		}
+		/*private ArrayList<Attack> DuplicateRemover(ArrayList<Attack> atklst){
+			//TODO: FIX-UP
+			ArrayList<Attack> temp= new ArrayList<Attack>();
+			for(Attack a: atklst){
+				temp.add(a);
+			}
+			for(Attack a: temp){
+				for(int i=0;i<temp.size();i++){
+					if(a.equals(atklst.get(i))){
+						boolean didRemove=atklst.remove(a);
+					}
+				}
+			}
+			return atklst;
+		}*/
 	private ArrayList<Item> CreateItems(){
 		int listsize=RandomProvider.getInstance().nextInt(10);
 		ArrayList<Item> itemlst= new ArrayList<Item>();
@@ -87,6 +76,12 @@ public class Enemy extends Character implements Serializable{
 		item= new Item(ItemType.locationOf(randItem));
 		return item;
 	}
+		//private ArrayList<Equipment> CreateEquip(){
+		//	ArrayList<Equipment> equiplst= new ArrayList<Equipment>();
+	
+		//	return equiplst;
+		//}
+
 	// Randomize monster, selected monster uses a random moveset focused
 	// around that type of move set (physical, all normal attacks. magic, 
 	// magical moves based on their attribute

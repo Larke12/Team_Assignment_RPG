@@ -53,22 +53,4 @@ public class Hero extends Character implements Serializable{
 		}
 	}
 
-	public void generateHero(Attack[] atks, Item[] items, Equipment[] equips) {
-		for(Attack a: atks){
- 			super.addAttackToList(a);
- 		}
- 		
-// 		if(equips.length>=1){
-// 			for(Equipment e : equips){
-// 				super.EquipList.add(e);
-// 			}
-// 		}
-// 		
-// 		if(items.length>=1){
-// 			for(Item i : items){
-// 				super.ItemList.add(i);
-//		 	}
-// 		}
-	}
-
 }
