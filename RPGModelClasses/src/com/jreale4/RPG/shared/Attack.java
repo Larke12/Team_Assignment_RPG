@@ -26,7 +26,14 @@ public class Attack {
 		this.movetype=movetype;
 		this.move=move;
 	}
-
+	
+	public void setMoveType(int i){
+		movetype = MoveType.locationOf(i);
+	}
+	public void setMove(int m){
+		move=Move.locationOf(m);
+	}
+	
 	public MoveType getMoveType(){
 		//returns what type of move (e.g. stab, flamenKick, terra)
 		return movetype;

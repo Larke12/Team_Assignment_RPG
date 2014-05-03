@@ -7,6 +7,6 @@ public interface LoginServiceAsync {
 
 	void login(String userName, String password, AsyncCallback<User> callback);
 
-	void newUser(String userName, String password, AsyncCallback<User> callback);
+//	void newUser(String userName, String password, AsyncCallback<User> callback);
 
 }
