@@ -21,8 +21,9 @@ import com.google.gwt.user.client.ui.Label;
 
 public class BattleView extends Composite {
 	TextBox textBox;
-	Integer totalHealth = 400;
-	Enemy m = new Enemy(totalHealth);
+	Integer totalHealthEnemy = 400;
+	Integer totalHealthHero = 400;
+	Enemy m = new Enemy(totalHealthEnemy);
 
 	public BattleView(final Hero hero) {
 
@@ -45,6 +46,7 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetLeftWidth(healthDivBG, 197.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(healthDivBG, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDivBG.setSize("400px", "34px");
+		// Player copy
 
 		// Health is red, under 50% total health
 		final HTML healthDivLow = new HTML(
@@ -75,10 +77,15 @@ public class BattleView extends Composite {
 		final Label lblEnemyHealth = new Label("Enemy Health");
 		lblEnemyHealth.setStyleName("high-health");
 		layoutPanel.add(lblEnemyHealth);
-		layoutPanel.setWidgetLeftWidth(lblEnemyHealth, 351.0, Unit.PX, 101.0, Unit.PX);
+		layoutPanel.setWidgetLeftWidth(lblEnemyHealth, 351.0, Unit.PX, 95.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(lblEnemyHealth, 56.0, Unit.PX, 16.0, Unit.PX);
 
-		// Add player label
+		// Label above player health bar
+		Label lblPlayerHealth = new Label("Player Health");
+		lblPlayerHealth.setStyleName("high-health");
+		layoutPanel.add(lblPlayerHealth);
+		layoutPanel.setWidgetLeftWidth(lblPlayerHealth, 351.0, Unit.PX, 95.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblPlayerHealth, 507.0, Unit.PX, 16.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -94,21 +101,21 @@ public class BattleView extends Composite {
 						textBox.setVisible(true);
 
 						// Update Enemy health
-						totalHealth -= (result * 10);
-						if (totalHealth > 200) {
-							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealth, Unit.PX);
+						totalHealthEnemy -= (result * 10);
+						if (totalHealthEnemy > 200) {
+							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealthEnemy, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);							
 						} else {
 							lblEnemyHealth.setStyleName("half-health");
 							healthDiv.setVisible(false);
 							healthDivLow.setVisible(true);
-							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealthEnemy, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
 
 						EnemyTurn();
 
-						if (totalHealth <= 0) {
+						if (totalHealthEnemy <= 0) {
 							RPG.setView(new MapView(hero));
 						}
 					}
@@ -118,7 +125,7 @@ public class BattleView extends Composite {
 
 		layoutPanel.add(btnAttack);
 		layoutPanel.setWidgetLeftRight(btnAttack, 299.0, Unit.PX, 680.0, Unit.PX);
-		layoutPanel.setWidgetTopBottom(btnAttack, 423.0, Unit.PX, 349.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(btnAttack, 399.0, Unit.PX, 373.0, Unit.PX);
 
 		Button btnInventory = new Button("Inventory");
 		btnInventory.addClickHandler(new ClickHandler() {
@@ -130,7 +137,7 @@ public class BattleView extends Composite {
 
 		layoutPanel.add(btnInventory);
 		layoutPanel.setWidgetLeftRight(btnInventory, 409.0, Unit.PX, 570.0, Unit.PX);
-		layoutPanel.setWidgetTopBottom(btnInventory, 423.0, Unit.PX, 349.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(btnInventory, 399.0, Unit.PX, 373.0, Unit.PX);
 
 		Button btnEscape = new Button("Escape!");
 		btnEscape.addClickHandler(new ClickHandler() {
@@ -151,7 +158,7 @@ public class BattleView extends Composite {
 
 		layoutPanel.add(btnEscape);
 		layoutPanel.setWidgetLeftRight(btnEscape, 409.0, Unit.PX, 570.0, Unit.PX);
-		layoutPanel.setWidgetTopBottom(btnEscape, 473.0, Unit.PX, 299.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(btnEscape, 449.0, Unit.PX, 323.0, Unit.PX);
 
 		Button btnMagica = new Button("Magica");
 		btnMagica.addDoubleClickHandler(new DoubleClickHandler() {
@@ -172,26 +179,24 @@ public class BattleView extends Composite {
 						textBox.setVisible(true);
 
 						// Update Enemy health
-						totalHealth -= (result * 10);
-						if (totalHealth > 200) {
-							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealth, Unit.PX);
+						totalHealthEnemy -= (result * 10);
+						if (totalHealthEnemy > 200) {
+							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealthEnemy, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);							
 						} else {
 							lblEnemyHealth.setStyleName("half-health");
 							healthDiv.setVisible(false);
 							healthDivLow.setVisible(true);
-							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealthEnemy, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
 
 						EnemyTurn();
 
-						if (totalHealth <= 0) {
+						if (totalHealthEnemy <= 0) {
 							RPG.setView(new MapView(hero));
 						}
-
 					}
-
 				});
 
 			}
@@ -206,7 +211,7 @@ public class BattleView extends Composite {
 
 		layoutPanel.add(btnMagica);
 		layoutPanel.setWidgetLeftRight(btnMagica, 299.0, Unit.PX, 680.0, Unit.PX);
-		layoutPanel.setWidgetTopBottom(btnMagica, 473.0, Unit.PX, 299.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(btnMagica, 449.0, Unit.PX, 323.0, Unit.PX);
 
 		Image image = new Image("assets/enemy_x.png");
 		layoutPanel.add(image);
