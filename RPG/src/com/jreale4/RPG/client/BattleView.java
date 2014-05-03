@@ -15,14 +15,15 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
+import com.jreale4.RPG.shared.Enemy;
 import com.jreale4.RPG.shared.Hero;
 import com.google.gwt.user.client.ui.Label;
 
 public class BattleView extends Composite {
-
 	TextBox textBox;
 	Integer totalHealth = 400;
-
+	Enemy m = new Enemy(totalHealth);
+	
 	public BattleView(final Hero hero) {
 
 		final LayoutPanel layoutPanel = new LayoutPanel();
@@ -83,7 +84,7 @@ public class BattleView extends Composite {
 		btnAttack.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
-				AttackRPC.attackService.makeSlash(new AsyncCallback<Integer>(){
+				AttackRPC.attackService.makeSlash(hero, new AsyncCallback<Integer>(){
 					public void onFailure(Throwable caught) {
 						// TODO Auto-generated method stub
 					}
@@ -157,7 +158,22 @@ public class BattleView extends Composite {
 			public void onDoubleClick(DoubleClickEvent event) {
 				// Use last used magic attack, no windows/views
 				// Use controller to retrieve and use last used magic
-				
+				AttackRPC.attackService.makeFire(hero, new AsyncCallback<Integer>(){
+
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void onSuccess(Integer result) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+				});
+						
 			}
 		});
 
@@ -179,7 +195,7 @@ public class BattleView extends Composite {
 	}
 	
 	public void EnemyTurn(){
-		AttackRPC.attackService.EnemyAttack(new AsyncCallback<Integer>(){
+		AttackRPC.attackService.EnemyAttack(m, new AsyncCallback<Integer>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
