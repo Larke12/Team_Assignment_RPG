@@ -43,15 +43,15 @@ public class Attack {
 		return move;
 	}
 
-	public float getAttackPower(MoveType movetype, Move move, int Level){
+	public float getAttackPower(int Level){
 		//returns the power of an attack by the equation
 		//		P= (MTP+MP)/2
-		float Power=getMoveTypePower(movetype);
-		Power+=getMovePower(move);
+		float Power=getMoveTypePower();
+		Power+=getMovePower();
 		Power= Power*Level/2;
 		return Power;
 	}
-	private int getMoveTypePower(MoveType movetype){
+	private int getMoveTypePower(){
 		//returns the power variable for each MoveType, varies on magic type or overwhelming power of the move
 		int Power=0;
 		if(getMoveType()==MoveType.slash || getMoveType()==MoveType.stab){
@@ -74,7 +74,7 @@ public class Attack {
 		}
 		return Power;
 	}
-	private int getMovePower(Move move){
+	private int getMovePower(){
 		//returns the power variable for each Move
 		int Power=0;
 		if(getMove()==Move.physical){
