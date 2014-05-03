@@ -23,7 +23,7 @@ public class BattleView extends Composite {
 	TextBox textBox;
 	Integer totalHealth = 400;
 	Enemy m = new Enemy(totalHealth);
-	
+
 	public BattleView(final Hero hero) {
 
 		final LayoutPanel layoutPanel = new LayoutPanel();
@@ -105,9 +105,9 @@ public class BattleView extends Composite {
 							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
-						
+
 						EnemyTurn();
-						
+
 						if (totalHealth <= 0) {
 							RPG.setView(new MapView(hero));
 						}
@@ -143,7 +143,7 @@ public class BattleView extends Composite {
 				else{
 					textBox.setText("Can't Escape!");
 					textBox.setVisible(true);
-					
+
 					EnemyTurn();
 				}
 			}
@@ -163,17 +163,37 @@ public class BattleView extends Composite {
 					@Override
 					public void onFailure(Throwable caught) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void onSuccess(Integer result) {
-						// TODO Auto-generated method stub
-						
+						textBox.setText("Dan used Fira! It did " + result + " damage.");
+						textBox.setVisible(true);
+
+						// Update Enemy health
+						totalHealth -= (result * 10);
+						if (totalHealth > 200) {
+							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);							
+						} else {
+							lblEnemyHealth.setStyleName("half-health");
+							healthDiv.setVisible(false);
+							healthDivLow.setVisible(true);
+							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
+						}
+
+						EnemyTurn();
+
+						if (totalHealth <= 0) {
+							RPG.setView(new MapView(hero));
+						}
+
 					}
-					
+
 				});
-						
+
 			}
 		});
 
@@ -193,19 +213,19 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
 		layoutPanel.setWidgetTopBottom(image, 175.0, Unit.PX, 504.0, Unit.PX);
 	}
-	
+
 	public void EnemyTurn(){
 		AttackRPC.attackService.EnemyAttack(m, new AsyncCallback<Integer>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void onSuccess(Integer result) {
-				
+
 			}
 		});
 	}
