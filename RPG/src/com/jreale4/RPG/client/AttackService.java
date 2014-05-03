@@ -7,4 +7,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface AttackService extends RemoteService {
 	
 	public int makeSlash();
+	public int makeFire();
 }

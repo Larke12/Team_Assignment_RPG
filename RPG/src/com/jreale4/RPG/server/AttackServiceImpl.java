@@ -6,14 +6,20 @@ import com.jreale4.RPG.server.controllers.BattleController;
 
 @SuppressWarnings("serial")
 public class AttackServiceImpl extends RemoteServiceServlet implements
-		AttackService {
+AttackService {
 
 	@Override
 	public int makeSlash() {
-		// TODO Auto-generated method stub
 		BattleController controller = new BattleController();
-		
+
 		return controller.makeSlash();
+	}
+
+	@Override
+	public int makeFire() {
+		BattleController controller = new BattleController();
+
+		return controller.makeFire();
 	}
 
 }
