@@ -29,5 +29,4 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 //		LoginController controller = new LoginController();
 //		return controller.newUser(userName, password);
 //	}
-//I like apple pie
 }
