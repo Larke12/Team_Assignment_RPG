@@ -54,20 +54,34 @@ layoutP {
 	margin-right: auto;
 }
 
+/* Styles for enemy text above health bar
+ * Code and CSS provided by Dr. Hovemeyer
+ */
+.high-health { /* .cc-passedTest */
+	color: green;
+	font-weight: bold;
+}
+
+.half-health { /* .cc-failedTest */
+	color: red;
+	font-weight: bold;
+}
+
 /* Styles for health bar.
  * Code and CSS provided by Dr. Hovemeyer
  */
-.health-bar { /* .cc-testOutcomeSummary */
+/*
+.health-bar { /* .cc-testOutcomeSummary 
 	position: relative;
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
-	width: 160px;
-	height: 28px;
+	width: 400px;
+	height: 34px;
 	background-color: black;
 }
 
-.health-bar-inner { /* .cc-testOutcomeSummaryInner */
+.health-bar-inner { /* .cc-testOutcomeSummaryInner 
 	position: absolute;
 	top: 1px;
 	bottom: 1px;
@@ -75,7 +89,7 @@ layoutP {
 	right: 1px;
 }
 
-.health-bar-inner-bg { /* .cc-testOutcomeSummaryInnerBackground */
+.health-bar-inner-bg { /* .cc-testOutcomeSummaryInnerBackground 
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
@@ -83,18 +97,44 @@ layoutP {
 	right: 0px;
 }
 
-.health-bar-empty-bg { /* .cc-testOutcomeSummaryInnerBackgroundEmpty */
+.health-bar-empty-bg { /* .cc-testOutcomeSummaryInnerBackgroundEmpty 
 	background-color: white;
 }
 
-.health-bar-depleted-bg { /* .cc-testOutcomeSummaryInnerBackgroundNonEmpty */
+.health-bar-depleted-bg {
+	/* .cc-testOutcomeSummaryInnerBackgroundNonEmpty 
 	background-color: red;
 }
 
-.healt-bar-full-bg	{ /* .cc-testOutcomeSummaryPassedTests */
+.healt-bar-full-bg { /* .cc-testOutcomeSummaryPassedTests 
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	bottom: 0px;
 	background-color: green;
+}
+*/
+/** Newer health bar CSS http://jsfiddle.net/WawPr/ **/
+.health-bar {
+	width: 500px;
+	border: 1px solid black;
+	position: relative;
+	padding: 3px;
+}
+
+.label { /** Unused for now **/
+	position: absolute;
+	left: 50%;
+}
+
+.health-bar-normal {
+	height: 20px;
+	background-color: green;
+	width: 100%;
+}
+
+.health-bar-half {
+	height: 20px;
+	background-color: red;
+	width: 50%;
 }

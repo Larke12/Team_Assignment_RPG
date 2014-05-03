@@ -2,14 +2,14 @@ package com.jreale4.RPG.client;
 
 import java.util.Random;
 
-import com.google.gwt.dev.ModuleTabPanel.Session;
-import com.google.gwt.dom.client.Element;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -19,6 +19,7 @@ import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
 import com.jreale4.RPG.shared.Hero;
+import com.google.gwt.user.client.ui.Label;
 
 public class BattleView extends Composite {
 
@@ -36,19 +37,20 @@ public class BattleView extends Composite {
 		textBox.setVisibleLength(80);
 		textBox.setReadOnly(true);
 		textBox.setVisible(false);
-		layoutPanel.add(textBox);
-		textBox.setSize("400px", "34px");
-		layoutPanel.setWidgetRightWidth(textBox, 463.0, Unit.PX, 400.0, Unit.PX);
-		layoutPanel.setWidgetBottomHeight(textBox, 207.0, Unit.PX, 34.0, Unit.PX);
 
 		// Health Bar code
 		HTML healthDiv = new HTML(
 				"<div class=\"health-bar\">" +
-						"<div class=\"health-bar-inner\">" +
-						"<div id=\"" + getInnerBackgroundElementId() + "\" class=\"health-bar-inner-bg\">" +
-						"<div id=\"" + gethealthElementId() + "\" class=\"healt-bar-full-bg\"></div></div></div></div>");
-		initWidget(healthDiv);
-		healthDiv.setSize("160px", "28px");
+				"<div class=\"health-bar-normal\"></div></div>");
+		layoutPanel.add(healthDiv);
+		layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);
+		healthDiv.setSize("400px", "34px");
+
+		layoutPanel.add(textBox);
+		textBox.setSize("400px", "34px");
+		layoutPanel.setWidgetRightWidth(textBox, 463.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetBottomHeight(textBox, 207.0, Unit.PX, 34.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -60,9 +62,9 @@ public class BattleView extends Composite {
 					}
 
 					public void onSuccess(Integer result) {
-						// TODO Auto-generated method stub
 						textBox.setText("Dan used Slash! It did " + result + " damage.");
 						textBox.setVisible(true);
+						enemyHealthUpdate(result);
 					}
 				});
 			}
@@ -125,33 +127,22 @@ public class BattleView extends Composite {
 		Image image = new Image("assets/enemy_x.png");
 		layoutPanel.add(image);
 		layoutPanel.setWidgetLeftRight(image, 197.0, Unit.PX, 463.0, Unit.PX);
-		layoutPanel.setWidgetTopBottom(image, 241.0, Unit.PX, 438.0, Unit.PX);
+		layoutPanel.setWidgetTopBottom(image, 175.0, Unit.PX, 504.0, Unit.PX);
+
+		Label lblEnemyHealth = new Label("Enemy Health");
+		lblEnemyHealth.setStyleName("high-health");
+		layoutPanel.add(lblEnemyHealth);
+		layoutPanel.setWidgetLeftWidth(lblEnemyHealth, 351.0, Unit.PX, 101.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblEnemyHealth, 56.0, Unit.PX, 16.0, Unit.PX);
 	}
 
-	private String gethealthElementId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private String getInnerBackgroundElementId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private void enemyFullHealth() {
-		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
-		innerBackgroundElt.addClassName("healt-bar-full-bg");
-	}
-
-	private void enemyDepletedHealth(final double health_update) {
-		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
-		innerBackgroundElt.removeClassName("health-bar-empty-bg");
-		innerBackgroundElt.addClassName("health-bar-depleted-bg");
-	}
-
-	private void enemyNoHealth(final double health_update) {
-		Element innerBackgroundElt = DOM.getElementById(getInnerBackgroundElementId());
-		innerBackgroundElt.removeClassName("health-bar-depleted-bg");
-		innerBackgroundElt.addClassName("health-bar-empty-bg");
+	private void enemyHealthUpdate(Integer result) {
+		StringBuffer javascript = null;
+		ScriptEngine engine = null;
+//		try {
+//			engine = new ScriptEngineManager().getEngineByName("javascript");
+//			javascript = new StringBuffer();
+//			
+//		}
 	}
 }
