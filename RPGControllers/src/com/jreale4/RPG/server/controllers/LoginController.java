@@ -10,8 +10,8 @@ public class LoginController {
 		return db.logIn(userName, password);
 	}
 	
-	public User newUser(String userName, String password){
-		IDatabase db = DatabaseProvider.getInstance();
-		return db.newUser(userName, password);
-	}
+//	public User newUser(String userName, String password){
+//		IDatabase db = DatabaseProvider.getInstance();
+//		return db.newUser(userName, password);
+//	}
 }
