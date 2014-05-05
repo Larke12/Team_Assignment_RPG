@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.RealRandom;
 //import com.jreale4.RPG.server.controllers.LoginController;
 import com.jreale4.RPG.shared.User;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -20,7 +21,7 @@ public class LoginView extends Composite {
 	//private LoginController controller;
 
 	public LoginView() {
-
+		RealRandom.init();
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 
