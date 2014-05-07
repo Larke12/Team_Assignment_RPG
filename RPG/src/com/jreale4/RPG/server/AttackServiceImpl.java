@@ -20,14 +20,13 @@ AttackService {
 	@Override
 	public int makeFire(Hero h) {
 		BattleController controller = new BattleController();
+
 		return controller.makeFire(h);
 	}
-
 
 	@Override
 	public int EnemyAttack() {
 		BattleController controller = new BattleController();
 		return controller.EnemySlash();
 	}
-
 }

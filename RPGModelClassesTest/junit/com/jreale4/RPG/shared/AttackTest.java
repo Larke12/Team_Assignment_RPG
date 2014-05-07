@@ -49,11 +49,11 @@ public class AttackTest extends TestCase {
 	}
 
 	public void testGetPower(){
-		assertEquals( (float)(3.0), attack1.getAttackPower( 1));
-		assertEquals( (float)(2.5), attack2.getAttackPower( 1));
-		assertEquals( (float)(5.5), attack3.getAttackPower( 1));
-		assertEquals( (float)(2.5), attack4.getAttackPower( 1));
+		assertEquals( (float)(3.0), attack1.getAttackPower(1));
+		assertEquals( (float)(2.5), attack2.getAttackPower(1));
+		assertEquals( (float)(5.5), attack3.getAttackPower(1));
+		assertEquals( (float)(2.5), attack4.getAttackPower(1));
 		assertEquals( (float)(4.0), attack5.getAttackPower(1));
-		assertEquals( (float)(5.5), attack6.getAttackPower( 1));
+		assertEquals( (float)(5.5), attack6.getAttackPower(1));
 	}
 }

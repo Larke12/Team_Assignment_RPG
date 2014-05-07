@@ -19,10 +19,9 @@ public class LoginView extends Composite {
 	private TextBox response;
 	private PasswordTextBox txtbxPassword;
 	//private LoginController controller;
-	
+
 	public LoginView() {
 		RealRandom.init();
-		
 		LayoutPanel layoutPanel = new LayoutPanel();
 		initWidget(layoutPanel);
 
@@ -89,23 +88,8 @@ public class LoginView extends Composite {
 					// login successful
 					response.setText("Login Successful!");
 					response.setVisible(true);
-					
-					RPC.loginService.getHero(result, new AsyncCallback<Hero>(){
-
-						@Override
-						public void onFailure(Throwable caught) {
-							// TODO Auto-generated method stub
-							
-						}
-
-						@Override
-						public void onSuccess(Hero result) {
-							// TODO Auto-generated method stub
-
-							RPG.setView(new MapView(result));
-						}
-						
-					});
+					Hero hero= new Hero(); //TEMP
+					RPG.setView(new MapView(hero));
 				}
 			}
 

@@ -6,10 +6,8 @@ import java.util.List;
 
 import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.Equipment;
-import com.jreale4.RPG.shared.EquipmentType;
 import com.jreale4.RPG.shared.Hero;
 import com.jreale4.RPG.shared.Item;
-import com.jreale4.RPG.shared.ItemType;
 import com.jreale4.RPG.shared.Move;
 import com.jreale4.RPG.shared.MoveType;
 import com.jreale4.RPG.shared.User;
@@ -106,15 +104,5 @@ public class FakeDatabase implements IDatabase {
 		}
 		return result.toArray(new Equipment[result.size()]);
 	}
-	
-	public Hero getHero(User u){
-		Hero result = new Hero();
-		for(Hero hero : heroList){
-			if(hero.getUserId() == u.getId()){
-				result.generateHero(getAttacksForHero(result), null, null);
-				return result;
-			}
-		}
-		return null;
-	}
+
 }

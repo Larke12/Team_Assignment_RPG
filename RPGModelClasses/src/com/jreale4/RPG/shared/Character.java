@@ -42,15 +42,7 @@ public class Character {
 		return EquipList.get(spot);
 	}
 	
-	public void addEquipToList(Equipment equip){
-		EquipList.add(equip);
-	}
-	
 	public Item getItem(int spot){
 		return ItemList.get(spot);
-	}
-	
-	public void addItemToList(Item i){
-		ItemList.add(i);
 	}
 }

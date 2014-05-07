@@ -100,9 +100,9 @@ public class HeroTest extends TestCase{
 	public void testGetPower(){
 		assertEquals( (float)(1), attack1.getAttackPower(1));
 		assertEquals( (float)(2.5), attack2.getAttackPower(1));
-		assertEquals( (float)(2.5), attack3.getAttackPower( 1));
+		assertEquals( (float)(2.5), attack3.getAttackPower(1));
 		assertEquals( (float)(3), attack4.getAttackPower(1));
-		assertEquals( (float)(5.5), attack5.getAttackPower( 1));
+		assertEquals( (float)(5.5), attack5.getAttackPower(1));
 	}
 
 	public void testItemEffect(){
