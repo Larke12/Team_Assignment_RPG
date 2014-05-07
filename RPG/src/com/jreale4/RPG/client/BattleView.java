@@ -168,8 +168,27 @@ public class BattleView extends Composite {
 
 					@Override
 					public void onSuccess(Integer result) {
-						// TODO Auto-generated method stub
+						textBox.setText("Dan used Magic! It did " + result + " damage.");
+						textBox.setVisible(true);
 
+						// Update Enemy health
+						totalHealth -= (result * 10);
+						if (totalHealth > 200) {
+							layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);							
+						} else {
+							lblEnemyHealth.setStyleName("half-health");
+							healthDiv.setVisible(false);
+							healthDivLow.setVisible(true);
+							layoutPanel.setWidgetLeftWidth(healthDivLow, 197.0, Unit.PX, totalHealth, Unit.PX);
+							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
+						}
+
+						EnemyTurn();
+
+						if (totalHealth <= 0) {
+							RPG.setView(new MapView(hero));
+						}
 					}
 
 				});
@@ -195,7 +214,7 @@ public class BattleView extends Composite {
 	}
 
 	public void EnemyTurn(){
-		AttackRPC.attackService.EnemyAttack(m, new AsyncCallback<Integer>(){
+		AttackRPC.attackService.EnemyAttack(new AsyncCallback<Integer>(){
 
 			@Override
 			public void onFailure(Throwable caught) {

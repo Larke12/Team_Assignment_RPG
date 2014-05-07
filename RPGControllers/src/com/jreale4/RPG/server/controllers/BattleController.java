@@ -22,7 +22,7 @@ public class BattleController {
 		return (int)a.getAttackPower(1);
 	}
 
-	public int EnemySlash(Enemy m) {
+	public int EnemySlash() {
 		Attack e = new Attack( MoveType.slash, Move.physical);
 //		Attack e = m.getAttack(0);
 		return (int)e.getAttackPower(1);

@@ -10,6 +10,6 @@ public interface AttackServiceAsync {
 
 	void makeFire(Hero h, AsyncCallback<Integer> callback);
 
-	void EnemyAttack(Enemy m, AsyncCallback<Integer> asyncCallback);
+	void EnemyAttack(AsyncCallback<Integer> asyncCallback);
 
 }

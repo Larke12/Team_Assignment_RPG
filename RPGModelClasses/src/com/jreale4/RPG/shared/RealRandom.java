@@ -14,5 +14,4 @@ public class RealRandom implements IRandom {
 	public static void init(){
 		RandomProvider.setInstance(new RealRandom());
 	}
-	//I thzdrha
 }

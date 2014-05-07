@@ -25,9 +25,9 @@ AttackService {
 
 
 	@Override
-	public int EnemyAttack(Enemy m) {
+	public int EnemyAttack() {
 		BattleController controller = new BattleController();
-		return controller.EnemySlash(m);
+		return controller.EnemySlash();
 	}
 
 }

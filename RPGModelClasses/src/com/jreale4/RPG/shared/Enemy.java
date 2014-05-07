@@ -27,7 +27,7 @@ public class Enemy extends Character implements Serializable{
 		return (int)Lvl;
 	}
 	private ArrayList<Attack> CreateAttacks(){
-		int listsize= RandomProvider.getInstance().nextInt(10);
+		int listsize= RandomProvider.getInstance().nextInt(10)+1;
 		ArrayList<Attack> atklst= new ArrayList<Attack>();
 		for(int i=0;i<listsize;i++){
 			Attack e= CreateRandAtk();
