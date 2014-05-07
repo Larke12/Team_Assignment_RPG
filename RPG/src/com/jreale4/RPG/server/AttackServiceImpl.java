@@ -25,9 +25,8 @@ AttackService {
 	}
 
 	@Override
-	public int EnemyAttack(Enemy m) {
-		// TODO Auto-generated method stub
-
-		return 0;
+	public int EnemyAttack() {
+		BattleController controller = new BattleController();
+		return controller.EnemySlash();
 	}
 }

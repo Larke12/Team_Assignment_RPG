@@ -13,5 +13,4 @@ public interface AttackService extends RemoteService {
 	public int makeFire(Hero h);
 
 	public int EnemyAttack(Enemy m);
-
 }

@@ -218,7 +218,7 @@ public class BattleView extends Composite {
 	}
 
 	public void EnemyTurn(){
-		AttackRPC.attackService.EnemyAttack(m, new AsyncCallback<Integer>(){
+		AttackRPC.attackService.EnemyAttack(new AsyncCallback<Integer>(){
 
 			@Override
 			public void onFailure(Throwable caught) {

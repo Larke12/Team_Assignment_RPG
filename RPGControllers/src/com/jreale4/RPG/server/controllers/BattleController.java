@@ -3,12 +3,14 @@ package com.jreale4.RPG.server.controllers;
 import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.Enemy;
 import com.jreale4.RPG.shared.Hero;
+import com.jreale4.RPG.shared.Move;
+import com.jreale4.RPG.shared.MoveType;
 
 public class BattleController {
 
 	public int makeSlash(Hero h){
 		Attack a = h.getAttack(0);
-		return (int)a.getAttackPower(a.getMoveType(), a.getMove(), 1);
+		return (int)a.getAttackPower(1);
 	}
 
 	public int makeFire(Hero h) {
@@ -16,9 +18,10 @@ public class BattleController {
 		return 0;
 	}
 
-	public int EnemySlash(Enemy m) {
-
-		return 0;
+	public int EnemySlash() {
+		Attack e = new Attack( MoveType.slash, Move.physical);
+//		Attack e = m.getAttack(0);
+		return (int)e.getAttackPower(1);
 	}
 
 }

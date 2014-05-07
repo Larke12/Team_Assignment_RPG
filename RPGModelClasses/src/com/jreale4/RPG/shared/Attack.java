@@ -43,7 +43,7 @@ public class Attack {
 		return move;
 	}
 
-	public float getAttackPower(MoveType movetype, Move move, int Level){
+	public float getAttackPower(int Level){
 		//returns the power of an attack by the equation
 		//		P= (MTP+MP)/2
 		float Power=getMoveTypePower(movetype);
