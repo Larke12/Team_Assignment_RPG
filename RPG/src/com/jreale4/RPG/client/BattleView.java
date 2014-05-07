@@ -19,14 +19,23 @@ import com.jreale4.RPG.shared.Hero;
 import com.google.gwt.user.client.ui.Label;
 
 public class BattleView extends Composite {
+
+	final LayoutPanel layoutPanel = new LayoutPanel();
 	TextBox textBox;
+	// For enemy method
+	Label lblPlayerHealth = new Label("Player Health");
+	final HTML healthDivLowHero = new HTML(
+			"<div class=\"health-bar\">" +
+			"<div class=\"health-bar-half-enemy\"></div></div>");
+	final HTML healthDivHero = new HTML(
+			"<div class=\"health-bar\">" +
+			"<div class=\"health-bar-normal-enemy\"></div></div>");
 	Integer totalHealthEnemy = 400;
 	Integer totalHealthHero = 400;
 	Enemy m = new Enemy(totalHealthEnemy);
 
 	public BattleView(final Hero hero) {
 
-		final LayoutPanel layoutPanel = new LayoutPanel();
 		layoutPanel.setStyleName("layoutP");
 		initWidget(layoutPanel);
 		layoutPanel.setSize("1060px", "800px");
@@ -46,6 +55,14 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetTopHeight(healthDivBG, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDivBG.setSize("400px", "34px");
 		// Player copy
+		HTML healthDivBGHero = new HTML(
+				"<div class=\"health-bar\">" +
+				"<div class=\"health-bar-solid\"></div></div>");
+		layoutPanel.add(healthDivBGHero);
+		healthDivBGHero.setSize("400px", "34px");
+		layoutPanel.setWidgetLeftWidth(healthDivBGHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivBGHero, 510.0, Unit.PX, 34.0, Unit.PX);
+		healthDivBG.setSize("400px", "34px");
 
 		// Health is red, under 50% total health
 		final HTML healthDivLow = new HTML(
@@ -56,6 +73,12 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDivLow.setSize("400px", "34px");
 		healthDivLow.setVisible(false);
+		// Player copy
+		layoutPanel.add(healthDivLowHero);
+		layoutPanel.setWidgetLeftWidth(healthDivLowHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivLowHero, 510.0, Unit.PX, 34.0, Unit.PX);
+		healthDivLow.setSize("400px", "34px");
+		healthDivLow.setVisible(false);
 
 		// Health is green, over 50% total health
 		final HTML healthDiv = new HTML(
@@ -64,6 +87,11 @@ public class BattleView extends Composite {
 		layoutPanel.add(healthDiv);
 		layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);
+		healthDiv.setSize("400px", "34px");
+		// Player copy
+		layoutPanel.add(healthDivHero);
+		layoutPanel.setWidgetLeftWidth(healthDivHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);
 		healthDiv.setSize("400px", "34px");
 
 		// Special text box for battle announcements
@@ -80,11 +108,10 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetTopHeight(lblEnemyHealth, 56.0, Unit.PX, 16.0, Unit.PX);
 
 		// Label above player health bar
-		Label lblPlayerHealth = new Label("Player Health");
 		lblPlayerHealth.setStyleName("high-health");
 		layoutPanel.add(lblPlayerHealth);
 		layoutPanel.setWidgetLeftWidth(lblPlayerHealth, 351.0, Unit.PX, 95.0, Unit.PX);
-		layoutPanel.setWidgetTopHeight(lblPlayerHealth, 507.0, Unit.PX, 16.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(lblPlayerHealth, 488.0, Unit.PX, 16.0, Unit.PX);
 
 		Button btnAttack = new Button("Attack!");
 		btnAttack.addClickHandler(new ClickHandler() {
@@ -228,7 +255,18 @@ public class BattleView extends Composite {
 
 			@Override
 			public void onSuccess(Integer result) {
-
+				// Update Enemy health
+				totalHealthHero -= (result * 10);
+				if (totalHealthEnemy > 200) {
+					layoutPanel.setWidgetLeftWidth(healthDivHero, 197.0, Unit.PX, totalHealthHero, Unit.PX);
+					layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);							
+				} else {
+					lblPlayerHealth.setStyleName("half-health");
+					healthDivHero.setVisible(false);
+					healthDivLowHero.setVisible(true);
+					layoutPanel.setWidgetLeftWidth(healthDivLowHero, 197.0, Unit.PX, totalHealthHero, Unit.PX);
+					layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);
+				}
 			}
 		});
 	}
