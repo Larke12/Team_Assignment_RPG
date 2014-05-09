@@ -25,13 +25,13 @@ public class DerbyDatabase implements IDatabase {
 	}
 
 	@Override
-	public Attack[] getAttacksForHero(Hero h) {
+	public Equipment[] getEquipForHero(Hero h) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Equipment[] getEquipForHero(Hero h) {
+	public Attack[] getAttacksForHero(User u) {
 		// TODO Auto-generated method stub
 		return null;
 	}

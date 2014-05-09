@@ -10,6 +10,6 @@ public interface IDatabase {
 	public User logIn(String userName, String password);
 //	public User newUser(String userName, String password);
 	public Item[] getItemsForHero(Hero h);
-	public Attack[] getAttacksForHero(Hero h);
 	public Equipment[] getEquipForHero(Hero h);
+	Attack[] getAttacksForHero(User u);
 }

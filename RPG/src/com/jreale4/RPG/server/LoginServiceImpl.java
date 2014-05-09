@@ -3,6 +3,7 @@ package com.jreale4.RPG.server;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.jreale4.RPG.client.LoginService;
 import com.jreale4.RPG.server.controllers.LoginController;
+import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.User;
 
 @SuppressWarnings("serial")
@@ -21,4 +22,10 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 //		LoginController controller = new LoginController();
 //		return controller.newUser(userName, password);
 //	}
+	
+	public Attack[] getAttack(User u){
+		System.out.println("Request for hero attacks. User is:" + u.getUserName());
+		LoginController controller = new LoginController();
+		return controller.getAttack(u);
+	}
 }

@@ -84,10 +84,16 @@ public class FakeDatabase implements IDatabase {
 	}
 
 	@Override
-	public Attack[] getAttacksForHero(Hero h) {
+	public Attack[] getAttacksForHero(User u) {
+		Hero hero = null;
+		for( Hero h: heroList){
+			if(h.getUserId()== u.getId()){
+				hero = h;
+			}
+		}
 		ArrayList<Attack> result = new ArrayList<Attack>();
 		for(Attack atk : atkList){
-			if(atk.getHeroId() == h.getId()){
+			if(atk.getHeroId() == hero.getId()){
 				result.add(atk);
 			}
 		}

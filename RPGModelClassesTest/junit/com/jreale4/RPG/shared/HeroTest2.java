@@ -1,35 +1,25 @@
 package com.jreale4.RPG.shared;
 
+import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.jreale4.RPG.client.RPC;
 
 import junit.framework.TestCase;
 
-public class HeroTest2 extends TestCase{
+public class HeroTest2 extends GWTTestCase{
 	Hero h;
 	
-	protected void setUp(){
-		RPC.loginService.login("jreale", "darking", new AsyncCallback<User>() {
+	
+	
+	public void testGetAttack(){
+		assertEquals(MoveType.slash, h.getAttack(0).getMoveType());
+	}
 
-			@Override
-			public void onSuccess(User result) {
-				if (result == null) {
-					// no such user
-					String text = "No Such User Exists";
-					System.out.println(text);
 
-				} else {
-					// login successful
-					System.out.println("Login Successful!");
-					
-				}
-			}
 
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

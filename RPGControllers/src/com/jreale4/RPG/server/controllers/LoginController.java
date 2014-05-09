@@ -2,6 +2,7 @@ package com.jreale4.RPG.server.controllers;
 
 import com.jreale4.RPG.server.model.persist.DatabaseProvider;
 import com.jreale4.RPG.server.model.persist.IDatabase;
+import com.jreale4.RPG.shared.Attack;
 import com.jreale4.RPG.shared.User;
 
 public class LoginController {
@@ -14,4 +15,9 @@ public class LoginController {
 //		IDatabase db = DatabaseProvider.getInstance();
 //		return db.newUser(userName, password);
 //	}
+	
+	public Attack[] getAttack(User u){
+		IDatabase db = DatabaseProvider.getInstance();
+		return db.getAttacksForHero(u);
+	}
 }
