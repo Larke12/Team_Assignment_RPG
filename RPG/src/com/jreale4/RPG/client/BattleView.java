@@ -1,6 +1,7 @@
 package com.jreale4.RPG.client;
 
 import java.util.Random;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -47,6 +48,15 @@ public class BattleView extends Composite {
 		healthDivBG.setSize("400px", "34px");
 		// Player copy
 
+		HTML healthDivBGHero = new HTML(
+				"<div class=\"health-bar\">" +
+				"<div class=\"health-bar-solid\"></div></div>");
+		layoutPanel.add(healthDivBGHero);
+		healthDivBGHero.setSize("400px", "34px");
+		layoutPanel.setWidgetLeftWidth(healthDivBGHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivBGHero, 510.0, Unit.PX, 34.0, Unit.PX);
+		healthDivBGHero.setSize("400px", "34px");
+
 		// Health is red, under 50% total health
 		final HTML healthDivLow = new HTML(
 				"<div class=\"health-bar\">" +
@@ -56,6 +66,13 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDivLow.setSize("400px", "34px");
 		healthDivLow.setVisible(false);
+		
+		// Player copy
+		layoutPanel.add(healthDivLowHero);
+		layoutPanel.setWidgetLeftWidth(healthDivLowHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivLowHero, 510.0, Unit.PX, 34.0, Unit.PX);
+		healthDivLowHero.setSize("400px", "34px");
+		healthDivLowHero.setVisible(false);
 
 		// Health is green, over 50% total health
 		final HTML healthDiv = new HTML(
@@ -65,6 +82,12 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetLeftWidth(healthDiv, 197.0, Unit.PX, 400.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(healthDiv, 78.0, Unit.PX, 34.0, Unit.PX);
 		healthDiv.setSize("400px", "34px");
+		
+		// Player copy
+		layoutPanel.add(healthDivHero);
+		layoutPanel.setWidgetLeftWidth(healthDivHero, 197.0, Unit.PX, 400.0, Unit.PX);
+		layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);
+		healthDivHero.setSize("400px", "34px");
 
 		// Special text box for battle announcements
 		layoutPanel.add(textBox);
@@ -112,7 +135,9 @@ public class BattleView extends Composite {
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
 
-						EnemyTurn();
+						// PAUSE, then attack
+						EnemyTurn(hero);
+						// PAUSE, then continue
 
 						if (totalHealthEnemy <= 0) {
 							RPG.setView(new MapView(hero));
@@ -150,7 +175,7 @@ public class BattleView extends Composite {
 					textBox.setText("Can't Escape!");
 					textBox.setVisible(true);
 
-					EnemyTurn();
+					EnemyTurn(hero);
 				}
 			}
 		});
@@ -189,7 +214,7 @@ public class BattleView extends Composite {
 							layoutPanel.setWidgetTopHeight(healthDivLow, 78.0, Unit.PX, 34.0, Unit.PX);
 						}
 
-						EnemyTurn();
+						EnemyTurn(hero);
 
 						if (totalHealthEnemy <= 0) {
 							RPG.setView(new MapView(hero));
@@ -216,7 +241,7 @@ public class BattleView extends Composite {
 		layoutPanel.setWidgetTopBottom(image, 175.0, Unit.PX, 504.0, Unit.PX);
 	}
 
-	public void EnemyTurn(){
+	public void EnemyTurn(final Hero hero){
 		AttackRPC.attackService.EnemyAttack(new AsyncCallback<Integer>(){
 
 			@Override
@@ -227,6 +252,24 @@ public class BattleView extends Composite {
 
 			@Override
 			public void onSuccess(Integer result) {
+				// Update Enemy health
+				totalHealthHero -= (result * 10);
+				if (totalHealthEnemy > 200) {
+					// Timer needed to delay when the enemy attacks, and prints to textBox
+					// textBox.setText("Enemy used Slash! It did " + result + " damage.");
+					layoutPanel.setWidgetLeftWidth(healthDivHero, 197.0, Unit.PX, totalHealthHero, Unit.PX);
+					layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);							
+				} else {
+					lblPlayerHealth.setStyleName("half-health");
+					healthDivHero.setVisible(false);
+					healthDivLowHero.setVisible(true);
+					layoutPanel.setWidgetLeftWidth(healthDivLowHero, 197.0, Unit.PX, totalHealthHero, Unit.PX);
+					layoutPanel.setWidgetTopHeight(healthDivHero, 510.0, Unit.PX, 34.0, Unit.PX);
+				}
+
+				if (totalHealthHero <= 0) {
+					RPG.setView(new MapView(hero));
+				}
 
 			}
 		});
